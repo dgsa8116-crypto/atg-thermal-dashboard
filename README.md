@@ -1,37 +1,73 @@
-# Nexus Thermal 都市極簡管理系統
+# PulsePlay 積分商城｜可直接上架版
 
-這是 Nexus Thermal 都市極簡管理系統的公開網站版本。目前啟用 ATG 即時資料模組，並整合會員、任務、兌換、卡號與管理中心。
+這是一個可直接部署到 GitHub Pages 的繁體中文靜態網站，主題為「娛樂型預測遊戲積分商城」。
 
-## 使用方式
+## 已包含頁面
 
-1. 開啟網站並登入帳號。
-2. 在遊戲頁安裝並啟用 ATG 熱能柔光 Chrome 擴充。
-3. 擴充會產生專屬配對連結。
-4. 使用者打開配對連結並登入後，監測端會綁定到該帳號。
-5. 監測端讀取到房間資料後，網站會即時更新。
+- `/` 首頁
+- `/earn-points` 積分任務頁
+- `/shop` 虛擬商城頁
+- `/shop/challenge-ticket` 商品詳情頁
+- `/shop/hint-card` 商品詳情頁
+- `/inventory` 我的背包頁
+- `/predictions` 預測挑戰頁
+- `/wallet` 積分錢包頁
+- `/referral` 邀請好友頁
+- `/leaderboard` 排行榜頁
+- `/account` 會員中心
+- `/faq` FAQ
+- `/terms` 使用條款與隱私權
+- `/admin-plan` 後台管理介面規劃
+- `/seo-plan` SEO 與轉換率規劃
 
-## 模組與監測端
+## 上架方式
 
-目前支援：
+1. 將本資料夾第一層所有檔案上傳到 GitHub repository 根目錄。
+2. 到 GitHub repository 的 `Settings` → `Pages`。
+3. Source 選擇 `Deploy from a branch`。
+4. Branch 選擇 `main`，資料夾選擇 `/root`。
+5. 等 GitHub Pages 完成部署。
+6. 若使用自訂網域，確認 `CNAME` 內容為：
 
-- Chrome 擴充監測端
-- 本機橋接程式架構
+```txt
+tntlinebotseemyeyes.online
+```
 
-每個監測端都會使用不同的裝置 ID 與 token。監測資料只會綁定到完成配對的帳號。
+## Namecheap DNS 建議
 
-## 管理中心
+若要使用裸網域 `tntlinebotseemyeyes.online`，Namecheap DNS 建議設定：
 
-超級管理員登入後可在介面中管理：
+```txt
+Type: A Record
+Host: @
+Value: 185.199.108.153
 
-- 會員權限與積分
-- 發布任務
-- 停用或啟用任務
-- 發布商品
-- 停用或啟用商品
+Type: A Record
+Host: @
+Value: 185.199.109.153
 
-## 注意事項
+Type: A Record
+Host: @
+Value: 185.199.110.153
 
-- 本工具只讀取資料快照。
-- 網站不會修改遊戲畫面。
-- 只有使用者在介面按下「進入」時，才會送出進房指令。
-- 請勿公開任何管理端金鑰或伺服器密鑰。
+Type: A Record
+Host: @
+Value: 185.199.111.153
+
+Type: CNAME Record
+Host: www
+Value: dgsa8116-crypto.github.io.
+```
+
+## 重要聲明
+
+本平台為娛樂型預測遊戲與虛擬商品服務。所有積分與虛擬商品僅限站內使用，不具現金價值，不可轉售，不可兌換現金；平台不提供投資、金錢型競猜或結果承諾服務。
+
+## 發布前檢查
+
+- `index.html` 存在於第一層
+- `404.html` 存在於第一層，可支援 GitHub Pages 子路由
+- `CNAME` 存在於第一層
+- `sitemap.xml` 與 `robots.txt` 存在於第一層
+- 不需要資料庫即可展示完整網站
+- 不需要安裝擴充即可瀏覽網站

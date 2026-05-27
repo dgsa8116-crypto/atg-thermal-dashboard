@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tntlinebotseemyeyes.online/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://tntlinebotseemyeyes.online/</loc><priority>1.0</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/earn-points</loc><priority>0.9</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/shop</loc><priority>0.9</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/shop/challenge-ticket</loc><priority>0.8</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/shop/hint-card</loc><priority>0.8</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/inventory</loc><priority>0.7</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/predictions</loc><priority>0.9</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/wallet</loc><priority>0.8</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/referral</loc><priority>0.8</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/leaderboard</loc><priority>0.8</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/account</loc><priority>0.7</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/faq</loc><priority>0.7</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/terms</loc><priority>0.6</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/admin-plan</loc><priority>0.5</priority></url>
+  <url><loc>https://tntlinebotseemyeyes.online/seo-plan</loc><priority>0.5</priority></url>
 </urlset>
