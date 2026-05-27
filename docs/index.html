@@ -4,16 +4,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="atg-dashboard" content="thermal-glow">
-    <title>ATG 熱能柔光高回報儀表板</title>
+    <title>ATG 熱能柔光監控台 | 高回報房間排名</title>
+    <meta name="description" content="ATG 熱能柔光監控台提供只讀式房間快照、爆破可能、高回報排名、高爆點數、免費遊戲週期與雲端即時同步。">
+    <meta name="keywords" content="ATG, 熱能柔光, 房間監控, 高回報率, 爆破可能, 免費遊戲, Supabase, GitHub Pages">
+    <meta name="author" content="ATG Thermal Dashboard">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://tntlinebotseemyeyes.online/">
+    <meta name="theme-color" content="#2a1718">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tntlinebotseemyeyes.online/">
+    <meta property="og:title" content="ATG 熱能柔光監控台">
+    <meta property="og:description" content="只讀式即時監控、爆破可能、高回報排名與高爆點數評估。">
+    <meta property="og:image" content="https://tntlinebotseemyeyes.online/og-image.svg">
+    <meta property="og:locale" content="zh_TW">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ATG 熱能柔光監控台">
+    <meta name="twitter:description" content="只讀式即時監控、爆破可能、高回報排名與高爆點數評估。">
+    <meta name="twitter:image" content="https://tntlinebotseemyeyes.online/og-image.svg">
     <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ATG 熱能柔光監控台",
+        "url": "https://tntlinebotseemyeyes.online/",
+        "description": "只讀式房間監控、爆破可能、高回報排名、高爆點數與免費遊戲週期評估工具。",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "dateModified": "2026-05-27"
+      }
+    </script>
   </head>
   <body>
     <section id="authGate" class="auth-gate">
       <form id="authForm" class="auth-card">
-        <p class="eyebrow">會員中心</p>
-        <h1>會員登入</h1>
+        <p class="eyebrow">ATG Thermal</p>
+        <h1>熱能柔光登入</h1>
         <label>
-          帳號 Email
+          Email
           <input id="authEmail" type="email" autocomplete="username" placeholder="you@example.com" required>
         </label>
         <label>
@@ -24,53 +52,215 @@
           <button id="loginBtn" type="submit">登入</button>
           <button id="signupBtn" class="secondary" type="button">註冊</button>
         </div>
-        <p id="authStatus" class="auth-status">正在檢查登入狀態</p>
+        <p id="authStatus" class="auth-status">請先登入帳號。</p>
       </form>
     </section>
 
-    <main class="shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">HTTPS Dashboard</p>
-          <h1>ATG 熱能柔光高回報儀表板</h1>
+    <main id="appShell" class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">ATG</span>
+          <div>
+            <strong>熱能柔光</strong>
+            <small>只讀監控台</small>
+          </div>
         </div>
-        <div class="actions">
-          <span id="userEmail" class="user-pill"></span>
-          <label class="point-control">
-            每轉點數
-            <input id="pointUnitInput" type="number" min="0" max="100000" step="1" value="0">
-          </label>
-          <button id="connectBtn" type="button">連接擴充</button>
-          <button id="monitorBtn" type="button">啟動監測</button>
-          <button id="refreshBtn" type="button">立即刷新</button>
-          <button id="logoutBtn" class="secondary" type="button">登出</button>
+        <nav class="nav-list" aria-label="主選單">
+          <button class="nav-item active" type="button" data-view="monitor">監控台</button>
+          <button class="nav-item" type="button" data-view="account">會員中心</button>
+          <button class="nav-item" type="button" data-view="tasks">任務中心</button>
+          <button class="nav-item" type="button" data-view="redeem">兌換中心</button>
+          <button class="nav-item" type="button" data-view="cards">卡號中心</button>
+          <button class="nav-item" type="button" data-view="deploy">部署設定</button>
+        </nav>
+        <div class="member-card">
+          <span id="userEmail" class="user-email"></span>
+          <strong id="displayPoints">0</strong>
+          <small id="displayBadge">一般會員</small>
         </div>
-      </header>
+      </aside>
 
-      <section class="status-grid" aria-live="polite">
-        <div class="status-card">
-          <span>橋接狀態</span>
-          <strong id="bridgeStatus">等待連接</strong>
-        </div>
-        <div class="status-card">
-          <span>遊戲狀態</span>
-          <strong id="gameStatus">未連接</strong>
-        </div>
-        <div class="status-card">
-          <span>房間數</span>
-          <strong id="roomCount">0</strong>
-        </div>
-        <div class="status-card">
-          <span>更新時間</span>
-          <strong id="updatedAt">-</strong>
-        </div>
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Room Intelligence</p>
+            <h1 id="viewTitle">熱能監控台</h1>
+          </div>
+          <div class="actions">
+            <label class="point-control">
+              每轉點數
+              <input id="pointUnitInput" type="number" min="0" max="100000" step="1" value="0">
+            </label>
+            <button id="connectBtn" type="button">連線擴充</button>
+            <button id="monitorBtn" type="button">即時監控</button>
+            <button id="cloudBtn" class="secondary" type="button">雲端推送</button>
+            <button id="refreshBtn" type="button">刷新資料</button>
+            <button id="logoutBtn" class="secondary" type="button">登出</button>
+          </div>
+        </header>
+
+        <section class="status-grid" aria-live="polite">
+          <div class="status-card">
+            <span>擴充狀態</span>
+            <strong id="bridgeStatus">等待連線</strong>
+          </div>
+          <div class="status-card">
+            <span>遊戲狀態</span>
+            <strong id="gameStatus">尚未讀取</strong>
+          </div>
+          <div class="status-card">
+            <span>房間數</span>
+            <strong id="roomCount">0</strong>
+          </div>
+          <div class="status-card">
+            <span>更新時間</span>
+            <strong id="updatedAt">-</strong>
+          </div>
+          <div class="status-card">
+            <span>雲端同步</span>
+            <strong id="cloudStatus">未啟用</strong>
+          </div>
+        </section>
+
+        <p id="notice" class="notice">
+          本頁只讀取資料快照，不修改遊戲畫面；只有按下「進入」才會送出進房指令。
+        </p>
+
+        <section id="view-monitor" class="view active">
+          <section class="toolbar-panel">
+            <label>
+              搜尋機台
+              <input id="filterSearch" type="search" placeholder="例如 401 或 929">
+            </label>
+            <label>
+              最低回報分
+              <input id="filterRank" type="number" min="0" max="100" value="0">
+            </label>
+            <label>
+              最低爆破可能
+              <input id="filterBurst" type="number" min="0" max="100" value="0">
+            </label>
+            <label>
+              最低報率 %
+              <input id="filterRate" type="number" min="0" max="2000" value="0">
+            </label>
+            <label>
+              最低下注
+              <input id="filterBet" type="number" min="0" value="0">
+            </label>
+            <label>
+              排序
+              <select id="sortMode">
+                <option value="rank">回報分</option>
+                <option value="burst">爆破可能</option>
+                <option value="points">高爆點數少到多</option>
+                <option value="rate">報率</option>
+              </select>
+            </label>
+            <label class="check-line">
+              <input id="onlyEmptyInput" type="checkbox" checked>
+              只看空房
+            </label>
+          </section>
+
+          <section class="source-panel">
+            <div>
+              <p class="eyebrow">監測來源</p>
+              <h2>使用者頁面快照</h2>
+              <p>擴充或本機橋接程式推送資料後，網頁會即時更新並同步到雲端。</p>
+            </div>
+            <div class="source-actions">
+              <input id="sourceUrlInput" type="url" placeholder="貼上要監測的遊戲網址">
+              <button id="saveSourceBtn" type="button">儲存網址</button>
+              <button id="openSourceBtn" class="secondary" type="button">另開網址</button>
+            </div>
+          </section>
+
+          <section id="rooms" class="rooms"></section>
+        </section>
+
+        <section id="view-account" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Member</p>
+              <h2>會員中心</h2>
+            </div>
+            <button id="checkinBtn" type="button">每日簽到</button>
+          </div>
+          <div class="account-grid">
+            <article class="info-card">
+              <span>目前積分</span>
+              <strong id="accountPoints">0</strong>
+              <p id="accountStatus">登入後自動載入會員資料。</p>
+            </article>
+            <article class="info-card">
+              <span>綁定網址</span>
+              <strong id="boundUrlText">尚未綁定</strong>
+              <p>此欄位只保存網址，實際資料仍由擴充或本機橋接推送。</p>
+            </article>
+          </div>
+          <div class="panel-table">
+            <h3>積分紀錄</h3>
+            <div id="ledgerList" class="record-list"></div>
+          </div>
+        </section>
+
+        <section id="view-tasks" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Tasks</p>
+              <h2>任務中心</h2>
+            </div>
+          </div>
+          <div id="tasksList" class="catalog-grid"></div>
+        </section>
+
+        <section id="view-redeem" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Redeem</p>
+              <h2>兌換中心</h2>
+            </div>
+          </div>
+          <div id="rewardsList" class="catalog-grid"></div>
+        </section>
+
+        <section id="view-cards" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Cards</p>
+              <h2>卡號中心</h2>
+            </div>
+          </div>
+          <div id="cardsList" class="record-list"></div>
+        </section>
+
+        <section id="view-deploy" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Deploy</p>
+              <h2>部署設定</h2>
+            </div>
+          </div>
+          <div class="deploy-grid">
+            <article class="info-card">
+              <span>正式網域</span>
+              <strong>tntlinebotseemyeyes.online</strong>
+              <p>GitHub Pages Custom domain、Supabase Site URL 與 Redirect URL 都要使用這個網域。</p>
+            </article>
+            <article class="info-card">
+              <span>SEO 檔案</span>
+              <strong>sitemap.xml / robots.txt</strong>
+              <p>已放在 docs 目錄，可直接由 GitHub Pages 提供搜尋引擎讀取。</p>
+            </article>
+            <article class="info-card">
+              <span>資料庫</span>
+              <strong>Supabase</strong>
+              <p>請把 supabase/schema.sql 整份貼到 SQL Editor 執行，會員積分與即時快照才會完整啟用。</p>
+            </article>
+          </div>
+        </section>
       </section>
-
-      <section class="notice" id="notice">
-        請先載入 Chrome 擴充，開啟遊戲頁並進房，再回到此頁連接。網站本身不讀取遊戲頁，資料由本機擴充只讀橋接。
-      </section>
-
-      <section id="rooms" class="rooms"></section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

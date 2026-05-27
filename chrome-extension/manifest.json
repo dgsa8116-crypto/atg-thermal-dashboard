@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "ATG熱能柔光篩房",
-  "version": "1.9.7",
-  "description": "自動注入 ATG 遊戲頁，靜默實時監控完整機台資訊並橋接免費網域儀表板。",
+  "name": "ATG 熱能柔光監控",
+  "version": "2.0.0",
+  "description": "只讀式讀取 ATG 房間資料，提供高回報排名、爆破可能、高爆點數與雲端監控台橋接。",
   "permissions": [
     "storage",
     "tabs"
@@ -21,7 +21,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "ATG熱能柔光"
+    "default_title": "ATG 熱能柔光"
   },
   "content_scripts": [
     {
@@ -61,5 +61,5 @@
       "world": "ISOLATED"
     }
   ],
-  "version_name": "1.9.7 protected"
+  "version_name": "2.0.0 protected"
 }
