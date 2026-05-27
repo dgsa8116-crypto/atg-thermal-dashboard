@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="atg-dashboard" content="thermal-glow">
+    <title>ATG 熱能柔光高回報儀表板</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <section id="authGate" class="auth-gate">
+      <form id="authForm" class="auth-card">
+        <p class="eyebrow">會員中心</p>
+        <h1>會員登入</h1>
+        <label>
+          帳號 Email
+          <input id="authEmail" type="email" autocomplete="username" placeholder="you@example.com" required>
+        </label>
+        <label>
+          密碼
+          <input id="authPassword" type="password" autocomplete="current-password" minlength="6" required>
+        </label>
+        <div class="auth-actions">
+          <button id="loginBtn" type="submit">登入</button>
+          <button id="signupBtn" class="secondary" type="button">註冊</button>
+        </div>
+        <p id="authStatus" class="auth-status">正在檢查登入狀態</p>
+      </form>
+    </section>
+
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">HTTPS Dashboard</p>
+          <h1>ATG 熱能柔光高回報儀表板</h1>
+        </div>
+        <div class="actions">
+          <span id="userEmail" class="user-pill"></span>
+          <label class="point-control">
+            每轉點數
+            <input id="pointUnitInput" type="number" min="0" max="100000" step="1" value="0">
+          </label>
+          <button id="connectBtn" type="button">連接擴充</button>
+          <button id="monitorBtn" type="button">啟動監測</button>
+          <button id="refreshBtn" type="button">立即刷新</button>
+          <button id="logoutBtn" class="secondary" type="button">登出</button>
+        </div>
+      </header>
+
+      <section class="status-grid" aria-live="polite">
+        <div class="status-card">
+          <span>橋接狀態</span>
+          <strong id="bridgeStatus">等待連接</strong>
+        </div>
+        <div class="status-card">
+          <span>遊戲狀態</span>
+          <strong id="gameStatus">未連接</strong>
+        </div>
+        <div class="status-card">
+          <span>房間數</span>
+          <strong id="roomCount">0</strong>
+        </div>
+        <div class="status-card">
+          <span>更新時間</span>
+          <strong id="updatedAt">-</strong>
+        </div>
+      </section>
+
+      <section class="notice" id="notice">
+        請先載入 Chrome 擴充，開啟遊戲頁並進房，再回到此頁連接。網站本身不讀取遊戲頁，資料由本機擴充只讀橋接。
+      </section>
+
+      <section id="rooms" class="rooms"></section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabase-config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

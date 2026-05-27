@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "ATG熱能柔光篩房",
+  "version": "1.9.7",
+  "description": "自動注入 ATG 遊戲頁，靜默實時監控完整機台資訊並橋接免費網域儀表板。",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://play.godeebxp.com/*",
+    "https://*.github.io/*",
+    "https://*.pages.dev/*",
+    "https://*.netlify.app/*",
+    "https://tntlinebotseemyeyes.online/*",
+    "https://www.tntlinebotseemyeyes.online/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "ATG熱能柔光"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://play.godeebxp.com/egames/*/game/*"
+      ],
+      "js": [
+        "injected.js"
+      ],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://play.godeebxp.com/egames/*/game/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": [
+        "https://*.github.io/*",
+        "https://*.pages.dev/*",
+        "https://*.netlify.app/*",
+        "https://tntlinebotseemyeyes.online/*",
+        "https://www.tntlinebotseemyeyes.online/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": [
+        "dashboard_bridge.js"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ],
+  "version_name": "1.9.7 protected"
+}
