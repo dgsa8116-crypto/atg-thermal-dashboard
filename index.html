@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="Nexus Thermal 都市極簡管理系統">
     <meta name="twitter:description" content="會員系統、即時資料模組、監測端配對與可擴充功能中心。">
     <meta name="twitter:image" content="https://tntlinebotseemyeyes.online/og-image.svg">
-    <link rel="stylesheet" href="./styles.css?v=20260527-urban">
+    <link rel="stylesheet" href="./styles.css?v=20260528-urban2">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -88,19 +88,19 @@
             <h1 id="viewTitle">ATG 模組</h1>
           </div>
           <div class="actions">
-            <label class="point-control">
+            <label class="point-control" data-monitor-control>
               模組參數
               <input id="pointUnitInput" type="number" min="0" max="100000" step="1" value="0">
             </label>
-            <button id="connectBtn" type="button">連接監測端</button>
-            <button id="monitorBtn" type="button">啟動讀取</button>
-            <button id="cloudBtn" class="secondary" type="button">同步權限</button>
-            <button id="refreshBtn" type="button">更新快照</button>
+            <button id="connectBtn" type="button" data-monitor-control>連接監測端</button>
+            <button id="monitorBtn" type="button" data-monitor-control>啟動讀取</button>
+            <button id="cloudBtn" class="secondary" type="button" data-monitor-control>同步權限</button>
+            <button id="refreshBtn" type="button" data-monitor-control>更新快照</button>
             <button id="logoutBtn" class="secondary" type="button">登出</button>
           </div>
         </header>
 
-        <section class="status-grid" aria-live="polite">
+        <section id="monitorStatusGrid" class="status-grid" aria-live="polite">
           <div class="status-card">
             <span>監測端狀態</span>
             <strong id="bridgeStatus">等待連線</strong>
@@ -379,7 +379,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./supabase-config.js?v=20260527-urban"></script>
-    <script src="./app.js?v=20260527-urban"></script>
+    <script src="./supabase-config.js?v=20260528-urban2"></script>
+    <script src="./app.js?v=20260528-urban2"></script>
   </body>
 </html>
