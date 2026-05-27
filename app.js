@@ -1,5 +1,5 @@
 "use strict";
-const __atgBase64=(s)=>new TextDecoder().decode(Uint8Array.from(atob(s),(c)=>c.charCodeAt(0)));const __atgSiteStrings=["QVRHX1RIRVJNQUxfREFTSEJPQVJE","QVRHX1RIRVJNQUxfRVhURU5TSU9O","5bmz5Y+w5o6h5qih57WE5YyW6Kit6KiI77yb55uu5YmN5ZWf55SoIEFURyDljbPmmYLos4fmlpnmqKHntYTvvIzlvoznuozlj6/liqDlhaXlhbbku5blip/og73jgII=","ZGFpbHlfbW9uaXRvcl9yZXZpZXc=","5a6M5oiQ5LuK5pel55uj5o6n5qqi5p+l","56K66KqN5oi/6ZaT6LOH5paZ5bey5a6M5oiQ6K6A5Y+W77yM5qqi5p+l54iG56C05Y+v6IO944CB6auY54iG6bue5pW46IiH5YWN6LK76YGK5oiy6YCx5pyf44CC","","YmluZF9zb3VyY2VfdXJs","57aB5a6a55uj5ris5L6G5rqQ","5oqK5bi455So6YGK5oiy57ay5Z2A5L+d5a2Y5Yiw5pyD5ZOh6LOH5paZ77yM5pa55L6/5q+P5qyh6ZaL5ZWf55uj5o6n5rWB56iL44CC","","Y2xvdWRfc3luY19jaGVjaw==","5qqi5p+l6Zuy56uv5ZCM5q2l","56K66KqN6Zuy56uv5b+r54Wn5Y+v6KKr5YW25LuW55m75YWl5biz6Jmf5Y2z5pmC6K6A5Y+W44CC","","dGhlcm1hbF9iYWRnZQ==","54ax6IO95p+U5YWJ56ix6Jmf","5YWM5o+b5b6M5pyD5Zyo5pyD5ZOh5Lit5b+D6aGv56S65bCI5bGs56ix6Jmf44CC","cHJpb3JpdHlfY2FyZA==","6auY54iG6KeA5a+f5Y2h","55Si55Sf5LiA57WE5bCI5bGs5Y2h6Jmf77yM5pa55L6/57SA6YyE6auY5Zue5aCx5oi/6ZaT6KeA5a+f5om55qyh44CC","YXJjaGl2ZV9jYXJk","5b+r54Wn5bCB5a2Y5Y2h","55Si55Sf5LiA57WE5bCB5a2Y5Y2h6Jmf77yM5qiZ6KiY6Zuy56uv5b+r54Wn57SA6YyE55So6YCU44CC","56m65oi/","5bey5ru/","6Y6W5a6a","6Zec6ZaJ","bWVtYmVy","5LiA6Iis5pyD5ZOh","dmlw","VklQ","YWRtaW5fYXNzaXN0YW50","566h55CG5ZOh5Yqp55CG","YWRtaW4=","5LiA6Iis566h55CG5ZOh","c3VwZXJfYWRtaW4=","6LaF57Sa566h55CG5ZOh","bW9uaXRvcg==","562J5b6F55uj5ris56uv6YCj57ea44CC","","cmFuaw==","5pyq5ZWf55So","6KuL5YWI55m75YWl5biz6Jmf44CC","562J5b6F55m75YWl","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CC","YWRtaW5MaXN0","YWRtaW5OYXY=","YWRtaW5SZWZyZXNoQnRu","YWRtaW5TdGF0dXM=","YWNjb3VudFBvaW50cw==","YWNjb3VudFJvbGU=","YWNjb3VudFN0YXR1cw==","YXV0aEVtYWls","YXV0aEZvcm0=","YXV0aFBhc3N3b3Jk","YXV0aFN0YXR1cw==","Ym91bmRVcmxUZXh0","YnJpZGdlU3RhdHVz","Y2FyZHNMaXN0","Y2hlY2tpbkJ0bg==","Y2xvdWRCdG4=","Y2xvdWRTdGF0dXM=","ZGV2aWNlTGlzdA==","ZGV2aWNlUGFpclN0YXR1cw==","Y29ubmVjdEJ0bg==","ZGlzcGxheUJhZGdl","ZGlzcGxheVBvaW50cw==","ZmlsdGVyQmV0","ZmlsdGVyQnVyc3Q=","ZmlsdGVyUmFuaw==","ZmlsdGVyUmF0ZQ==","ZmlsdGVyU2VhcmNo","Z2FtZVN0YXR1cw==","bGVkZ2VyTGlzdA==","bG9naW5CdG4=","bG9nb3V0QnRu","bW9uaXRvckJ0bg==","bm90aWNl","b25seUVtcHR5SW5wdXQ=","b3BlblNvdXJjZUJ0bg==","cG9pbnRVbml0SW5wdXQ=","cmVmcmVzaEJ0bg==","cmV3YXJkc0xpc3Q=","cm9vbUNvdW50","cm9vbXM=","c2F2ZVNvdXJjZUJ0bg==","c29ydE1vZGU=","c291cmNlVXJsSW5wdXQ=","c2lnbnVwQnRu","dGFza3NMaXN0","dXBkYXRlZEF0","dXNlckVtYWls","dmlld1RpdGxl","QVRHIOaooee1hA==","5Yqf6IO95qih57WE","5pyD5ZOh5Lit5b+D","5Lu75YuZ5Lit5b+D","5YWM5o+b5Lit5b+D","5Y2h6Jmf5Lit5b+D","566h55CG5Lit5b+D","bWVzc2FnZQ==","c3VibWl0","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","c3RhcnRfbW9uaXRvcmluZw==","Y2xpY2s=","cmVmcmVzaA==","Y2hhbmdl","Ymx1cg==","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","aW5wdXQ=","Y2hhbmdl","Y2xpY2s=","W2RhdGEtdmlld10=","W2RhdGEtZW50ZXItcm9vbS1pZF0=","W2RhdGEtdGFzay1pZF0=","W2RhdGEtcmV3YXJkLWlkXQ==","W2RhdGEtYWRtaW4tc2F2ZS1pZF0=","YnJpZGdlX3JlYWR5","YnJpZGdlX2Nvbm5lY3RlZA==","55uj5ris56uv5bey6YCj57ea77yM5q2j5Zyo6Ieq5YuV6K6A5Y+W5qih57WE6LOH5paZ44CC","YnJpZGdlX2Rpc2Nvbm5lY3RlZA==","55uj5ris56uv5bey5Lit5pa377yM5LuN5Y+v6K6A5Y+W6Zuy56uv5pyA5b6M5b+r54Wn44CC","YnJpZGdlX2Vycm9y","55uj5ris56uv5qmL5o6l55m855Sf6Yyv6Kqk44CC","c25hcHNob3Q=","6LOH5paZ5bey5pu05paw44CC","c3RhdHVz","55m75YWl5pyN5YuZ5bCa5pyq5ZWf55So77yM6KuL6IGv57Wh566h55CG5ZOh44CC","ZnVuY3Rpb24=","U3VwYWJhc2UgU0RLIOi8ieWFpeWkseaVl++8jOiri+eiuuiqjee2sui3r+aIliBDRE7jgII=","5bey55m75YWl44CC","6KuL55m75YWl5oiW6Ki75YaK5biz6Jmf44CC","5bey55m75YWl44CC","6KuL55m75YWl5oiW6Ki75YaK5biz6Jmf44CC","55m75YWl5LitLi4u","","55m75YWl5oiQ5Yqf44CC","5bu656uL5biz6Jmf5LitLi4u","","6Ki75YaK5oiQ5Yqf77yM5bey55m75YWl44CC","6Ki75YaK5oiQ5Yqf77yM6KuL5L6dIFN1cGFiYXNlIOioreWumueiuuiqjeS/oeeuseOAgg==","55m75Ye65LitLi4u","5bey55m75Ye644CC","Y29ubmVjdA==","55uj5ris56uv5bey6YCj57ea77yM5q2j5Zyo6Ieq5YuV5ZWf5YuV6K6A5Y+W44CC","c3RhcnRfbW9uaXRvcmluZw==","Z2V0X3NuYXBzaG90","Kg==","dXBkYXRlX3NldHRpbmdz","5YG15ris5Yiw55uj5ris56uv6YWN5bCN6YCj57WQ77yM5q2j5Zyo57aB5a6a44CC","5q2j5Zyo6K6A5Y+W55uj5ris56uv44CC","YXRnLW1vbml0b3ItZGV2aWNlLXNuYXBzaG90cw==","cG9zdGdyZXNfY2hhbmdlcw==","Kg==","cHVibGlj","bW9uaXRvcl9kZXZpY2Vfc25hcHNob3Rz","U1VCU0NSSUJFRA==","55uj5ris56uv5bey6YCj57ea77yM562J5b6F6LOH5paZ5pu05paw44CC","5bCa5pyq57aB5a6a55uj5ris56uv44CC","55uj5ris56uv5ZCM5q2l6YCj57ea5Lit44CC","55uj5ris56uv5pyN5YuZ5bCa5pyq5ZWf55So44CC","6KuL55m75YWl5Lul57aB5a6a55uj5ris56uv44CC","562J5b6F55uj5ris56uv6YCj57ea44CC","Y2xhaW1fbW9uaXRvcl9kZXZpY2U=","55uj5ris56uv5bey57aB5a6a44CC","bW9uaXRvcl9kZXZpY2Vz","aWQsbGFiZWwsc3RhdHVzLGxhc3Rfc2Vlbl9hdCxjbGFpbWVkX2F0LGNyZWF0ZWRfYXQ=","bGFzdF9zZWVuX2F0","5bCa5pyq57aB5a6a55uj5ris56uv44CC","bW9uaXRvcl9kZXZpY2Vfc25hcHNob3Rz","ZGV2aWNlX2lkLHNuYXBzaG90LHVwZGF0ZWRfYXQ=","dXBkYXRlZF9hdA==","emgtVFc=","55uj5ris56uv6LOH5paZ5bey5pu05paw44CC","6YCj57ea5Lit","YnJvYWRjYXN0ZXJz","dXNlcl9pZA==","dXNlcl9pZA==","UEdSU1QxMTY=","5ZCM5q2l5pyN5YuZ5pyq5ZWf55So","YXRnLWxpdmUtc25hcHNob3Rz","cG9zdGdyZXNfY2hhbmdlcw==","Kg==","cHVibGlj","bGl2ZV9zbmFwc2hvdHM=","aWQ9ZXEubWFpbg==","U1VCU0NSSUJFRA==","5o6o6YCB5Lit","5o6l5pS25Lit","6YCj57ea5Lit","5pyq5ZWf55So","bGl2ZV9zbmFwc2hvdHM=","c25hcHNob3QsdXBkYXRlZF9hdA==","aWQ=","bWFpbg==","UEdSU1QxMTY=","6K6A5Y+W5aSx5pWX","emgtVFc=","6Zuy56uv6LOH5paZ5bey5pu05paw44CC","5o6o6YCB5Lit","5bey5pqr5YGc","bGl2ZV9zbmFwc2hvdHM=","bWFpbg==","aWQ=","5o6o6YCB5aSx5pWX","5o6o6YCB5Lit","6LyJ5YWl5pyD5ZOh6LOH5paZ5LitLi4u","5L2/55So5pys5qmf6LOH5paZ44CC","5pyD5ZOh6LOH5paZ5bey5ZCM5q2l44CC","5pyD5ZOh5pyN5YuZ5bCa5pyq5a6M5pW05ZWf55So77yM5pqr55So5pys5qmf6LOH5paZ44CC","bWVtYmVy","QA==","cHJvZmlsZXM=","","aWQ=","cHJvZmlsZXM=","aWQsZW1haWwsZGlzcGxheV9uYW1lLHBvaW50cyxiYWRnZSxyb2xlLGJvdW5kX2dhbWVfdXJsLGxhc3RfY2hlY2tpbl9hdA==","aWQ=","UEdSU1QxMTY=","cG9ydGFsX3Rhc2tz","aWQsdGl0bGUsZGVzY3JpcHRpb24scmV3YXJkX3BvaW50cyx1cmwsc29ydF9vcmRlcixhY3RpdmU=","YWN0aXZl","c29ydF9vcmRlcg==","cmV3YXJkcw==","aWQsdGl0bGUsZGVzY3JpcHRpb24sY29zdF9wb2ludHMsc29ydF9vcmRlcixhY3RpdmU=","YWN0aXZl","c29ydF9vcmRlcg==","cG9pbnRfbGVkZ2Vy","YWN0aW9uLGFtb3VudCxiYWxhbmNlLGNyZWF0ZWRfYXQ=","dXNlcl9pZA==","Y3JlYXRlZF9hdA==","cmV3YXJkX29yZGVycw==","cmV3YXJkX3RpdGxlLGNhcmRfbnVtYmVyLGNvc3RfcG9pbnRzLGNyZWF0ZWRfYXQ=","dXNlcl9pZA==","Y3JlYXRlZF9hdA==","dGFza19jb21wbGV0aW9ucw==","dGFza19pZA==","dXNlcl9pZA==","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CC","6LyJ5YWl5pyD5ZOh5riF5Zau5LitLi4u","YWRtaW5fbGlzdF9wcm9maWxlcw==","5pyD5ZOh5riF5Zau5bey5pu05paw44CC","55uu5YmN5rKS5pyJ5pyD5ZOh6LOH5paZ44CC","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CC","W2RhdGEtYWRtaW4tcm9sZV0=","W2RhdGEtYWRtaW4tYmFkZ2Vd","W2RhdGEtYWRtaW4tcG9pbnRzXQ==","5YSy5a2Y5pyD5ZOh5qyK6ZmQ5LitLi4u","YWRtaW5fdXBkYXRlX3Byb2ZpbGU=","5pyD5ZOh5qyK6ZmQ5bey5pu05paw44CC","5LuK5pel5bey57C95Yiw44CC","Y2xhaW1fZGFpbHlfY2hlY2tpbg==","57C95Yiw5a6M5oiQ44CC","5q+P5pel57C95Yiw","57C95Yiw5a6M5oiQ77yM5bey5Yqg5YWl5pys5qmf56mN5YiG44CC","X2JsYW5r","bm9vcGVuZXIsbm9yZWZlcnJlcg==","6YCZ5YCL5Lu75YuZ5bey5a6M5oiQ44CC","Y2xhaW1fdGFzaw==","5Lu75YuZ5a6M5oiQ44CC","5Lu75YuZ5a6M5oiQ77yM5bey5Yqg5YWl5pys5qmf56mN5YiG44CC","56mN5YiG5LiN6Laz77yM54Sh5rOV5YWM5o+b44CC","cmVkZWVtX3Jld2FyZA==","5YWM5o+b5a6M5oiQ44CC","dGhlcm1hbF9iYWRnZQ==","54ax6IO95p+U5YWJ56ix6Jmf","6KuL6Ly45YWl5pyJ5pWI57ay5Z2A44CC","cHJvZmlsZXM=","aWQ=","57ay5Z2A5bey5pqr5a2Y5pys5qmf77yM5pyD5ZOh5pyN5YuZ5pu05paw5aSx5pWX44CC","55uj5ris5L6G5rqQ5bey5L+d5a2Y44CC","55uj5ris5L6G5rqQ5bey5L+d5a2Y5Yiw5pys5qmf44CC","","5bCa5pyq6Kit5a6a5Y+v6ZaL5ZWf55qE57ay5Z2A44CC","X2JsYW5r","bm9vcGVuZXIsbm9yZWZlcnJlcg==","c3RyaW5n","5aSW6YOo5qmL5o6l6LOH5paZ5qC85byP5LiN5YyF5ZCrIHJvb21z44CC","ZXh0ZXJuYWw=","5aSW6YOo5qmL5o6l6LOH5paZ5bey5pu05paw44CC","cmFuaw==","YWRtaW4=","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul6ZaL5ZWf566h55CG5Lit5b+D44CC","YWNjb3VudA==","LnZpZXc=","YWN0aXZl","W2RhdGEtdmlld10=","YWN0aXZl","55uu5YmN5LiN5piv5pys5qmf55uj5ris56uv6YCj57ea54uA5oWL77yM6Zuy56uv5b+r54Wn5Y+q6IO95p+l55yL5LiN6IO96YCy5oi/44CC","ZW50ZXJfcm9vbQ==","aXMtYXV0aGVk","5bey55m75YWl","","5pys5qmf6YCj57ea","5qmL5o6l5b6F5ZG9","562J5b6F55uj5ris56uv","6Zuy56uv5b+r54Wn","ZXh0ZXJuYWw=","5aSW6YOo5qmL5o6l","5bey6K6A5Y+W","5bCa5pyq6K6A5Y+W","emgtVFc=","LQ==","","","5pqr5YGc5ZCM5q2l","5ZWf55So5ZCM5q2l","6Zuy56uv5o6l5pS2","5YG15ris5Yiw55uj5ris56uv6YWN5bCN6YCj57WQ77yM55m75YWl5b6M5pyD6Ieq5YuV57aB5a6a44CC","","YWN0aXZl","562J5b6F6LOH5paZ","","5bCa5pyq6K6A5Yiw5oi/6ZaT6LOH5paZ77yM6KuL5oyJ5Yi35paw5oiW562J5b6F55uj5o6n5a6M5oiQ44CC","5bCa5pyq5Y+W5b6X6YGK5oiy5b+r54Wn44CC","","5LiA6Iis5pyD5ZOh","5bCa5pyq57aB5a6a","YWRtaW4=","YWNjb3VudA==","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CC","","","c2VsZWN0ZWQ=","","","LQ==","ZGlzYWJsZWQ=","","","ZGlzYWJsZWQ=","","56mN5YiG55Ww5YuV","ZW1wdHk=","aG90LXRleHQ=","Kw==","","","","ZGlzYWJsZWQ=","","5bey5a6M5oiQ","5a6M5oiQ5Lu75YuZ","","","","5YWM5o+b5Y2h","LQ==","","RW1wdHk=","ZW1wdHk=","YnVzeQ==","IC8g","LQ==","LQ==","LQ==","","5rqW5YKZ5bqm","6YCx5pyf","","","","","","ZGlzYWJsZWQ=","","","RW1wdHk=","YnVyc3Q=","cG9pbnRz","cmF0ZQ==","","562J5b6F55m75YWl","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CC","","","QA==","bWVtYmVy","5LiA6Iis5pyD5ZOh","bWVtYmVy","","5LiA6Iis5pyD5ZOh","bWVtYmVy","b3duZXI=","c3VwZXI=","c3VwZXJhZG1pbg==","c3VwZXJfYWRtaW4=","c3VwZXJfYWRtaW4=","YWRtaW4=","bWFuYWdlcg==","YWRtaW4=","bW9kZXJhdG9y","YXNzaXN0YW50","YWRtaW5fYXNzaXN0YW50","YWRtaW5fYXNzaXN0YW50","dmlw","dmlw","bWVtYmVy","c3VwZXJfYWRtaW4=","W2RhdGEtYWRtaW4tcm93LWlkXQ==","e30=","Z3Vlc3Q=","b2JqZWN0","6KuL5YWI55m75YWl5biz6Jmf44CC","55m75YWl5pyN5YuZ5bCa5pyq5Yid5aeL5YyW44CC","55m75YWl5pyN5YuZ5bCa5pyq5ZWf55So44CC","6KuL6Ly45YWlIEVtYWlsIOiIh+WvhueivOOAgg==","5a+G56K86Iez5bCR6ZyA6KaBIDYg5YCL5a2X5YWD44CC","c3RyaW5n","c3RyaW5n","WU9VUl8=","WU9VUl8=","5pON5L2c5aSx5pWX44CC","aW52YWxpZCBsb2dpbiBjcmVkZW50aWFscw==","RW1haWwg5oiW5a+G56K85LiN5q2j56K644CC","ZW1haWwgbm90IGNvbmZpcm1lZA==","RW1haWwg5bCa5pyq56K66KqN77yM6KuL5YWI5p+l55yL5L+h566x44CC","dXNlciBhbHJlYWR5IHJlZ2lzdGVyZWQ=","6YCZ5YCLIEVtYWlsIOW3suiou+WGiu+8jOiri+ebtOaOpeeZu+WFpeOAgg==","c2lnbnVwIGRpc2FibGVk","U3VwYWJhc2Ug55uu5YmN5pyq6ZaL5pS+6Ki75YaK77yM6KuL5YiwIEF1dGhlbnRpY2F0aW9uIOioreWumuWVn+eUqOOAgg==","cGFzc3dvcmQ=","5a+G56K85qC85byP5LiN56ym5ZCI6KaP5YmH77yM6KuL6Iez5bCR6Ly45YWlIDYg5YCL5a2X5YWD44CC","","aHR0cDovLw==","aHR0cHM6Ly8=","","ZGV2aWNl","ZGV2aWNlX2lk","cGFpcg==","cGFpcl90b2tlbg==","ZGV2aWNl","ZGV2aWNlX2lk","cGFpcg==","cGFpcl90b2tlbg==","","55uj5ris56uv","LQ==","LQ==","ZW4tVVM=","LQ==","LQ==","LQ==","5bey5Zyo5Y2A6ZaT","LQ==","MA==","LQ==","MA==","LQ==","emgtVFc=","JmFtcDs=","Jmx0Ow==","Jmd0Ow==","JnF1b3Q7","JiMzOTs="];const __atgSiteTplParts=[["","",""],["55uj5ris56uv6LOH5paZ5bey5pu05paw77ya",""],["6Zuy56uv6LOH5paZ5bey5pu05paw77ya",""],["566h55CG5riF5Zau6K6A5Y+W5aSx5pWX77ya",""],["5pyD5ZOh5qyK6ZmQ5pu05paw5aSx5pWX77ya",""],["5a6M5oiQ5Lu75YuZ77ya",""],["56K66KqN5raI6ICXIA==","IOepjeWIhuWFjOaPm+OAjA==","44CN77yf"],["5YWM5o+b77ya",""],["5YWM5o+b5a6M5oiQ77yM5Y2h6JmfIA==",""],["5aSW6YOo5qmL5o6l6LOH5paZ6Kej5p6Q5aSx5pWX77ya",""],["dmlldy0=",""],["5bey6YCB5Ye66YCy5YWlIA==","IOeahOaMh+S7pOOAgg=="],["5pu05pawIA==",""],["CiAgICAgIDxzcGFuIGNsYXNzPSJkZXZpY2UtcGlsbCI+CiAgICAgICAgPGI+","PC9iPgogICAgICAgIA==","CiAgICAgICAg","CiAgICAgIDwvc3Bhbj4KICAgIA=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPg==","PC9kaXY+"],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuebruWJjeaykuacieespuWQiOevqemBuOaineS7tueahOaIv+mWk+OAgjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPui8ieWFpeacg+WToea4heWWruS4rS4uLjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuWwmueEoeacg+WToeizh+aWmeOAgjwvZGl2Pg=="],["PG9wdGlvbiB2YWx1ZT0i","IiA=","Pg==","PC9vcHRpb24+"],["CiAgICA8YXJ0aWNsZSBjbGFzcz0iYWRtaW4tY2FyZCIgZGF0YS1hZG1pbi1yb3ctaWQ9Ig==","Ij4KICAgICAgPGRpdiBjbGFzcz0iYWRtaW4tbWVtYmVyIj4KICAgICAgICA8c3Ryb25nPg==","PC9zdHJvbmc+CiAgICAgICAgPHNwYW4+","IC8g","PC9zcGFuPgogICAgICAgIDxzbWFsbD4=","PC9zbWFsbD4KICAgICAgPC9kaXY+CiAgICAgIDxsYWJlbD4KICAgICAgICDmrIrpmZAKICAgICAgICA8c2VsZWN0IGRhdGEtYWRtaW4tcm9sZSA=","PgogICAgICAgICAg","CiAgICAgICAgPC9zZWxlY3Q+CiAgICAgIDwvbGFiZWw+CiAgICAgIDxsYWJlbD4KICAgICAgICDnqLHomZ8KICAgICAgICA8aW5wdXQgZGF0YS1hZG1pbi1iYWRnZSB0eXBlPSJ0ZXh0IiB2YWx1ZT0i","Ij4KICAgICAgPC9sYWJlbD4KICAgICAgPGxhYmVsPgogICAgICAgIOepjeWIhgogICAgICAgIDxpbnB1dCBkYXRhLWFkbWluLXBvaW50cyB0eXBlPSJudW1iZXIiIG1pbj0iMCIgc3RlcD0iMSIgdmFsdWU9Ig==","Ij4KICAgICAgPC9sYWJlbD4KICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGRhdGEtYWRtaW4tc2F2ZS1pZD0i","IiA=","PuWEsuWtmDwvYnV0dG9uPgogICAgPC9hcnRpY2xlPgogIA=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuWwmueEoeepjeWIhue0gOmMhOOAgjwvZGl2Pg=="],["CiAgICAgICAgPGFydGljbGUgY2xhc3M9InJlY29yZC1jYXJkIj4KICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgIDxzdHJvbmc+","PC9zdHJvbmc+CiAgICAgICAgICAgIDxzbWFsbD4=","PC9zbWFsbD4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPHNwYW4gY2xhc3M9Ig==","Ij4=","","PC9zcGFuPgogICAgICAgIDwvYXJ0aWNsZT4KICAgICAg"],["CiAgICAgICAgPGFydGljbGUgY2xhc3M9ImNhdGFsb2ctY2FyZCI+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXRhbG9nLW1ldGEiPgogICAgICAgICAgICA8c3Bhbj7ku7vli5k8L3NwYW4+CiAgICAgICAgICAgIDxiPis=","IOepjeWIhjwvYj4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPGgzPg==","PC9oMz4KICAgICAgICAgIDxwPg==","PC9wPgogICAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGRhdGEtdGFzay1pZD0i","IiA=","Pg==","PC9idXR0b24+CiAgICAgICAgPC9hcnRpY2xlPgogICAgICA="],["CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjYXRhbG9nLWNhcmQiPgogICAgICAgIDxkaXYgY2xhc3M9ImNhdGFsb2ctbWV0YSI+CiAgICAgICAgICA8c3Bhbj7lhYzmj5s8L3NwYW4+CiAgICAgICAgICA8Yj4=","IOepjeWIhjwvYj4KICAgICAgICA8L2Rpdj4KICAgICAgICA8aDM+","PC9oMz4KICAgICAgICA8cD4=","PC9wPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBkYXRhLXJld2FyZC1pZD0i","Ij7nq4vljbPlhYzmj5s8L2J1dHRvbj4KICAgICAgPC9hcnRpY2xlPgogICAg"],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuWwmueEoeWFjOaPm+WNoeiZn+OAgjwvZGl2Pg=="],["CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJyZWNvcmQtY2FyZCI+CiAgICAgICAgPGRpdj4KICAgICAgICAgIDxzdHJvbmc+","PC9zdHJvbmc+CiAgICAgICAgICA8c21hbGw+","IC8g5raI6ICXIA==","IOepjeWIhjwvc21hbGw+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPHNwYW4gY2xhc3M9ImhvdC10ZXh0Ij4=","PC9zcGFuPgogICAgICA8L2FydGljbGU+CiAgICA="],["PHNwYW4+","PC9zcGFuPg=="],["PGRpdiBjbGFzcz0icmVhc29uLWxpc3QiPg==","PC9kaXY+"],["CiAgICA8YXJ0aWNsZSBjbGFzcz0icm9vbS1jYXJkIj4KICAgICAgPGRpdiBjbGFzcz0icm9vbS1oZWFkIj4KICAgICAgICA8ZGl2IGNsYXNzPSJtYWNoaW5lIj4KICAgICAgICAgIDxzdHJvbmc+","PC9zdHJvbmc+CiAgICAgICAgICA8c3Bhbj4=","PC9zcGFuPgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9InNjb3JlLXN0YWNrIj4KICAgICAgICAgIDxkaXYgY2xhc3M9InNjb3JlLXBpbGwgcmFuayI+PHNwYW4+5Zue5aCx5YiGPC9zcGFuPjxiPg==","PC9iPjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ic2NvcmUtcGlsbCBidXJzdCI+PHNwYW4+54iG56C05Y+v6IO9PC9zcGFuPjxiPg==","JTwvYj48L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9ImVuZXJneSIgdGl0bGU9IueIhuegtOWPr+iDvSA=","JSI+CiAgICAgICAgPHNwYW4gY2xhc3M9ImVuZXJneS1maWxsIiBzdHlsZT0id2lkdGg6","JSI+PC9zcGFuPgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0ibWV0cmljcyI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7loLHnjoc8c3Ryb25nIGNsYXNzPSJyYXRlIj4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7kuIvms6g8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7ni4DmhYs8c3Ryb25nIGNsYXNzPSI=","Ij4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJkZXRhaWwtZ3JpZCI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7ku4rml6U8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7liY3kuIDlsI/mmYI8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7ov5EzMOaXpTxzdHJvbmc+","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJmcmVlLWdyaWQiPgogICAgICAgIDxkaXYgY2xhc3M9Im1ldHJpYyI+5pyq6ZaL6L2J5pW4PHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7liY3kuIDovYnmlbg8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7liY3kuozovYnmlbg8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJwb2ludC1ncmlkIj4KICAgICAgICA8ZGl2IGNsYXNzPSJtZXRyaWMiPumrmOeIhum7nuaVuDxzdHJvbmc+","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7llq7ovYnmiJDmnKw8c3Ryb25nPg==","IA==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7poJDkvLDovYnmlbg8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj4=","PHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJwb2ludC1ncmlkIGZvcmVjYXN0LWdyaWQiPgogICAgICAgIDxkaXYgY2xhc3M9Im1ldHJpYyI+5YWN6YGK55uu5qiZPHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7pgLHmnJ/ljYDplpM8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7lianppJjljYDplpM8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj4=","PHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJkZXRhaWwtZ3JpZCI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7li5Xog708c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7pgLHmnJ/lo5Plips8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7lm57okL3poqjpmqo8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJkZXRhaWwtZ3JpZCI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7mqKPmnKzlj6/kv6E8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7mqKPmnKznvLrlj6M8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7mqKPmnKznm67mqJk8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA=","CiAgICAgIDxkaXYgY2xhc3M9InJvb20tYWN0aW9ucyI+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGRhdGEtZW50ZXItcm9vbS1pZD0i","IiBkYXRhLWVudGVyLXJvb20tbnVtYmVyPSI=","IiA=","PumAsuWFpTwvYnV0dG9uPgogICAgICA8L2Rpdj4KICAgIDwvYXJ0aWNsZT4KICA="],["","IA==",""],["YXRnVGhlcm1hbFBvcnRhbDo=",""],["QVRHLQ==","LQ==","LQ==",""],["aHR0cHM6Ly8=",""],["","","",""],["","Li4u",""],["","JQ=="],["","JQ=="],["","IOi9iQ=="],["","LQ==","IOi9iQ=="],["","IOi9iQ=="],["","LQ==","IOi9iQ=="],["","LQ==",""]];const __atgSiteText=(i)=>__atgBase64(__atgSiteStrings[i]);const __atgSiteTpl=(i,...v)=>{const p=__atgSiteTplParts[i].map(__atgBase64);let o=p[0]||"";for(let j=0;j<v.length;j+=1)o+=v[j]+(p[j+1]||"");return o;};
+const __atgBase64=(s)=>new TextDecoder().decode(Uint8Array.from(atob(s),(c)=>c.charCodeAt(0)));const __atgSiteStrings=["QVRHX1RIRVJNQUxfREFTSEJPQVJE","QVRHX1RIRVJNQUxfRVhURU5TSU9O","5bmz5Y+w5o6h5qih57WE5YyW6Kit6KiI77yb55uu5YmN5ZWf55SoIEFURyDljbPmmYLos4fmlpnmqKHntYTvvIzlvoznuozlj6/liqDlhaXlhbbku5blip/og73jgII=","ZGFpbHlfbW9uaXRvcl9yZXZpZXc=","5a6M5oiQ5LuK5pel55uj5o6n5qqi5p+l","56K66KqN5oi/6ZaT6LOH5paZ5bey5a6M5oiQ6K6A5Y+W77yM5qqi5p+l54iG56C05Y+v6IO944CB6auY54iG6bue5pW46IiH5YWN6LK76YGK5oiy6YCx5pyf44CC","","YmluZF9zb3VyY2VfdXJs","57aB5a6a55uj5ris5L6G5rqQ","5oqK5bi455So6YGK5oiy57ay5Z2A5L+d5a2Y5Yiw5pyD5ZOh6LOH5paZ77yM5pa55L6/5q+P5qyh6ZaL5ZWf55uj5o6n5rWB56iL44CC","","Y2xvdWRfc3luY19jaGVjaw==","5qqi5p+l6Zuy56uv5ZCM5q2l","56K66KqN6Zuy56uv5b+r54Wn5Y+v6KKr5YW25LuW55m75YWl5biz6Jmf5Y2z5pmC6K6A5Y+W44CC","","dGhlcm1hbF9iYWRnZQ==","TmV4dXMg5bCI5bGs56ix6Jmf","5YWM5o+b5b6M5pyD5Zyo5pyD5ZOh5Lit5b+D6aGv56S65bCI5bGs56ix6Jmf44CC","cHJpb3JpdHlfY2FyZA==","6auY54iG6KeA5a+f5Y2h","55Si55Sf5LiA57WE5bCI5bGs5Y2h6Jmf77yM5pa55L6/57SA6YyE6auY5Zue5aCx5oi/6ZaT6KeA5a+f5om55qyh44CC","YXJjaGl2ZV9jYXJk","5b+r54Wn5bCB5a2Y5Y2h","55Si55Sf5LiA57WE5bCB5a2Y5Y2h6Jmf77yM5qiZ6KiY6Zuy56uv5b+r54Wn57SA6YyE55So6YCU44CC","56m65oi/","5bey5ru/","6Y6W5a6a","6Zec6ZaJ","bWVtYmVy","5LiA6Iis5pyD5ZOh","dmlw","VklQ","YWRtaW5fYXNzaXN0YW50","566h55CG5ZOh5Yqp55CG","YWRtaW4=","5LiA6Iis566h55CG5ZOh","c3VwZXJfYWRtaW4=","6LaF57Sa566h55CG5ZOh","bW9uaXRvcg==","562J5b6F55uj5ris56uv6YCj57ea44CC","","cmFuaw==","5pyq5ZWf55So","6KuL5YWI55m75YWl5biz6Jmf44CC","562J5b6F55m75YWl","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CB55m85biD5Lu75YuZ6IiH566h55CG5ZWG5ZOB44CC","YWRtaW5MaXN0","YWRtaW5OYXY=","YWRtaW5QdWJsaXNoUmV3YXJkQnRu","YWRtaW5QdWJsaXNoVGFza0J0bg==","YWRtaW5SZWZyZXNoQnRu","YWRtaW5SZXdhcmRDb3N0","YWRtaW5SZXdhcmRDb3VudA==","YWRtaW5SZXdhcmREZXNj","YWRtaW5SZXdhcmRMaXN0","YWRtaW5SZXdhcmRTb3J0","YWRtaW5SZXdhcmRUaXRsZQ==","YWRtaW5TdGF0dXM=","YWRtaW5UYXNrQ291bnQ=","YWRtaW5UYXNrRGVzYw==","YWRtaW5UYXNrTGlzdA==","YWRtaW5UYXNrUHJlZml4","YWRtaW5UYXNrUmV3YXJk","YWRtaW5UYXNrU29ydA==","YWRtaW5UYXNrVGl0bGU=","YWRtaW5UYXNrVXJs","YWRtaW5Vc2VyQ291bnQ=","YWNjb3VudFBvaW50cw==","YWNjb3VudFJvbGU=","YWNjb3VudFN0YXR1cw==","YXV0aEVtYWls","YXV0aEZvcm0=","YXV0aFBhc3N3b3Jk","YXV0aFN0YXR1cw==","Ym91bmRVcmxUZXh0","YnJpZGdlU3RhdHVz","Y2FyZHNMaXN0","Y2hlY2tpbkJ0bg==","Y2xvdWRCdG4=","Y2xvdWRTdGF0dXM=","ZGV2aWNlTGlzdA==","ZGV2aWNlUGFpclN0YXR1cw==","Y29ubmVjdEJ0bg==","ZGlzcGxheUJhZGdl","ZGlzcGxheVBvaW50cw==","ZmlsdGVyQmV0","ZmlsdGVyQnVyc3Q=","ZmlsdGVyUmFuaw==","ZmlsdGVyUmF0ZQ==","ZmlsdGVyU2VhcmNo","Z2FtZVN0YXR1cw==","bGVkZ2VyTGlzdA==","bG9naW5CdG4=","bG9nb3V0QnRu","bW9uaXRvckJ0bg==","bm90aWNl","b25seUVtcHR5SW5wdXQ=","b3BlblNvdXJjZUJ0bg==","cG9pbnRVbml0SW5wdXQ=","cmVmcmVzaEJ0bg==","cmV3YXJkc0xpc3Q=","cm9vbUNvdW50","cm9vbXM=","c2F2ZVNvdXJjZUJ0bg==","c29ydE1vZGU=","c291cmNlVXJsSW5wdXQ=","c2lnbnVwQnRu","dGFza3NMaXN0","dXBkYXRlZEF0","dXNlckVtYWls","dmlld1RpdGxl","QVRHIOaooee1hA==","5Yqf6IO95qih57WE","5pyD5ZOh5Lit5b+D","5Lu75YuZ5Lit5b+D","5YWM5o+b5Lit5b+D","5Y2h6Jmf5Lit5b+D","566h55CG5Lit5b+D","bWVzc2FnZQ==","c3VibWl0","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","c3RhcnRfbW9uaXRvcmluZw==","Y2xpY2s=","cmVmcmVzaA==","Y2hhbmdl","Ymx1cg==","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","Y2xpY2s=","aW5wdXQ=","Y2hhbmdl","Y2xpY2s=","W2RhdGEtdmlld10=","W2RhdGEtZW50ZXItcm9vbS1pZF0=","W2RhdGEtdGFzay1pZF0=","W2RhdGEtcmV3YXJkLWlkXQ==","W2RhdGEtYWRtaW4tc2F2ZS1pZF0=","W2RhdGEtYWRtaW4tdG9nZ2xlLXRhc2td","dHJ1ZQ==","W2RhdGEtYWRtaW4tdG9nZ2xlLXJld2FyZF0=","dHJ1ZQ==","YnJpZGdlX3JlYWR5","YnJpZGdlX2Nvbm5lY3RlZA==","55uj5ris56uv5bey6YCj57ea77yM5q2j5Zyo6Ieq5YuV6K6A5Y+W5qih57WE6LOH5paZ44CC","YnJpZGdlX2Rpc2Nvbm5lY3RlZA==","55uj5ris56uv5bey5Lit5pa377yM5LuN5Y+v6K6A5Y+W6Zuy56uv5pyA5b6M5b+r54Wn44CC","YnJpZGdlX2Vycm9y","55uj5ris56uv5qmL5o6l55m855Sf6Yyv6Kqk44CC","c25hcHNob3Q=","6LOH5paZ5bey5pu05paw44CC","c3RhdHVz","55m75YWl5pyN5YuZ5bCa5pyq5ZWf55So77yM6KuL6IGv57Wh566h55CG5ZOh44CC","ZnVuY3Rpb24=","U3VwYWJhc2UgU0RLIOi8ieWFpeWkseaVl++8jOiri+eiuuiqjee2sui3r+aIliBDRE7jgII=","5bey55m75YWl44CC","6KuL55m75YWl5oiW6Ki75YaK5biz6Jmf44CC","5bey55m75YWl44CC","6KuL55m75YWl5oiW6Ki75YaK5biz6Jmf44CC","55m75YWl5LitLi4u","","55m75YWl5oiQ5Yqf44CC","5bu656uL5biz6Jmf5LitLi4u","","6Ki75YaK5oiQ5Yqf77yM5bey55m75YWl44CC","6Ki75YaK5oiQ5Yqf77yM6KuL5L6dIFN1cGFiYXNlIOioreWumueiuuiqjeS/oeeuseOAgg==","55m75Ye65LitLi4u","5bey55m75Ye644CC","Y29ubmVjdA==","55uj5ris56uv5bey6YCj57ea77yM5q2j5Zyo6Ieq5YuV5ZWf5YuV6K6A5Y+W44CC","c3RhcnRfbW9uaXRvcmluZw==","Z2V0X3NuYXBzaG90","Kg==","dXBkYXRlX3NldHRpbmdz","5YG15ris5Yiw55uj5ris56uv6YWN5bCN6YCj57WQ77yM5q2j5Zyo57aB5a6a44CC","5q2j5Zyo6K6A5Y+W55uj5ris56uv44CC","YXRnLW1vbml0b3ItZGV2aWNlLXNuYXBzaG90cw==","cG9zdGdyZXNfY2hhbmdlcw==","Kg==","cHVibGlj","bW9uaXRvcl9kZXZpY2Vfc25hcHNob3Rz","U1VCU0NSSUJFRA==","55uj5ris56uv5bey6YCj57ea77yM562J5b6F6LOH5paZ5pu05paw44CC","5bCa5pyq57aB5a6a55uj5ris56uv44CC","55uj5ris56uv5ZCM5q2l6YCj57ea5Lit44CC","55uj5ris56uv5pyN5YuZ5bCa5pyq5ZWf55So44CC","6KuL55m75YWl5Lul57aB5a6a55uj5ris56uv44CC","562J5b6F55uj5ris56uv6YCj57ea44CC","Y2xhaW1fbW9uaXRvcl9kZXZpY2U=","55uj5ris56uv5bey57aB5a6a44CC","bW9uaXRvcl9kZXZpY2Vz","aWQsbGFiZWwsc3RhdHVzLGxhc3Rfc2Vlbl9hdCxjbGFpbWVkX2F0LGNyZWF0ZWRfYXQ=","bGFzdF9zZWVuX2F0","5bCa5pyq57aB5a6a55uj5ris56uv44CC","bW9uaXRvcl9kZXZpY2Vfc25hcHNob3Rz","ZGV2aWNlX2lkLHNuYXBzaG90LHVwZGF0ZWRfYXQ=","dXBkYXRlZF9hdA==","emgtVFc=","55uj5ris56uv6LOH5paZ5bey5pu05paw44CC","6YCj57ea5Lit","YnJvYWRjYXN0ZXJz","dXNlcl9pZA==","dXNlcl9pZA==","UEdSU1QxMTY=","5ZCM5q2l5pyN5YuZ5pyq5ZWf55So","YXRnLWxpdmUtc25hcHNob3Rz","cG9zdGdyZXNfY2hhbmdlcw==","Kg==","cHVibGlj","bGl2ZV9zbmFwc2hvdHM=","aWQ9ZXEubWFpbg==","U1VCU0NSSUJFRA==","5o6o6YCB5Lit","5o6l5pS25Lit","6YCj57ea5Lit","5pyq5ZWf55So","bGl2ZV9zbmFwc2hvdHM=","c25hcHNob3QsdXBkYXRlZF9hdA==","aWQ=","bWFpbg==","UEdSU1QxMTY=","6K6A5Y+W5aSx5pWX","emgtVFc=","6Zuy56uv6LOH5paZ5bey5pu05paw44CC","5o6o6YCB5Lit","5bey5pqr5YGc","bGl2ZV9zbmFwc2hvdHM=","bWFpbg==","aWQ=","5o6o6YCB5aSx5pWX","5o6o6YCB5Lit","6LyJ5YWl5pyD5ZOh6LOH5paZ5LitLi4u","5L2/55So5pys5qmf6LOH5paZ44CC","5pyD5ZOh6LOH5paZ5bey5ZCM5q2l44CC","5pyD5ZOh5pyN5YuZ5bCa5pyq5a6M5pW05ZWf55So77yM5pqr55So5pys5qmf6LOH5paZ44CC","bWVtYmVy","QA==","cHJvZmlsZXM=","","aWQ=","cHJvZmlsZXM=","aWQsZW1haWwsZGlzcGxheV9uYW1lLHBvaW50cyxiYWRnZSxyb2xlLGJvdW5kX2dhbWVfdXJsLGxhc3RfY2hlY2tpbl9hdA==","aWQ=","UEdSU1QxMTY=","cG9ydGFsX3Rhc2tz","aWQsdGl0bGUsZGVzY3JpcHRpb24scmV3YXJkX3BvaW50cyx1cmwsc29ydF9vcmRlcixhY3RpdmU=","YWN0aXZl","c29ydF9vcmRlcg==","cmV3YXJkcw==","aWQsdGl0bGUsZGVzY3JpcHRpb24sY29zdF9wb2ludHMsc29ydF9vcmRlcixhY3RpdmU=","YWN0aXZl","c29ydF9vcmRlcg==","cG9pbnRfbGVkZ2Vy","YWN0aW9uLGFtb3VudCxiYWxhbmNlLGNyZWF0ZWRfYXQ=","dXNlcl9pZA==","Y3JlYXRlZF9hdA==","cmV3YXJkX29yZGVycw==","cmV3YXJkX3RpdGxlLGNhcmRfbnVtYmVyLGNvc3RfcG9pbnRzLGNyZWF0ZWRfYXQ=","dXNlcl9pZA==","Y3JlYXRlZF9hdA==","dGFza19jb21wbGV0aW9ucw==","dGFza19pZA==","dXNlcl9pZA==","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CB55m85biD5Lu75YuZ6IiH566h55CG5ZWG5ZOB44CC","6LyJ5YWl566h55CG6LOH5paZ5LitLi4u","566h55CG6LOH5paZ5bey5pu05paw44CC","YWRtaW5fbGlzdF9wcm9maWxlcw==","YWRtaW5fbGlzdF90YXNrcw==","YWRtaW5fbGlzdF9yZXdhcmRz","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CC","W2RhdGEtYWRtaW4tcm9sZV0=","W2RhdGEtYWRtaW4tYmFkZ2Vd","W2RhdGEtYWRtaW4tcG9pbnRzXQ==","5YSy5a2Y5pyD5ZOh5qyK6ZmQ5LitLi4u","YWRtaW5fdXBkYXRlX3Byb2ZpbGU=","5pyD5ZOh5qyK6ZmQ5bey5pu05paw44CC","IC0g","","6KuL6Ly45YWl5Lu75YuZ5ZCN56ix44CC","55m85biD5Lu75YuZ5LitLi4u","YWRtaW5fdXBzZXJ0X3Rhc2s=","5Lu75YuZ5bey55m85biD44CC","6KuL6Ly45YWl5ZWG5ZOB5ZCN56ix44CC","55m85biD5ZWG5ZOB5LitLi4u","YWRtaW5fdXBzZXJ0X3Jld2FyZA==","5ZWG5ZOB5bey55m85biD44CC","5ZWf55So5Lu75YuZ5LitLi4u","5YGc55So5Lu75YuZ5LitLi4u","YWRtaW5fc2V0X3Rhc2tfYWN0aXZl","5Lu75YuZ5bey5ZWf55So44CC","5Lu75YuZ5bey5YGc55So44CC","5ZWf55So5ZWG5ZOB5LitLi4u","5YGc55So5ZWG5ZOB5LitLi4u","YWRtaW5fc2V0X3Jld2FyZF9hY3RpdmU=","5ZWG5ZOB5bey5ZWf55So44CC","5ZWG5ZOB5bey5YGc55So44CC","5LuK5pel5bey57C95Yiw44CC","Y2xhaW1fZGFpbHlfY2hlY2tpbg==","57C95Yiw5a6M5oiQ44CC","5q+P5pel57C95Yiw","57C95Yiw5a6M5oiQ77yM5bey5Yqg5YWl5pys5qmf56mN5YiG44CC","X2JsYW5r","bm9vcGVuZXIsbm9yZWZlcnJlcg==","6YCZ5YCL5Lu75YuZ5bey5a6M5oiQ44CC","Y2xhaW1fdGFzaw==","5Lu75YuZ5a6M5oiQ44CC","5Lu75YuZ5a6M5oiQ77yM5bey5Yqg5YWl5pys5qmf56mN5YiG44CC","56mN5YiG5LiN6Laz77yM54Sh5rOV5YWM5o+b44CC","cmVkZWVtX3Jld2FyZA==","5YWM5o+b5a6M5oiQ44CC","dGhlcm1hbF9iYWRnZQ==","TmV4dXMg5bCI5bGs56ix6Jmf","6KuL6Ly45YWl5pyJ5pWI57ay5Z2A44CC","cHJvZmlsZXM=","aWQ=","57ay5Z2A5bey5pqr5a2Y5pys5qmf77yM5pyD5ZOh5pyN5YuZ5pu05paw5aSx5pWX44CC","55uj5ris5L6G5rqQ5bey5L+d5a2Y44CC","55uj5ris5L6G5rqQ5bey5L+d5a2Y5Yiw5pys5qmf44CC","","5bCa5pyq6Kit5a6a5Y+v6ZaL5ZWf55qE57ay5Z2A44CC","X2JsYW5r","bm9vcGVuZXIsbm9yZWZlcnJlcg==","c3RyaW5n","5aSW6YOo5qmL5o6l6LOH5paZ5qC85byP5LiN5YyF5ZCrIHJvb21z44CC","ZXh0ZXJuYWw=","5aSW6YOo5qmL5o6l6LOH5paZ5bey5pu05paw44CC","cmFuaw==","YWRtaW4=","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul6ZaL5ZWf566h55CG5Lit5b+D44CC","YWNjb3VudA==","LnZpZXc=","YWN0aXZl","W2RhdGEtdmlld10=","YWN0aXZl","55uu5YmN5LiN5piv5pys5qmf55uj5ris56uv6YCj57ea54uA5oWL77yM6Zuy56uv5b+r54Wn5Y+q6IO95p+l55yL5LiN6IO96YCy5oi/44CC","ZW50ZXJfcm9vbQ==","aXMtYXV0aGVk","5bey55m75YWl","","5pys5qmf6YCj57ea","5qmL5o6l5b6F5ZG9","562J5b6F55uj5ris56uv","6Zuy56uv5b+r54Wn","ZXh0ZXJuYWw=","5aSW6YOo5qmL5o6l","5bey6K6A5Y+W","5bCa5pyq6K6A5Y+W","emgtVFc=","LQ==","","","5pqr5YGc5ZCM5q2l","5ZWf55So5ZCM5q2l","6Zuy56uv5o6l5pS2","5YG15ris5Yiw55uj5ris56uv6YWN5bCN6YCj57WQ77yM55m75YWl5b6M5pyD6Ieq5YuV57aB5a6a44CC","","YWN0aXZl","562J5b6F6LOH5paZ","","5bCa5pyq6K6A5Yiw5oi/6ZaT6LOH5paZ77yM6KuL5oyJ5Yi35paw5oiW562J5b6F55uj5o6n5a6M5oiQ44CC","5bCa5pyq5Y+W5b6X6YGK5oiy5b+r54Wn44CC","","5LiA6Iis5pyD5ZOh","5bCa5pyq57aB5a6a","YWRtaW4=","YWNjb3VudA==","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CB55m85biD5Lu75YuZ6IiH566h55CG5ZWG5ZOB44CC","","","","","","","c2VsZWN0ZWQ=","","","LQ==","ZGlzYWJsZWQ=","","","ZGlzYWJsZWQ=","","","c2Vjb25kYXJ5","","ZGlzYWJsZWQ=","","5YGc55So","5ZWf55So","","c2Vjb25kYXJ5","","ZGlzYWJsZWQ=","","5YGc55So","5ZWf55So","56mN5YiG55Ww5YuV","ZW1wdHk=","aG90LXRleHQ=","Kw==","","","","ZGlzYWJsZWQ=","","5bey5a6M5oiQ","5a6M5oiQ5Lu75YuZ","","","","5YWM5o+b5Y2h","LQ==","","RW1wdHk=","ZW1wdHk=","YnVzeQ==","IC8g","LQ==","LQ==","LQ==","","5rqW5YKZ5bqm","6YCx5pyf","","","","","","ZGlzYWJsZWQ=","","","RW1wdHk=","YnVyc3Q=","cG9pbnRz","cmF0ZQ==","","562J5b6F55m75YWl","5Y+q5pyJ6LaF57Sa566h55CG5ZOh5Y+v5Lul5oyH5rS+5biz6Jmf5qyK6ZmQ44CB55m85biD5Lu75YuZ6IiH566h55CG5ZWG5ZOB44CC","","","","MjA=","MTAw","","","MTAw","MTAw","","","QA==","bWVtYmVy","5LiA6Iis5pyD5ZOh","bWVtYmVy","","5LiA6Iis5pyD5ZOh","bWVtYmVy","b3duZXI=","c3VwZXI=","c3VwZXJhZG1pbg==","c3VwZXJfYWRtaW4=","c3VwZXJfYWRtaW4=","YWRtaW4=","bWFuYWdlcg==","YWRtaW4=","bW9kZXJhdG9y","YXNzaXN0YW50","YWRtaW5fYXNzaXN0YW50","YWRtaW5fYXNzaXN0YW50","dmlw","dmlw","bWVtYmVy","c3VwZXJfYWRtaW4=","W2RhdGEtYWRtaW4tcm93LWlkXQ==","e30=","Z3Vlc3Q=","b2JqZWN0","6KuL5YWI55m75YWl5biz6Jmf44CC","55m75YWl5pyN5YuZ5bCa5pyq5Yid5aeL5YyW44CC","55m75YWl5pyN5YuZ5bCa5pyq5ZWf55So44CC","6KuL6Ly45YWlIEVtYWlsIOiIh+WvhueivOOAgg==","5a+G56K86Iez5bCR6ZyA6KaBIDYg5YCL5a2X5YWD44CC","c3RyaW5n","c3RyaW5n","WU9VUl8=","WU9VUl8=","5pON5L2c5aSx5pWX44CC","aW52YWxpZCBsb2dpbiBjcmVkZW50aWFscw==","RW1haWwg5oiW5a+G56K85LiN5q2j56K644CC","ZW1haWwgbm90IGNvbmZpcm1lZA==","RW1haWwg5bCa5pyq56K66KqN77yM6KuL5YWI5p+l55yL5L+h566x44CC","dXNlciBhbHJlYWR5IHJlZ2lzdGVyZWQ=","6YCZ5YCLIEVtYWlsIOW3suiou+WGiu+8jOiri+ebtOaOpeeZu+WFpeOAgg==","c2lnbnVwIGRpc2FibGVk","U3VwYWJhc2Ug55uu5YmN5pyq6ZaL5pS+6Ki75YaK77yM6KuL5YiwIEF1dGhlbnRpY2F0aW9uIOioreWumuWVn+eUqOOAgg==","cGFzc3dvcmQ=","5a+G56K85qC85byP5LiN56ym5ZCI6KaP5YmH77yM6KuL6Iez5bCR6Ly45YWlIDYg5YCL5a2X5YWD44CC","","aHR0cDovLw==","aHR0cHM6Ly8=","","ZGV2aWNl","ZGV2aWNlX2lk","cGFpcg==","cGFpcl90b2tlbg==","ZGV2aWNl","ZGV2aWNlX2lk","cGFpcg==","cGFpcl90b2tlbg==","","55uj5ris56uv","LQ==","LQ==","ZW4tVVM=","LQ==","LQ==","LQ==","5bey5Zyo5Y2A6ZaT","LQ==","MA==","LQ==","MA==","LQ==","emgtVFc=","JmFtcDs=","Jmx0Ow==","Jmd0Ow==","JnF1b3Q7","JiMzOTs="];const __atgSiteTplParts=[["","",""],["55uj5ris56uv6LOH5paZ5bey5pu05paw77ya",""],["6Zuy56uv6LOH5paZ5bey5pu05paw77ya",""],["566h55CG6LOH5paZ6K6A5Y+W5aSx5pWX77ya",""],["5pyD5ZOh5qyK6ZmQ5pu05paw5aSx5pWX77ya",""],["5Lu75YuZ55m85biD5aSx5pWX77ya",""],["5ZWG5ZOB55m85biD5aSx5pWX77ya",""],["5Lu75YuZ54uA5oWL5pu05paw5aSx5pWX77ya",""],["5ZWG5ZOB54uA5oWL5pu05paw5aSx5pWX77ya",""],["5a6M5oiQ5Lu75YuZ77ya",""],["5YWM5o+b77ya",""],["5YWM5o+b5a6M5oiQ77yM5Y2h6JmfIA==",""],["5aSW6YOo5qmL5o6l6LOH5paZ6Kej5p6Q5aSx5pWX77ya",""],["dmlldy0=",""],["5bey6YCB5Ye66YCy5YWlIA==","IOeahOaMh+S7pOOAgg=="],["5pu05pawIA==",""],["CiAgICAgIDxzcGFuIGNsYXNzPSJkZXZpY2UtcGlsbCI+CiAgICAgICAgPGI+","PC9iPgogICAgICAgIA==","CiAgICAgICAg","CiAgICAgIDwvc3Bhbj4KICAgIA=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPg==","PC9kaXY+"],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuebruWJjeaykuacieespuWQiOevqemBuOaineS7tueahOaIv+mWk+OAgjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPui8ieWFpeacg+WToea4heWWruS4rS4uLjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPui8ieWFpeS7u+WLmeS4rS4uLjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPui8ieWFpeWVhuWTgeS4rS4uLjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuWwmueEoeacg+WToeizh+aWmeOAgjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuebruWJjeaykuacieS7u+WLmeOAgjwvZGl2Pg=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuebruWJjeaykuacieWVhuWTgeOAgjwvZGl2Pg=="],["PG9wdGlvbiB2YWx1ZT0i","IiA=","Pg==","PC9vcHRpb24+"],["CiAgICA8YXJ0aWNsZSBjbGFzcz0iYWRtaW4tY2FyZCIgZGF0YS1hZG1pbi1yb3ctaWQ9Ig==","Ij4KICAgICAgPGRpdiBjbGFzcz0iYWRtaW4tbWVtYmVyIj4KICAgICAgICA8c3Ryb25nPg==","PC9zdHJvbmc+CiAgICAgICAgPHNwYW4+","IC8g","PC9zcGFuPgogICAgICAgIDxzbWFsbD4=","PC9zbWFsbD4KICAgICAgPC9kaXY+CiAgICAgIDxsYWJlbD4KICAgICAgICDmrIrpmZAKICAgICAgICA8c2VsZWN0IGRhdGEtYWRtaW4tcm9sZSA=","PgogICAgICAgICAg","CiAgICAgICAgPC9zZWxlY3Q+CiAgICAgIDwvbGFiZWw+CiAgICAgIDxsYWJlbD4KICAgICAgICDnqLHomZ8KICAgICAgICA8aW5wdXQgZGF0YS1hZG1pbi1iYWRnZSB0eXBlPSJ0ZXh0IiB2YWx1ZT0i","Ij4KICAgICAgPC9sYWJlbD4KICAgICAgPGxhYmVsPgogICAgICAgIOepjeWIhgogICAgICAgIDxpbnB1dCBkYXRhLWFkbWluLXBvaW50cyB0eXBlPSJudW1iZXIiIG1pbj0iMCIgc3RlcD0iMSIgdmFsdWU9Ig==","Ij4KICAgICAgPC9sYWJlbD4KICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGRhdGEtYWRtaW4tc2F2ZS1pZD0i","IiA=","PuWEsuWtmDwvYnV0dG9uPgogICAgPC9hcnRpY2xlPgogIA=="],["CiAgICA8YXJ0aWNsZSBjbGFzcz0iYWRtaW4tbGlzdC1pdGVtIj4KICAgICAgPGRpdj4KICAgICAgICA8c3Ryb25nPg==","PC9zdHJvbmc+CiAgICAgICAgPHNwYW4+Kw==","IOepjeWIhiAvIOaOkuW6jyA=","PC9zcGFuPgogICAgICAgIDxzbWFsbD4=","PC9zbWFsbD4KICAgICAgPC9kaXY+CiAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0i","IiBkYXRhLWFkbWluLXRvZ2dsZS10YXNrPSI=","IiBkYXRhLWFjdGl2ZT0i","IiA=","PgogICAgICAgIA==","CiAgICAgIDwvYnV0dG9uPgogICAgPC9hcnRpY2xlPgogIA=="],["CiAgICA8YXJ0aWNsZSBjbGFzcz0iYWRtaW4tbGlzdC1pdGVtIj4KICAgICAgPGRpdj4KICAgICAgICA8c3Ryb25nPg==","PC9zdHJvbmc+CiAgICAgICAgPHNwYW4+","IOepjeWIhiAvIOaOkuW6jyA=","PC9zcGFuPgogICAgICAgIDxzbWFsbD4=","PC9zbWFsbD4KICAgICAgPC9kaXY+CiAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0i","IiBkYXRhLWFkbWluLXRvZ2dsZS1yZXdhcmQ9Ig==","IiBkYXRhLWFjdGl2ZT0i","IiA=","PgogICAgICAgIA==","CiAgICAgIDwvYnV0dG9uPgogICAgPC9hcnRpY2xlPgogIA=="],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuWwmueEoeepjeWIhue0gOmMhOOAgjwvZGl2Pg=="],["CiAgICAgICAgPGFydGljbGUgY2xhc3M9InJlY29yZC1jYXJkIj4KICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgIDxzdHJvbmc+","PC9zdHJvbmc+CiAgICAgICAgICAgIDxzbWFsbD4=","PC9zbWFsbD4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPHNwYW4gY2xhc3M9Ig==","Ij4=","","PC9zcGFuPgogICAgICAgIDwvYXJ0aWNsZT4KICAgICAg"],["CiAgICAgICAgPGFydGljbGUgY2xhc3M9ImNhdGFsb2ctY2FyZCI+CiAgICAgICAgICA8ZGl2IGNsYXNzPSJjYXRhbG9nLW1ldGEiPgogICAgICAgICAgICA8c3Bhbj7ku7vli5k8L3NwYW4+CiAgICAgICAgICAgIDxiPis=","IOepjeWIhjwvYj4KICAgICAgICAgIDwvZGl2PgogICAgICAgICAgPGgzPg==","PC9oMz4KICAgICAgICAgIDxwPg==","PC9wPgogICAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGRhdGEtdGFzay1pZD0i","IiA=","Pg==","PC9idXR0b24+CiAgICAgICAgPC9hcnRpY2xlPgogICAgICA="],["CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJjYXRhbG9nLWNhcmQiPgogICAgICAgIDxkaXYgY2xhc3M9ImNhdGFsb2ctbWV0YSI+CiAgICAgICAgICA8c3Bhbj7lhYzmj5s8L3NwYW4+CiAgICAgICAgICA8Yj4=","IOepjeWIhjwvYj4KICAgICAgICA8L2Rpdj4KICAgICAgICA8aDM+","PC9oMz4KICAgICAgICA8cD4=","PC9wPgogICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBkYXRhLXJld2FyZC1pZD0i","Ij7nq4vljbPlhYzmj5s8L2J1dHRvbj4KICAgICAgPC9hcnRpY2xlPgogICAg"],["PGRpdiBjbGFzcz0iZW1wdHktc3RhdGUiPuWwmueEoeWFjOaPm+WNoeiZn+OAgjwvZGl2Pg=="],["CiAgICAgIDxhcnRpY2xlIGNsYXNzPSJyZWNvcmQtY2FyZCI+CiAgICAgICAgPGRpdj4KICAgICAgICAgIDxzdHJvbmc+","PC9zdHJvbmc+CiAgICAgICAgICA8c21hbGw+","IC8g5raI6ICXIA==","IOepjeWIhjwvc21hbGw+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPHNwYW4gY2xhc3M9ImhvdC10ZXh0Ij4=","PC9zcGFuPgogICAgICA8L2FydGljbGU+CiAgICA="],["PHNwYW4+","PC9zcGFuPg=="],["PGRpdiBjbGFzcz0icmVhc29uLWxpc3QiPg==","PC9kaXY+"],["CiAgICA8YXJ0aWNsZSBjbGFzcz0icm9vbS1jYXJkIj4KICAgICAgPGRpdiBjbGFzcz0icm9vbS1oZWFkIj4KICAgICAgICA8ZGl2IGNsYXNzPSJtYWNoaW5lIj4KICAgICAgICAgIDxzdHJvbmc+","PC9zdHJvbmc+CiAgICAgICAgICA8c3Bhbj4=","PC9zcGFuPgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9InNjb3JlLXN0YWNrIj4KICAgICAgICAgIDxkaXYgY2xhc3M9InNjb3JlLXBpbGwgcmFuayI+PHNwYW4+5Zue5aCx5YiGPC9zcGFuPjxiPg==","PC9iPjwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzcz0ic2NvcmUtcGlsbCBidXJzdCI+PHNwYW4+54iG56C05Y+v6IO9PC9zcGFuPjxiPg==","JTwvYj48L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9ImVuZXJneSIgdGl0bGU9IueIhuegtOWPr+iDvSA=","JSI+CiAgICAgICAgPHNwYW4gY2xhc3M9ImVuZXJneS1maWxsIiBzdHlsZT0id2lkdGg6","JSI+PC9zcGFuPgogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzcz0ibWV0cmljcyI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7loLHnjoc8c3Ryb25nIGNsYXNzPSJyYXRlIj4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7kuIvms6g8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7ni4DmhYs8c3Ryb25nIGNsYXNzPSI=","Ij4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJkZXRhaWwtZ3JpZCI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7ku4rml6U8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7liY3kuIDlsI/mmYI8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7ov5EzMOaXpTxzdHJvbmc+","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJmcmVlLWdyaWQiPgogICAgICAgIDxkaXYgY2xhc3M9Im1ldHJpYyI+5pyq6ZaL6L2J5pW4PHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7liY3kuIDovYnmlbg8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7liY3kuozovYnmlbg8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJwb2ludC1ncmlkIj4KICAgICAgICA8ZGl2IGNsYXNzPSJtZXRyaWMiPumrmOeIhum7nuaVuDxzdHJvbmc+","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7llq7ovYnmiJDmnKw8c3Ryb25nPg==","IA==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7poJDkvLDovYnmlbg8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj4=","PHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJwb2ludC1ncmlkIGZvcmVjYXN0LWdyaWQiPgogICAgICAgIDxkaXYgY2xhc3M9Im1ldHJpYyI+5YWN6YGK55uu5qiZPHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7pgLHmnJ/ljYDplpM8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7lianppJjljYDplpM8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj4=","PHN0cm9uZz4=","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJkZXRhaWwtZ3JpZCI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7li5Xog708c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7pgLHmnJ/lo5Plips8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7lm57okL3poqjpmqo8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA8ZGl2IGNsYXNzPSJkZXRhaWwtZ3JpZCI+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7mqKPmnKzlj6/kv6E8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7mqKPmnKznvLrlj6M8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0ibWV0cmljIj7mqKPmnKznm67mqJk8c3Ryb25nPg==","PC9zdHJvbmc+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgICA=","CiAgICAgIDxkaXYgY2xhc3M9InJvb20tYWN0aW9ucyI+CiAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGRhdGEtZW50ZXItcm9vbS1pZD0i","IiBkYXRhLWVudGVyLXJvb20tbnVtYmVyPSI=","IiA=","PumAsuWFpTwvYnV0dG9uPgogICAgICA8L2Rpdj4KICAgIDwvYXJ0aWNsZT4KICA="],["","IA==",""],["YXRnVGhlcm1hbFBvcnRhbDo=",""],["QVRHLQ==","LQ==","LQ==",""],["aHR0cHM6Ly8=",""],["","","",""],["","Li4u",""],["","JQ=="],["","JQ=="],["","IOi9iQ=="],["","LQ==","IOi9iQ=="],["","IOi9iQ=="],["","LQ==","IOi9iQ=="],["","LQ==",""]];const __atgSiteText=(i)=>__atgBase64(__atgSiteStrings[i]);const __atgSiteTpl=(i,...v)=>{const p=__atgSiteTplParts[i].map(__atgBase64);let o=p[0]||"";for(let j=0;j<v.length;j+=1)o+=v[j]+(p[j+1]||"");return o;};
 const PAGE_SOURCE = __atgSiteText(0);
 const EXT_SOURCE = __atgSiteText(1);
 const DEFAULT_NOTICE = __atgSiteText(2);
@@ -116,67 +116,86 @@ orders: []
 admin: {
 loading: false,
 status: __atgSiteText(45),
-profiles: []
+profiles: [],
+tasks: [],
+rewards: []
 }
 };
 const els = {
 adminList: byId(__atgSiteText(46)),
 adminNav: byId(__atgSiteText(47)),
-adminRefreshBtn: byId(__atgSiteText(48)),
-adminStatus: byId(__atgSiteText(49)),
-accountPoints: byId(__atgSiteText(50)),
-accountRole: byId(__atgSiteText(51)),
-accountStatus: byId(__atgSiteText(52)),
-authEmail: byId(__atgSiteText(53)),
-authForm: byId(__atgSiteText(54)),
-authPassword: byId(__atgSiteText(55)),
-authStatus: byId(__atgSiteText(56)),
-boundUrlText: byId(__atgSiteText(57)),
-bridgeStatus: byId(__atgSiteText(58)),
-cardsList: byId(__atgSiteText(59)),
-checkinBtn: byId(__atgSiteText(60)),
-cloudBtn: byId(__atgSiteText(61)),
-cloudStatus: byId(__atgSiteText(62)),
-deviceList: byId(__atgSiteText(63)),
-devicePairStatus: byId(__atgSiteText(64)),
-connectBtn: byId(__atgSiteText(65)),
-displayBadge: byId(__atgSiteText(66)),
-displayPoints: byId(__atgSiteText(67)),
-filterBet: byId(__atgSiteText(68)),
-filterBurst: byId(__atgSiteText(69)),
-filterRank: byId(__atgSiteText(70)),
-filterRate: byId(__atgSiteText(71)),
-filterSearch: byId(__atgSiteText(72)),
-gameStatus: byId(__atgSiteText(73)),
-ledgerList: byId(__atgSiteText(74)),
-loginBtn: byId(__atgSiteText(75)),
-logoutBtn: byId(__atgSiteText(76)),
-monitorBtn: byId(__atgSiteText(77)),
-notice: byId(__atgSiteText(78)),
-onlyEmptyInput: byId(__atgSiteText(79)),
-openSourceBtn: byId(__atgSiteText(80)),
-pointUnitInput: byId(__atgSiteText(81)),
-refreshBtn: byId(__atgSiteText(82)),
-rewardsList: byId(__atgSiteText(83)),
-roomCount: byId(__atgSiteText(84)),
-rooms: byId(__atgSiteText(85)),
-saveSourceBtn: byId(__atgSiteText(86)),
-sortMode: byId(__atgSiteText(87)),
-sourceUrlInput: byId(__atgSiteText(88)),
-signupBtn: byId(__atgSiteText(89)),
-tasksList: byId(__atgSiteText(90)),
-updatedAt: byId(__atgSiteText(91)),
-userEmail: byId(__atgSiteText(92)),
-viewTitle: byId(__atgSiteText(93))
+adminPublishRewardBtn: byId(__atgSiteText(48)),
+adminPublishTaskBtn: byId(__atgSiteText(49)),
+adminRefreshBtn: byId(__atgSiteText(50)),
+adminRewardCost: byId(__atgSiteText(51)),
+adminRewardCount: byId(__atgSiteText(52)),
+adminRewardDesc: byId(__atgSiteText(53)),
+adminRewardList: byId(__atgSiteText(54)),
+adminRewardSort: byId(__atgSiteText(55)),
+adminRewardTitle: byId(__atgSiteText(56)),
+adminStatus: byId(__atgSiteText(57)),
+adminTaskCount: byId(__atgSiteText(58)),
+adminTaskDesc: byId(__atgSiteText(59)),
+adminTaskList: byId(__atgSiteText(60)),
+adminTaskPrefix: byId(__atgSiteText(61)),
+adminTaskReward: byId(__atgSiteText(62)),
+adminTaskSort: byId(__atgSiteText(63)),
+adminTaskTitle: byId(__atgSiteText(64)),
+adminTaskUrl: byId(__atgSiteText(65)),
+adminUserCount: byId(__atgSiteText(66)),
+accountPoints: byId(__atgSiteText(67)),
+accountRole: byId(__atgSiteText(68)),
+accountStatus: byId(__atgSiteText(69)),
+authEmail: byId(__atgSiteText(70)),
+authForm: byId(__atgSiteText(71)),
+authPassword: byId(__atgSiteText(72)),
+authStatus: byId(__atgSiteText(73)),
+boundUrlText: byId(__atgSiteText(74)),
+bridgeStatus: byId(__atgSiteText(75)),
+cardsList: byId(__atgSiteText(76)),
+checkinBtn: byId(__atgSiteText(77)),
+cloudBtn: byId(__atgSiteText(78)),
+cloudStatus: byId(__atgSiteText(79)),
+deviceList: byId(__atgSiteText(80)),
+devicePairStatus: byId(__atgSiteText(81)),
+connectBtn: byId(__atgSiteText(82)),
+displayBadge: byId(__atgSiteText(83)),
+displayPoints: byId(__atgSiteText(84)),
+filterBet: byId(__atgSiteText(85)),
+filterBurst: byId(__atgSiteText(86)),
+filterRank: byId(__atgSiteText(87)),
+filterRate: byId(__atgSiteText(88)),
+filterSearch: byId(__atgSiteText(89)),
+gameStatus: byId(__atgSiteText(90)),
+ledgerList: byId(__atgSiteText(91)),
+loginBtn: byId(__atgSiteText(92)),
+logoutBtn: byId(__atgSiteText(93)),
+monitorBtn: byId(__atgSiteText(94)),
+notice: byId(__atgSiteText(95)),
+onlyEmptyInput: byId(__atgSiteText(96)),
+openSourceBtn: byId(__atgSiteText(97)),
+pointUnitInput: byId(__atgSiteText(98)),
+refreshBtn: byId(__atgSiteText(99)),
+rewardsList: byId(__atgSiteText(100)),
+roomCount: byId(__atgSiteText(101)),
+rooms: byId(__atgSiteText(102)),
+saveSourceBtn: byId(__atgSiteText(103)),
+sortMode: byId(__atgSiteText(104)),
+sourceUrlInput: byId(__atgSiteText(105)),
+signupBtn: byId(__atgSiteText(106)),
+tasksList: byId(__atgSiteText(107)),
+updatedAt: byId(__atgSiteText(108)),
+userEmail: byId(__atgSiteText(109)),
+viewTitle: byId(__atgSiteText(110))
 };
 const viewTitles = {
-monitor: __atgSiteText(94),
-modules: __atgSiteText(95),
-account: __atgSiteText(96),
-tasks: __atgSiteText(97),
-redeem: __atgSiteText(98),
-cards: __atgSiteText(99),
-admin: __atgSiteText(100)
+monitor: __atgSiteText(111),
+modules: __atgSiteText(112),
+account: __atgSiteText(113),
+tasks: __atgSiteText(114),
+redeem: __atgSiteText(115),
+cards: __atgSiteText(116),
+admin: __atgSiteText(117)
 };
 bindEvents();
 initAuth();
@@ -189,51 +208,63 @@ function byId(id) {
 return document.getElementById(id);
 }
 function bindEvents() {
-window.addEventListener(__atgSiteText(101), handleWindowMessage);
-els.authForm.addEventListener(__atgSiteText(102), (event) => {
+window.addEventListener(__atgSiteText(118), handleWindowMessage);
+els.authForm.addEventListener(__atgSiteText(119), (event) => {
 event.preventDefault();
 signIn();
 });
-els.signupBtn.addEventListener(__atgSiteText(103), signUp);
-els.logoutBtn.addEventListener(__atgSiteText(104), signOut);
-els.cloudBtn.addEventListener(__atgSiteText(105), toggleCloudPublishing);
-els.connectBtn.addEventListener(__atgSiteText(106), connect);
-els.monitorBtn.addEventListener(__atgSiteText(107), () => send(__atgSiteText(108)));
-els.refreshBtn.addEventListener(__atgSiteText(109), () => send(__atgSiteText(110)));
-els.pointUnitInput.addEventListener(__atgSiteText(111), updatePointUnit);
-els.pointUnitInput.addEventListener(__atgSiteText(112), updatePointUnit);
-els.saveSourceBtn.addEventListener(__atgSiteText(113), saveBoundUrl);
-els.openSourceBtn.addEventListener(__atgSiteText(114), openBoundUrl);
-els.checkinBtn.addEventListener(__atgSiteText(115), claimCheckin);
-els.adminRefreshBtn.addEventListener(__atgSiteText(116), loadAdminProfiles);
+els.signupBtn.addEventListener(__atgSiteText(120), signUp);
+els.logoutBtn.addEventListener(__atgSiteText(121), signOut);
+els.cloudBtn.addEventListener(__atgSiteText(122), toggleCloudPublishing);
+els.connectBtn.addEventListener(__atgSiteText(123), connect);
+els.monitorBtn.addEventListener(__atgSiteText(124), () => send(__atgSiteText(125)));
+els.refreshBtn.addEventListener(__atgSiteText(126), () => send(__atgSiteText(127)));
+els.pointUnitInput.addEventListener(__atgSiteText(128), updatePointUnit);
+els.pointUnitInput.addEventListener(__atgSiteText(129), updatePointUnit);
+els.saveSourceBtn.addEventListener(__atgSiteText(130), saveBoundUrl);
+els.openSourceBtn.addEventListener(__atgSiteText(131), openBoundUrl);
+els.checkinBtn.addEventListener(__atgSiteText(132), claimCheckin);
+els.adminRefreshBtn.addEventListener(__atgSiteText(133), loadAdminWorkspace);
+els.adminPublishTaskBtn.addEventListener(__atgSiteText(134), publishAdminTask);
+els.adminPublishRewardBtn.addEventListener(__atgSiteText(135), publishAdminReward);
 for (const input of [els.filterSearch, els.filterRank, els.filterBurst, els.filterRate, els.filterBet, els.onlyEmptyInput, els.sortMode]) {
-input.addEventListener(__atgSiteText(117), updateFiltersFromInputs);
-input.addEventListener(__atgSiteText(118), updateFiltersFromInputs);
+input.addEventListener(__atgSiteText(136), updateFiltersFromInputs);
+input.addEventListener(__atgSiteText(137), updateFiltersFromInputs);
 }
-document.addEventListener(__atgSiteText(119), (event) => {
-const nav = event.target.closest(__atgSiteText(120));
+document.addEventListener(__atgSiteText(138), (event) => {
+const nav = event.target.closest(__atgSiteText(139));
 if (nav) {
 setActiveView(nav.dataset.view);
 return;
 }
-const enter = event.target.closest(__atgSiteText(121));
+const enter = event.target.closest(__atgSiteText(140));
 if (enter) {
 enterRoom(enter.dataset.enterRoomId, enter.dataset.enterRoomNumber);
 return;
 }
-const task = event.target.closest(__atgSiteText(122));
+const task = event.target.closest(__atgSiteText(141));
 if (task) {
 completeTask(task.dataset.taskId);
 return;
 }
-const reward = event.target.closest(__atgSiteText(123));
+const reward = event.target.closest(__atgSiteText(142));
 if (reward) {
 redeemReward(reward.dataset.rewardId);
 return;
 }
-const adminSave = event.target.closest(__atgSiteText(124));
+const adminSave = event.target.closest(__atgSiteText(143));
 if (adminSave) {
 saveAdminProfile(adminSave.dataset.adminSaveId);
+return;
+}
+const adminToggleTask = event.target.closest(__atgSiteText(144));
+if (adminToggleTask) {
+setAdminTaskActive(adminToggleTask.dataset.adminToggleTask, adminToggleTask.dataset.active !== __atgSiteText(145));
+return;
+}
+const adminToggleReward = event.target.closest(__atgSiteText(146));
+if (adminToggleReward) {
+setAdminRewardActive(adminToggleReward.dataset.adminToggleReward, adminToggleReward.dataset.active !== __atgSiteText(147));
 }
 });
 window.updateAtgSnapshotFromPython = updateSnapshotFromExternalBridge;
@@ -243,30 +274,30 @@ function handleWindowMessage(event) {
 if (event.source !== window) return;
 const message = event.data;
 if (!message || message.source !== EXT_SOURCE) return;
-if (message.type === __atgSiteText(125)) {
+if (message.type === __atgSiteText(148)) {
 state.bridgeReady = true;
 if (isAuthenticated()) connect();
 render();
 return;
 }
 if (!isAuthenticated()) return;
-if (message.type === __atgSiteText(126)) {
+if (message.type === __atgSiteText(149)) {
 state.bridgeConnected = true;
-state.notice = __atgSiteText(127);
+state.notice = __atgSiteText(150);
 getSnapshot();
-} else if (message.type === __atgSiteText(128)) {
+} else if (message.type === __atgSiteText(151)) {
 state.bridgeConnected = false;
 state.autoMonitorRequested = false;
-state.notice = __atgSiteText(129);
-} else if (message.type === __atgSiteText(130)) {
-state.notice = message.payload && message.payload.message ? message.payload.message : __atgSiteText(131);
-} else if (message.type === __atgSiteText(132)) {
+state.notice = __atgSiteText(152);
+} else if (message.type === __atgSiteText(153)) {
+state.notice = message.payload && message.payload.message ? message.payload.message : __atgSiteText(154);
+} else if (message.type === __atgSiteText(155)) {
 state.bridgeConnected = true;
 state.snapshot = message.payload && message.payload.snapshot ? message.payload.snapshot : message.payload;
-state.notice = state.snapshot && state.snapshot.lastMessage ? state.snapshot.lastMessage : __atgSiteText(133);
+state.notice = state.snapshot && state.snapshot.lastMessage ? state.snapshot.lastMessage : __atgSiteText(156);
 maybeAutoStartMonitoring();
 scheduleCloudPublish();
-} else if (message.type === __atgSiteText(134)) {
+} else if (message.type === __atgSiteText(157)) {
 const payload = message.payload || {};
 state.notice = payload.message || state.notice;
 }
@@ -276,13 +307,13 @@ async function initAuth() {
 const config = window.ATG_SUPABASE_CONFIG || {};
 if (!hasValidSupabaseConfig(config)) {
 state.auth.configured = false;
-state.auth.status = __atgSiteText(135);
+state.auth.status = __atgSiteText(158);
 renderAuth();
 return;
 }
-if (!window.supabase || typeof window.supabase.createClient !== __atgSiteText(136)) {
+if (!window.supabase || typeof window.supabase.createClient !== __atgSiteText(159)) {
 state.auth.configured = false;
-state.auth.status = __atgSiteText(137);
+state.auth.status = __atgSiteText(160);
 renderAuth();
 return;
 }
@@ -298,13 +329,13 @@ try {
 const { data, error } = await state.auth.client.auth.getSession();
 if (error) throw error;
 state.auth.user = data && data.session ? data.session.user : null;
-state.auth.status = state.auth.user ? __atgSiteText(138) : __atgSiteText(139);
+state.auth.status = state.auth.user ? __atgSiteText(161) : __atgSiteText(162);
 } catch (error) {
 state.auth.status = formatAuthError(error);
 }
 state.auth.client.auth.onAuthStateChange((_event, session) => {
 state.auth.user = session ? session.user : null;
-state.auth.status = state.auth.user ? __atgSiteText(140) : __atgSiteText(141);
+state.auth.status = state.auth.user ? __atgSiteText(163) : __atgSiteText(164);
 if (!state.auth.user) {
 clearDashboard();
 teardownCloud();
@@ -322,7 +353,7 @@ if (state.auth.user) afterSignedIn();
 }
 async function afterSignedIn() {
 await loadPortal();
-await loadAdminProfiles();
+await loadAdminWorkspace();
 await setupDevices();
 await setupCloud();
 connect();
@@ -332,14 +363,14 @@ if (!requireAuthClient()) return;
 const credentials = readCredentials();
 if (!credentials) return;
 state.auth.busy = true;
-state.auth.status = __atgSiteText(142);
+state.auth.status = __atgSiteText(165);
 renderAuth();
 try {
 const { data, error } = await state.auth.client.auth.signInWithPassword(credentials);
 if (error) throw error;
 state.auth.user = data && data.session ? data.session.user : state.auth.user;
-els.authPassword.value = __atgSiteText(143);
-state.auth.status = __atgSiteText(144);
+els.authPassword.value = __atgSiteText(166);
+state.auth.status = __atgSiteText(167);
 } catch (error) {
 state.auth.status = formatAuthError(error);
 } finally {
@@ -353,7 +384,7 @@ if (!requireAuthClient()) return;
 const credentials = readCredentials();
 if (!credentials) return;
 state.auth.busy = true;
-state.auth.status = __atgSiteText(145);
+state.auth.status = __atgSiteText(168);
 renderAuth();
 try {
 const { data, error } = await state.auth.client.auth.signUp({
@@ -364,8 +395,8 @@ emailRedirectTo: __atgSiteTpl(0,window.location.origin,window.location.pathname)
 });
 if (error) throw error;
 state.auth.user = data && data.session ? data.session.user : state.auth.user;
-els.authPassword.value = __atgSiteText(146);
-state.auth.status = data && data.session ? __atgSiteText(147) : __atgSiteText(148);
+els.authPassword.value = __atgSiteText(169);
+state.auth.status = data && data.session ? __atgSiteText(170) : __atgSiteText(171);
 } catch (error) {
 state.auth.status = formatAuthError(error);
 } finally {
@@ -377,7 +408,7 @@ if (state.auth.user) afterSignedIn();
 async function signOut() {
 if (!state.auth.client) return;
 state.auth.busy = true;
-state.auth.status = __atgSiteText(149);
+state.auth.status = __atgSiteText(172);
 renderAuth();
 try {
 const { error } = await state.auth.client.auth.signOut();
@@ -388,7 +419,7 @@ teardownDevices();
 clearDashboard();
 clearPortal();
 clearAdmin();
-state.auth.status = __atgSiteText(150);
+state.auth.status = __atgSiteText(173);
 } catch (error) {
 state.auth.status = formatAuthError(error);
 } finally {
@@ -398,7 +429,7 @@ render();
 }
 function connect() {
 if (!requireSignedIn()) return;
-send(__atgSiteText(151));
+send(__atgSiteText(174));
 }
 function maybeAutoStartMonitoring() {
 const snapshot = state.snapshot;
@@ -406,37 +437,37 @@ if (!state.bridgeConnected || !snapshot || !snapshot.connected) return;
 if (snapshot.monitoring || snapshot.scanning || snapshot.detailsScanning) return;
 if (state.autoMonitorRequested) return;
 state.autoMonitorRequested = true;
-state.notice = __atgSiteText(152);
-send(__atgSiteText(153));
+state.notice = __atgSiteText(175);
+send(__atgSiteText(176));
 }
 function getSnapshot() {
 if (!isAuthenticated()) return;
-send(__atgSiteText(154));
+send(__atgSiteText(177));
 }
 function send(type, payload = {}) {
 if (!isAuthenticated()) return;
-window.postMessage({ source: PAGE_SOURCE, type, ...payload }, __atgSiteText(155));
+window.postMessage({ source: PAGE_SOURCE, type, ...payload }, __atgSiteText(178));
 }
 function updatePointUnit() {
 if (!isAuthenticated()) return;
 const pointUnit = clamp(number(els.pointUnitInput.value), 0, 100000);
 els.pointUnitInput.value = String(pointUnit);
-send(__atgSiteText(156), { settings: { pointUnit } });
+send(__atgSiteText(179), { settings: { pointUnit } });
 }
 async function setupDevices() {
 if (!state.auth.client || !state.auth.user) return;
 teardownDevices();
-state.devices.status = state.devices.pendingPair ? __atgSiteText(157) : __atgSiteText(158);
+state.devices.status = state.devices.pendingPair ? __atgSiteText(180) : __atgSiteText(181);
 renderDevices();
 try {
 await claimPendingDevice();
 await loadDevices();
 await loadLatestDeviceSnapshot();
 state.devices.channel = state.auth.client
-.channel(__atgSiteText(159))
+.channel(__atgSiteText(182))
 .on(
-__atgSiteText(160),
-{ event: __atgSiteText(161), schema: __atgSiteText(162), table: __atgSiteText(163) },
+__atgSiteText(183),
+{ event: __atgSiteText(184), schema: __atgSiteText(185), table: __atgSiteText(186) },
 (payload) => {
 if (payload.new && payload.new.snapshot) {
 applyDeviceSnapshot(payload.new.snapshot, payload.new.updated_at, payload.new.device_id);
@@ -445,15 +476,15 @@ loadDevices();
 }
 )
 .subscribe((status) => {
-if (status === __atgSiteText(164)) {
-state.devices.status = state.devices.items.length ? __atgSiteText(165) : __atgSiteText(166);
+if (status === __atgSiteText(187)) {
+state.devices.status = state.devices.items.length ? __atgSiteText(188) : __atgSiteText(189);
 } else {
-state.devices.status = __atgSiteText(167);
+state.devices.status = __atgSiteText(190);
 }
 renderDevices();
 });
 } catch (error) {
-state.devices.status = __atgSiteText(168);
+state.devices.status = __atgSiteText(191);
 renderDevices();
 }
 }
@@ -463,38 +494,38 @@ state.auth.client.removeChannel(state.devices.channel);
 }
 state.devices.channel = null;
 state.devices.items = [];
-state.devices.status = state.devices.pendingPair ? __atgSiteText(169) : __atgSiteText(170);
+state.devices.status = state.devices.pendingPair ? __atgSiteText(192) : __atgSiteText(193);
 }
 async function claimPendingDevice() {
 const pair = state.devices.pendingPair;
 if (!pair || !state.auth.client) return;
-const { data, error } = await state.auth.client.rpc(__atgSiteText(171), {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(194), {
 p_device_id: pair.deviceId,
 p_pair_token: pair.pairToken
 });
 if (error) throw error;
-state.devices.status = rpcMessage(data, __atgSiteText(172));
+state.devices.status = rpcMessage(data, __atgSiteText(195));
 state.devices.pendingPair = null;
 clearPairParams();
 }
 async function loadDevices() {
 if (!state.auth.client) return;
 const { data, error } = await state.auth.client
-.from(__atgSiteText(173))
-.select(__atgSiteText(174))
-.order(__atgSiteText(175), { ascending: false, nullsFirst: false })
+.from(__atgSiteText(196))
+.select(__atgSiteText(197))
+.order(__atgSiteText(198), { ascending: false, nullsFirst: false })
 .limit(20);
 if (error) throw error;
 state.devices.items = data || [];
-if (!state.devices.items.length) state.devices.status = __atgSiteText(176);
+if (!state.devices.items.length) state.devices.status = __atgSiteText(199);
 renderDevices();
 }
 async function loadLatestDeviceSnapshot() {
 if (!state.auth.client) return;
 const { data, error } = await state.auth.client
-.from(__atgSiteText(177))
-.select(__atgSiteText(178))
-.order(__atgSiteText(179), { ascending: false })
+.from(__atgSiteText(200))
+.select(__atgSiteText(201))
+.order(__atgSiteText(202), { ascending: false })
 .limit(1);
 if (error) throw error;
 const latest = data && data[0];
@@ -511,41 +542,41 @@ deviceId,
 deviceUpdatedAt: updatedAt || null
 };
 state.notice = updatedAt
-? __atgSiteTpl(1,new Date(updatedAt).toLocaleTimeString(__atgSiteText(180), { hour12: false }))
-: __atgSiteText(181);
+? __atgSiteTpl(1,new Date(updatedAt).toLocaleTimeString(__atgSiteText(203), { hour12: false }))
+: __atgSiteText(204);
 render();
 }
 async function setupCloud() {
 if (!state.auth.client || !state.auth.user) return;
 teardownCloud();
-state.cloud.status = __atgSiteText(182);
+state.cloud.status = __atgSiteText(205);
 state.cloud.canPublish = false;
 state.cloud.publishing = false;
 renderCloudControls();
 try {
 const { data: broadcaster, error: broadcasterError } = await state.auth.client
-.from(__atgSiteText(183))
-.select(__atgSiteText(184))
-.eq(__atgSiteText(185), state.auth.user.id)
+.from(__atgSiteText(206))
+.select(__atgSiteText(207))
+.eq(__atgSiteText(208), state.auth.user.id)
 .maybeSingle();
-if (broadcasterError && broadcasterError.code !== __atgSiteText(186)) throw broadcasterError;
+if (broadcasterError && broadcasterError.code !== __atgSiteText(209)) throw broadcasterError;
 state.cloud.canPublish = Boolean(broadcaster);
 state.cloud.publishing = state.cloud.canPublish;
 } catch (error) {
-state.cloud.status = __atgSiteText(187);
+state.cloud.status = __atgSiteText(210);
 render();
 return;
 }
 await loadCloudSnapshot();
 state.cloud.channel = state.auth.client
-.channel(__atgSiteText(188))
+.channel(__atgSiteText(211))
 .on(
-__atgSiteText(189),
-{ event: __atgSiteText(190), schema: __atgSiteText(191), table: __atgSiteText(192), filter: __atgSiteText(193) },
+__atgSiteText(212),
+{ event: __atgSiteText(213), schema: __atgSiteText(214), table: __atgSiteText(215), filter: __atgSiteText(216) },
 (payload) => applyCloudSnapshot(payload.new && payload.new.snapshot, payload.new && payload.new.updated_at)
 )
 .subscribe((status) => {
-state.cloud.status = status === __atgSiteText(194) ? (state.cloud.canPublish ? __atgSiteText(195) : __atgSiteText(196)) : __atgSiteText(197);
+state.cloud.status = status === __atgSiteText(217) ? (state.cloud.canPublish ? __atgSiteText(218) : __atgSiteText(219)) : __atgSiteText(220);
 render();
 });
 render();
@@ -561,17 +592,17 @@ state.auth.client.removeChannel(state.cloud.channel);
 state.cloud.channel = null;
 state.cloud.canPublish = false;
 state.cloud.publishing = false;
-state.cloud.status = __atgSiteText(198);
+state.cloud.status = __atgSiteText(221);
 }
 async function loadCloudSnapshot() {
 if (!state.auth.client) return;
 const { data, error } = await state.auth.client
-.from(__atgSiteText(199))
-.select(__atgSiteText(200))
-.eq(__atgSiteText(201), __atgSiteText(202))
+.from(__atgSiteText(222))
+.select(__atgSiteText(223))
+.eq(__atgSiteText(224), __atgSiteText(225))
 .maybeSingle();
-if (error && error.code !== __atgSiteText(203)) {
-state.cloud.status = __atgSiteText(204);
+if (error && error.code !== __atgSiteText(226)) {
+state.cloud.status = __atgSiteText(227);
 return;
 }
 if (data && data.snapshot && !state.bridgeConnected) {
@@ -585,13 +616,13 @@ state.snapshot = {
 cloudMode: true,
 cloudUpdatedAt: updatedAt || null
 };
-state.notice = updatedAt ? __atgSiteTpl(2,new Date(updatedAt).toLocaleTimeString(__atgSiteText(205), { hour12: false })) : __atgSiteText(206);
+state.notice = updatedAt ? __atgSiteTpl(2,new Date(updatedAt).toLocaleTimeString(__atgSiteText(228), { hour12: false })) : __atgSiteText(229);
 render();
 }
 function toggleCloudPublishing() {
 if (!state.cloud.canPublish) return;
 state.cloud.publishing = !state.cloud.publishing;
-state.cloud.status = state.cloud.publishing ? __atgSiteText(207) : __atgSiteText(208);
+state.cloud.status = state.cloud.publishing ? __atgSiteText(230) : __atgSiteText(231);
 if (state.cloud.publishing) scheduleCloudPublish();
 render();
 }
@@ -613,20 +644,20 @@ cloudMode: false,
 publishedAt: Date.now(),
 publisher: state.auth.user.email || state.auth.user.id
 };
-const { error } = await state.auth.client.from(__atgSiteText(209)).upsert(
+const { error } = await state.auth.client.from(__atgSiteText(232)).upsert(
 {
-id: __atgSiteText(210),
+id: __atgSiteText(233),
 broadcaster_id: state.auth.user.id,
 snapshot,
 updated_at: new Date().toISOString()
 },
-{ onConflict: __atgSiteText(211) }
+{ onConflict: __atgSiteText(234) }
 );
 if (error) {
-state.cloud.status = __atgSiteText(212);
+state.cloud.status = __atgSiteText(235);
 } else {
 state.cloud.lastPublishedAt = Date.now();
-state.cloud.status = __atgSiteText(213);
+state.cloud.status = __atgSiteText(236);
 }
 render();
 }
@@ -635,7 +666,7 @@ if (!state.auth.user) return;
 const local = readLocalPortal();
 state.portal.loading = true;
 state.portal.dbReady = false;
-state.portal.status = __atgSiteText(214);
+state.portal.status = __atgSiteText(237);
 state.portal.profile = local.profile || fallbackProfile();
 state.portal.ledger = Array.isArray(local.ledger) ? local.ledger : [];
 state.portal.orders = Array.isArray(local.orders) ? local.orders : [];
@@ -645,7 +676,7 @@ state.portal.rewards = [...DEFAULT_REWARDS];
 renderPortal();
 if (!state.auth.client) {
 state.portal.loading = false;
-state.portal.status = __atgSiteText(215);
+state.portal.status = __atgSiteText(238);
 renderPortal();
 return;
 }
@@ -653,10 +684,10 @@ try {
 await ensureProfile();
 await Promise.all([loadProfile(), loadTasks(), loadRewards(), loadLedger(), loadOrders(), loadCompletedTasks()]);
 state.portal.dbReady = true;
-state.portal.status = __atgSiteText(216);
+state.portal.status = __atgSiteText(239);
 } catch (error) {
 state.portal.dbReady = false;
-state.portal.status = __atgSiteText(217);
+state.portal.status = __atgSiteText(240);
 } finally {
 state.portal.loading = false;
 persistLocalFromState();
@@ -665,24 +696,24 @@ renderPortal();
 }
 async function ensureProfile() {
 const user = state.auth.user;
-const displayName = (user.email || __atgSiteText(218)).split(__atgSiteText(219))[0];
-const { error } = await state.auth.client.from(__atgSiteText(220)).upsert(
+const displayName = (user.email || __atgSiteText(241)).split(__atgSiteText(242))[0];
+const { error } = await state.auth.client.from(__atgSiteText(243)).upsert(
 {
 id: user.id,
-email: user.email || __atgSiteText(221),
+email: user.email || __atgSiteText(244),
 display_name: displayName
 },
-{ onConflict: __atgSiteText(222) }
+{ onConflict: __atgSiteText(245) }
 );
 if (error) throw error;
 }
 async function loadProfile() {
 const { data, error } = await state.auth.client
-.from(__atgSiteText(223))
-.select(__atgSiteText(224))
-.eq(__atgSiteText(225), state.auth.user.id)
+.from(__atgSiteText(246))
+.select(__atgSiteText(247))
+.eq(__atgSiteText(248), state.auth.user.id)
 .maybeSingle();
-if (error && error.code !== __atgSiteText(226)) throw error;
+if (error && error.code !== __atgSiteText(249)) throw error;
 state.portal.profile = {
 ...fallbackProfile(),
 ...(data || {})
@@ -690,101 +721,231 @@ state.portal.profile = {
 }
 async function loadTasks() {
 const { data, error } = await state.auth.client
-.from(__atgSiteText(227))
-.select(__atgSiteText(228))
-.eq(__atgSiteText(229), true)
-.order(__atgSiteText(230), { ascending: true });
+.from(__atgSiteText(250))
+.select(__atgSiteText(251))
+.eq(__atgSiteText(252), true)
+.order(__atgSiteText(253), { ascending: true });
 if (error) throw error;
 state.portal.tasks = data && data.length ? data : [...DEFAULT_TASKS];
 }
 async function loadRewards() {
 const { data, error } = await state.auth.client
-.from(__atgSiteText(231))
-.select(__atgSiteText(232))
-.eq(__atgSiteText(233), true)
-.order(__atgSiteText(234), { ascending: true });
+.from(__atgSiteText(254))
+.select(__atgSiteText(255))
+.eq(__atgSiteText(256), true)
+.order(__atgSiteText(257), { ascending: true });
 if (error) throw error;
 state.portal.rewards = data && data.length ? data : [...DEFAULT_REWARDS];
 }
 async function loadLedger() {
 const { data, error } = await state.auth.client
-.from(__atgSiteText(235))
-.select(__atgSiteText(236))
-.eq(__atgSiteText(237), state.auth.user.id)
-.order(__atgSiteText(238), { ascending: false })
+.from(__atgSiteText(258))
+.select(__atgSiteText(259))
+.eq(__atgSiteText(260), state.auth.user.id)
+.order(__atgSiteText(261), { ascending: false })
 .limit(30);
 if (error) throw error;
 state.portal.ledger = data || [];
 }
 async function loadOrders() {
 const { data, error } = await state.auth.client
-.from(__atgSiteText(239))
-.select(__atgSiteText(240))
-.eq(__atgSiteText(241), state.auth.user.id)
-.order(__atgSiteText(242), { ascending: false })
+.from(__atgSiteText(262))
+.select(__atgSiteText(263))
+.eq(__atgSiteText(264), state.auth.user.id)
+.order(__atgSiteText(265), { ascending: false })
 .limit(50);
 if (error) throw error;
 state.portal.orders = data || [];
 }
 async function loadCompletedTasks() {
 const { data, error } = await state.auth.client
-.from(__atgSiteText(243))
-.select(__atgSiteText(244))
-.eq(__atgSiteText(245), state.auth.user.id);
+.from(__atgSiteText(266))
+.select(__atgSiteText(267))
+.eq(__atgSiteText(268), state.auth.user.id);
 if (error) throw error;
 state.portal.completedTasks = new Set((data || []).map((item) => item.task_id));
 }
-async function loadAdminProfiles() {
+async function loadAdminWorkspace() {
 if (!state.auth.client || !canUseAdminPanel()) {
 state.admin.profiles = [];
+state.admin.tasks = [];
+state.admin.rewards = [];
 state.admin.loading = false;
-state.admin.status = __atgSiteText(246);
+state.admin.status = __atgSiteText(269);
 renderAdmin();
 return;
 }
 state.admin.loading = true;
-state.admin.status = __atgSiteText(247);
+state.admin.status = __atgSiteText(270);
 renderAdmin();
 try {
-const { data, error } = await state.auth.client.rpc(__atgSiteText(248));
-if (error) throw error;
-state.admin.profiles = Array.isArray(data) ? data : [];
-state.admin.status = state.admin.profiles.length ? __atgSiteText(249) : __atgSiteText(250);
+await Promise.all([loadAdminProfiles(), loadAdminTasks(), loadAdminRewards()]);
+state.admin.status = __atgSiteText(271);
 } catch (error) {
-state.admin.profiles = [];
 state.admin.status = __atgSiteTpl(3,formatAuthError(error));
 } finally {
 state.admin.loading = false;
 renderAdmin();
 }
 }
+async function loadAdminProfiles() {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(272));
+if (error) throw error;
+state.admin.profiles = Array.isArray(data) ? data : [];
+}
+async function loadAdminTasks() {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(273));
+if (error) throw error;
+state.admin.tasks = Array.isArray(data) ? data : [];
+}
+async function loadAdminRewards() {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(274));
+if (error) throw error;
+state.admin.rewards = Array.isArray(data) ? data : [];
+}
 async function saveAdminProfile(userId) {
 if (!state.auth.client || !canUseAdminPanel()) {
-state.admin.status = __atgSiteText(251);
+state.admin.status = __atgSiteText(275);
 renderAdmin();
 return;
 }
 const row = adminRowById(userId);
 if (!row) return;
-const role = row.querySelector(__atgSiteText(252)).value;
-const badge = row.querySelector(__atgSiteText(253)).value.trim();
-const points = Math.max(0, Math.round(number(row.querySelector(__atgSiteText(254)).value)));
+const role = row.querySelector(__atgSiteText(276)).value;
+const badge = row.querySelector(__atgSiteText(277)).value.trim();
+const points = Math.max(0, Math.round(number(row.querySelector(__atgSiteText(278)).value)));
 state.admin.loading = true;
-state.admin.status = __atgSiteText(255);
+state.admin.status = __atgSiteText(279);
 renderAdmin();
 try {
-const { data, error } = await state.auth.client.rpc(__atgSiteText(256), {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(280), {
 p_user_id: userId,
 p_role: role,
 p_badge: badge,
 p_points: points
 });
 if (error) throw error;
-state.admin.status = rpcMessage(data, __atgSiteText(257));
+state.admin.status = rpcMessage(data, __atgSiteText(281));
 await loadProfile();
-await loadAdminProfiles();
+await loadAdminWorkspace();
 } catch (error) {
 state.admin.status = __atgSiteTpl(4,formatAuthError(error));
+} finally {
+state.admin.loading = false;
+render();
+}
+}
+async function publishAdminTask() {
+if (!state.auth.client || !canUseAdminPanel()) return;
+const prefix = els.adminTaskPrefix.value.trim();
+const rawTitle = els.adminTaskTitle.value.trim();
+const title = [prefix, rawTitle].filter(Boolean).join(__atgSiteText(282));
+const description = els.adminTaskDesc.value.trim();
+const reward = Math.max(0, Math.round(number(els.adminTaskReward.value)));
+const sortOrder = Math.round(number(els.adminTaskSort.value));
+const url = normalizeUrl(els.adminTaskUrl.value.trim()) || __atgSiteText(283);
+if (!rawTitle) {
+state.admin.status = __atgSiteText(284);
+renderAdmin();
+return;
+}
+state.admin.loading = true;
+state.admin.status = __atgSiteText(285);
+renderAdmin();
+try {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(286), {
+p_task_id: null,
+p_title: title,
+p_description: description,
+p_reward_points: reward,
+p_url: url,
+p_sort_order: sortOrder,
+p_active: true
+});
+if (error) throw error;
+state.admin.status = rpcMessage(data, __atgSiteText(287));
+clearAdminTaskForm();
+await loadTasks();
+await loadAdminWorkspace();
+} catch (error) {
+state.admin.status = __atgSiteTpl(5,formatAuthError(error));
+} finally {
+state.admin.loading = false;
+render();
+}
+}
+async function publishAdminReward() {
+if (!state.auth.client || !canUseAdminPanel()) return;
+const title = els.adminRewardTitle.value.trim();
+const description = els.adminRewardDesc.value.trim();
+const cost = Math.max(0, Math.round(number(els.adminRewardCost.value)));
+const sortOrder = Math.round(number(els.adminRewardSort.value));
+if (!title) {
+state.admin.status = __atgSiteText(288);
+renderAdmin();
+return;
+}
+state.admin.loading = true;
+state.admin.status = __atgSiteText(289);
+renderAdmin();
+try {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(290), {
+p_reward_id: null,
+p_title: title,
+p_description: description,
+p_cost_points: cost,
+p_sort_order: sortOrder,
+p_active: true
+});
+if (error) throw error;
+state.admin.status = rpcMessage(data, __atgSiteText(291));
+clearAdminRewardForm();
+await loadRewards();
+await loadAdminWorkspace();
+} catch (error) {
+state.admin.status = __atgSiteTpl(6,formatAuthError(error));
+} finally {
+state.admin.loading = false;
+render();
+}
+}
+async function setAdminTaskActive(taskId, active) {
+if (!state.auth.client || !canUseAdminPanel()) return;
+state.admin.loading = true;
+state.admin.status = active ? __atgSiteText(292) : __atgSiteText(293);
+renderAdmin();
+try {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(294), {
+p_task_id: taskId,
+p_active: active
+});
+if (error) throw error;
+state.admin.status = rpcMessage(data, active ? __atgSiteText(295) : __atgSiteText(296));
+await loadTasks();
+await loadAdminWorkspace();
+} catch (error) {
+state.admin.status = __atgSiteTpl(7,formatAuthError(error));
+} finally {
+state.admin.loading = false;
+render();
+}
+}
+async function setAdminRewardActive(rewardId, active) {
+if (!state.auth.client || !canUseAdminPanel()) return;
+state.admin.loading = true;
+state.admin.status = active ? __atgSiteText(297) : __atgSiteText(298);
+renderAdmin();
+try {
+const { data, error } = await state.auth.client.rpc(__atgSiteText(299), {
+p_reward_id: rewardId,
+p_active: active
+});
+if (error) throw error;
+state.admin.status = rpcMessage(data, active ? __atgSiteText(300) : __atgSiteText(301));
+await loadRewards();
+await loadAdminWorkspace();
+} catch (error) {
+state.admin.status = __atgSiteTpl(8,formatAuthError(error));
 } finally {
 state.admin.loading = false;
 render();
@@ -794,24 +955,24 @@ async function claimCheckin() {
 if (!requireSignedIn()) return;
 const profile = state.portal.profile || fallbackProfile();
 if (isToday(profile.last_checkin_at)) {
-state.portal.status = __atgSiteText(258);
+state.portal.status = __atgSiteText(302);
 renderPortal();
 return;
 }
 if (state.portal.dbReady && state.auth.client) {
-const { data, error } = await state.auth.client.rpc(__atgSiteText(259));
+const { data, error } = await state.auth.client.rpc(__atgSiteText(303));
 if (error) {
 state.portal.status = formatAuthError(error);
 renderPortal();
 return;
 }
-state.portal.status = rpcMessage(data, __atgSiteText(260));
+state.portal.status = rpcMessage(data, __atgSiteText(304));
 await loadPortal();
 return;
 }
-addLocalPoints(20, __atgSiteText(261));
+addLocalPoints(20, __atgSiteText(305));
 state.portal.profile.last_checkin_at = new Date().toISOString();
-state.portal.status = __atgSiteText(262);
+state.portal.status = __atgSiteText(306);
 persistLocalFromState();
 renderPortal();
 }
@@ -819,26 +980,26 @@ async function completeTask(taskId) {
 if (!requireSignedIn()) return;
 const task = state.portal.tasks.find((item) => item.id === taskId);
 if (!task) return;
-if (task.url) window.open(task.url, __atgSiteText(263), __atgSiteText(264));
+if (task.url) window.open(task.url, __atgSiteText(307), __atgSiteText(308));
 if (state.portal.completedTasks.has(taskId)) {
-state.portal.status = __atgSiteText(265);
+state.portal.status = __atgSiteText(309);
 renderPortal();
 return;
 }
 if (state.portal.dbReady && state.auth.client) {
-const { data, error } = await state.auth.client.rpc(__atgSiteText(266), { p_task_id: taskId });
+const { data, error } = await state.auth.client.rpc(__atgSiteText(310), { p_task_id: taskId });
 if (error) {
 state.portal.status = formatAuthError(error);
 renderPortal();
 return;
 }
-state.portal.status = rpcMessage(data, __atgSiteText(267));
+state.portal.status = rpcMessage(data, __atgSiteText(311));
 await loadPortal();
 return;
 }
 state.portal.completedTasks.add(taskId);
-addLocalPoints(number(task.reward_points), __atgSiteTpl(5,task.title));
-state.portal.status = __atgSiteText(268);
+addLocalPoints(number(task.reward_points), __atgSiteTpl(9,task.title));
+state.portal.status = __atgSiteText(312);
 persistLocalFromState();
 renderPortal();
 }
@@ -849,19 +1010,18 @@ if (!reward) return;
 const profile = state.portal.profile || fallbackProfile();
 const cost = number(reward.cost_points);
 if (number(profile.points) < cost) {
-state.portal.status = __atgSiteText(269);
+state.portal.status = __atgSiteText(313);
 renderPortal();
 return;
 }
-if (!window.confirm(__atgSiteTpl(6,formatNumber(cost),reward.title))) return;
 if (state.portal.dbReady && state.auth.client) {
-const { data, error } = await state.auth.client.rpc(__atgSiteText(270), { p_reward_id: rewardId });
+const { data, error } = await state.auth.client.rpc(__atgSiteText(314), { p_reward_id: rewardId });
 if (error) {
 state.portal.status = formatAuthError(error);
 renderPortal();
 return;
 }
-state.portal.status = rpcMessage(data, __atgSiteText(271));
+state.portal.status = rpcMessage(data, __atgSiteText(315));
 await loadPortal();
 return;
 }
@@ -874,13 +1034,13 @@ cost_points: cost,
 created_at: new Date().toISOString()
 });
 state.portal.ledger.unshift({
-action: __atgSiteTpl(7,reward.title),
+action: __atgSiteTpl(10,reward.title),
 amount: -cost,
 balance: state.portal.profile.points,
 created_at: new Date().toISOString()
 });
-if (reward.id === __atgSiteText(272)) state.portal.profile.badge = __atgSiteText(273);
-state.portal.status = __atgSiteTpl(8,cardNumber);
+if (reward.id === __atgSiteText(316)) state.portal.profile.badge = __atgSiteText(317);
+state.portal.status = __atgSiteTpl(11,cardNumber);
 persistLocalFromState();
 renderPortal();
 }
@@ -888,7 +1048,7 @@ async function saveBoundUrl() {
 if (!requireSignedIn()) return;
 const url = normalizeUrl(els.sourceUrlInput.value.trim());
 if (!url) {
-state.portal.status = __atgSiteText(274);
+state.portal.status = __atgSiteText(318);
 renderPortal();
 return;
 }
@@ -899,43 +1059,43 @@ bound_game_url: url
 persistLocalFromState();
 if (state.portal.dbReady && state.auth.client) {
 const { error } = await state.auth.client
-.from(__atgSiteText(275))
+.from(__atgSiteText(319))
 .update({ bound_game_url: url })
-.eq(__atgSiteText(276), state.auth.user.id);
-if (error) state.portal.status = __atgSiteText(277);
-else state.portal.status = __atgSiteText(278);
+.eq(__atgSiteText(320), state.auth.user.id);
+if (error) state.portal.status = __atgSiteText(321);
+else state.portal.status = __atgSiteText(322);
 } else {
-state.portal.status = __atgSiteText(279);
+state.portal.status = __atgSiteText(323);
 }
 renderPortal();
 }
 function openBoundUrl() {
-const url = normalizeUrl(els.sourceUrlInput.value.trim() || (state.portal.profile && state.portal.profile.bound_game_url) || __atgSiteText(280));
+const url = normalizeUrl(els.sourceUrlInput.value.trim() || (state.portal.profile && state.portal.profile.bound_game_url) || __atgSiteText(324));
 if (!url) {
-state.portal.status = __atgSiteText(281);
+state.portal.status = __atgSiteText(325);
 renderPortal();
 return;
 }
-window.open(url, __atgSiteText(282), __atgSiteText(283));
+window.open(url, __atgSiteText(326), __atgSiteText(327));
 }
 function updateSnapshotFromExternalBridge(payload) {
 if (!isAuthenticated()) return;
 try {
-const data = typeof payload === __atgSiteText(284) ? JSON.parse(payload) : payload;
+const data = typeof payload === __atgSiteText(328) ? JSON.parse(payload) : payload;
 const snapshot = data && data.snapshot ? data.snapshot : data;
 if (!snapshot || !Array.isArray(snapshot.rooms)) {
-state.notice = __atgSiteText(285);
+state.notice = __atgSiteText(329);
 render();
 return;
 }
 state.snapshot = {
-source: __atgSiteText(286),
+source: __atgSiteText(330),
 ts: Date.now(),
 connected: true,
 monitoring: true,
 scanning: false,
 detailsScanning: false,
-lastMessage: __atgSiteText(287),
+lastMessage: __atgSiteText(331),
 totalRooms: snapshot.totalRooms || snapshot.rooms.length,
 ...snapshot
 };
@@ -943,7 +1103,7 @@ state.notice = state.snapshot.lastMessage;
 scheduleCloudPublish();
 render();
 } catch (error) {
-state.notice = __atgSiteTpl(9,String(error.message || error));
+state.notice = __atgSiteTpl(12,String(error.message || error));
 render();
 }
 }
@@ -954,33 +1114,33 @@ state.filters.minBurst = clamp(number(els.filterBurst.value), 0, 100);
 state.filters.minRate = Math.max(0, number(els.filterRate.value));
 state.filters.minBet = Math.max(0, number(els.filterBet.value));
 state.filters.onlyEmpty = els.onlyEmptyInput.checked;
-state.filters.sort = els.sortMode.value || __atgSiteText(288);
+state.filters.sort = els.sortMode.value || __atgSiteText(332);
 renderRooms();
 }
 function setActiveView(view) {
 if (!viewTitles[view]) return;
-if (view === __atgSiteText(289) && !canUseAdminPanel()) {
-state.portal.status = __atgSiteText(290);
-view = __atgSiteText(291);
+if (view === __atgSiteText(333) && !canUseAdminPanel()) {
+state.portal.status = __atgSiteText(334);
+view = __atgSiteText(335);
 }
 state.activeView = view;
-for (const section of document.querySelectorAll(__atgSiteText(292))) {
-section.classList.toggle(__atgSiteText(293), section.id === __atgSiteTpl(10,view));
+for (const section of document.querySelectorAll(__atgSiteText(336))) {
+section.classList.toggle(__atgSiteText(337), section.id === __atgSiteTpl(13,view));
 }
-for (const button of document.querySelectorAll(__atgSiteText(294))) {
-button.classList.toggle(__atgSiteText(295), button.dataset.view === view);
+for (const button of document.querySelectorAll(__atgSiteText(338))) {
+button.classList.toggle(__atgSiteText(339), button.dataset.view === view);
 }
 els.viewTitle.textContent = viewTitles[view];
 }
 function enterRoom(roomId, roomNumber) {
 if (!requireSignedIn()) return;
 if (!state.bridgeConnected) {
-state.notice = __atgSiteText(296);
+state.notice = __atgSiteText(340);
 render();
 return;
 }
-send(__atgSiteText(297), { roomId });
-state.notice = __atgSiteTpl(11,roomNumber || roomId);
+send(__atgSiteText(341), { roomId });
+state.notice = __atgSiteTpl(14,roomNumber || roomId);
 render();
 }
 function render() {
@@ -995,9 +1155,9 @@ renderAdmin();
 }
 function renderAuth() {
 const signedIn = isAuthenticated();
-document.body.classList.toggle(__atgSiteText(298), signedIn);
+document.body.classList.toggle(__atgSiteText(342), signedIn);
 els.authStatus.textContent = state.auth.status;
-els.userEmail.textContent = signedIn ? state.auth.user.email || __atgSiteText(299) : __atgSiteText(300);
+els.userEmail.textContent = signedIn ? state.auth.user.email || __atgSiteText(343) : __atgSiteText(344);
 els.loginBtn.disabled = state.auth.busy || !state.auth.configured;
 els.signupBtn.disabled = state.auth.busy || !state.auth.configured;
 els.logoutBtn.disabled = state.auth.busy || !signedIn;
@@ -1007,12 +1167,12 @@ els.authPassword.disabled = state.auth.busy || !state.auth.configured;
 function renderStatus() {
 const snapshot = state.snapshot;
 const rooms = snapshot && Array.isArray(snapshot.rooms) ? snapshot.rooms : [];
-els.bridgeStatus.textContent = state.bridgeConnected ? __atgSiteText(301) : state.bridgeReady ? __atgSiteText(302) : __atgSiteText(303);
-if (snapshot && snapshot.cloudMode && !state.bridgeConnected) els.bridgeStatus.textContent = __atgSiteText(304);
-if (snapshot && snapshot.source === __atgSiteText(305) && !state.bridgeConnected) els.bridgeStatus.textContent = __atgSiteText(306);
-els.gameStatus.textContent = snapshot && snapshot.connected ? snapshot.lastMessage || __atgSiteText(307) : __atgSiteText(308);
+els.bridgeStatus.textContent = state.bridgeConnected ? __atgSiteText(345) : state.bridgeReady ? __atgSiteText(346) : __atgSiteText(347);
+if (snapshot && snapshot.cloudMode && !state.bridgeConnected) els.bridgeStatus.textContent = __atgSiteText(348);
+if (snapshot && snapshot.source === __atgSiteText(349) && !state.bridgeConnected) els.bridgeStatus.textContent = __atgSiteText(350);
+els.gameStatus.textContent = snapshot && snapshot.connected ? snapshot.lastMessage || __atgSiteText(351) : __atgSiteText(352);
 els.roomCount.textContent = String(snapshot ? snapshot.totalRooms || rooms.length : 0);
-els.updatedAt.textContent = snapshot && snapshot.ts ? new Date(snapshot.ts).toLocaleTimeString(__atgSiteText(309), { hour12: false }) : __atgSiteText(310);
+els.updatedAt.textContent = snapshot && snapshot.ts ? new Date(snapshot.ts).toLocaleTimeString(__atgSiteText(353), { hour12: false }) : __atgSiteText(354);
 els.notice.textContent = state.notice;
 if (document.activeElement !== els.pointUnitInput) {
 els.pointUnitInput.value = String(snapshot && snapshot.settings ? number(snapshot.settings.pointUnit) : 0);
@@ -1025,51 +1185,51 @@ if (disabledByCloud) {
 els.monitorBtn.disabled = true;
 els.refreshBtn.disabled = true;
 }
-const profileUrl = state.portal.profile && state.portal.profile.bound_game_url ? state.portal.profile.bound_game_url : __atgSiteText(311);
+const profileUrl = state.portal.profile && state.portal.profile.bound_game_url ? state.portal.profile.bound_game_url : __atgSiteText(355);
 if (document.activeElement !== els.sourceUrlInput) {
-els.sourceUrlInput.value = profileUrl || (snapshot && snapshot.url) || __atgSiteText(312);
+els.sourceUrlInput.value = profileUrl || (snapshot && snapshot.url) || __atgSiteText(356);
 }
 }
 function renderCloudControls() {
 els.cloudStatus.textContent = state.cloud.status;
 els.cloudBtn.disabled = !isAuthenticated() || !state.cloud.canPublish;
-els.cloudBtn.textContent = state.cloud.canPublish ? (state.cloud.publishing ? __atgSiteText(313) : __atgSiteText(314)) : __atgSiteText(315);
+els.cloudBtn.textContent = state.cloud.canPublish ? (state.cloud.publishing ? __atgSiteText(357) : __atgSiteText(358)) : __atgSiteText(359);
 }
 function renderDevices() {
 if (!els.devicePairStatus || !els.deviceList) return;
 const pending = state.devices.pendingPair;
-els.devicePairStatus.textContent = pending ? __atgSiteText(316) : state.devices.status;
+els.devicePairStatus.textContent = pending ? __atgSiteText(360) : state.devices.status;
 if (!state.devices.items.length) {
-els.deviceList.innerHTML = __atgSiteText(317);
+els.deviceList.innerHTML = __atgSiteText(361);
 return;
 }
 els.deviceList.innerHTML = state.devices.items
-.map((device) => __atgSiteTpl(13,escapeHtml(device.label || shortDeviceId(device.id)),escapeHtml(device.status || __atgSiteText(318)),device.last_seen_at ? __atgSiteTpl(12,escapeHtml(formatDateTime(device.last_seen_at))) : __atgSiteText(319)))
-.join(__atgSiteText(320));
+.map((device) => __atgSiteTpl(16,escapeHtml(device.label || shortDeviceId(device.id)),escapeHtml(device.status || __atgSiteText(362)),device.last_seen_at ? __atgSiteTpl(15,escapeHtml(formatDateTime(device.last_seen_at))) : __atgSiteText(363)))
+.join(__atgSiteText(364));
 }
 function renderRooms() {
 const snapshot = state.snapshot;
 const rooms = filteredRooms();
 if (!snapshot || !Array.isArray(snapshot.rooms) || !snapshot.rooms.length) {
-els.rooms.innerHTML = __atgSiteTpl(14,escapeHtml(snapshot && snapshot.connected ? __atgSiteText(321) : __atgSiteText(322)));
+els.rooms.innerHTML = __atgSiteTpl(17,escapeHtml(snapshot && snapshot.connected ? __atgSiteText(365) : __atgSiteText(366)));
 return;
 }
 if (!rooms.length) {
-els.rooms.innerHTML = __atgSiteTpl(15);
+els.rooms.innerHTML = __atgSiteTpl(18);
 return;
 }
-els.rooms.innerHTML = rooms.map((room) => renderRoom(room, { localBridge: state.bridgeConnected })).join(__atgSiteText(323));
+els.rooms.innerHTML = rooms.map((room) => renderRoom(room, { localBridge: state.bridgeConnected })).join(__atgSiteText(367));
 }
 function renderPortal() {
 const profile = state.portal.profile || fallbackProfile();
 const points = number(profile.points);
-const badge = profile.badge || __atgSiteText(324);
+const badge = profile.badge || __atgSiteText(368);
 els.displayPoints.textContent = formatNumber(points);
 els.displayBadge.textContent = badge;
 els.accountPoints.textContent = formatNumber(points);
 els.accountRole.textContent = formatRoleLabel(profile.role);
 els.accountStatus.textContent = state.portal.status;
-els.boundUrlText.textContent = profile.bound_game_url || __atgSiteText(325);
+els.boundUrlText.textContent = profile.bound_game_url || __atgSiteText(369);
 els.checkinBtn.disabled = state.portal.loading || isToday(profile.last_checkin_at);
 renderLedger();
 renderTasks();
@@ -1081,88 +1241,111 @@ if (!els.adminNav || !els.adminList || !els.adminStatus) return;
 const enabled = canUseAdminPanel();
 els.adminNav.hidden = !enabled;
 if (!enabled) {
-if (state.activeView === __atgSiteText(326)) setActiveView(__atgSiteText(327));
+if (state.activeView === __atgSiteText(370)) setActiveView(__atgSiteText(371));
 els.adminRefreshBtn.disabled = true;
-els.adminStatus.textContent = __atgSiteText(328);
-els.adminList.innerHTML = __atgSiteText(329);
+els.adminPublishTaskBtn.disabled = true;
+els.adminPublishRewardBtn.disabled = true;
+els.adminStatus.textContent = __atgSiteText(372);
+els.adminList.innerHTML = __atgSiteText(373);
+els.adminTaskList.innerHTML = __atgSiteText(374);
+els.adminRewardList.innerHTML = __atgSiteText(375);
 return;
 }
 els.adminRefreshBtn.disabled = state.admin.loading;
+els.adminPublishTaskBtn.disabled = state.admin.loading;
+els.adminPublishRewardBtn.disabled = state.admin.loading;
 els.adminStatus.textContent = state.admin.status;
-if (state.admin.loading && !state.admin.profiles.length) {
-els.adminList.innerHTML = __atgSiteTpl(16);
+els.adminUserCount.textContent = String(state.admin.profiles.length);
+els.adminTaskCount.textContent = String(state.admin.tasks.length);
+els.adminRewardCount.textContent = String(state.admin.rewards.length);
+if (state.admin.loading && !state.admin.profiles.length && !state.admin.tasks.length && !state.admin.rewards.length) {
+els.adminList.innerHTML = __atgSiteTpl(19);
+els.adminTaskList.innerHTML = __atgSiteTpl(20);
+els.adminRewardList.innerHTML = __atgSiteTpl(21);
 return;
 }
-if (!state.admin.profiles.length) {
-els.adminList.innerHTML = __atgSiteTpl(17);
-return;
-}
-els.adminList.innerHTML = state.admin.profiles.map(renderAdminProfile).join(__atgSiteText(330));
+els.adminList.innerHTML = state.admin.profiles.length
+? state.admin.profiles.map(renderAdminProfile).join(__atgSiteText(376))
+: __atgSiteTpl(22);
+els.adminTaskList.innerHTML = state.admin.tasks.length
+? state.admin.tasks.map(renderAdminTask).join(__atgSiteText(377))
+: __atgSiteTpl(23);
+els.adminRewardList.innerHTML = state.admin.rewards.length
+? state.admin.rewards.map(renderAdminReward).join(__atgSiteText(378))
+: __atgSiteTpl(24);
 }
 function renderAdminProfile(profile) {
 const role = normalizeRole(profile.role);
 const isSelf = state.auth.user && profile.id === state.auth.user.id;
 const roleOptions = ROLE_OPTIONS
-.map(([value, label]) => __atgSiteTpl(18,value,value === role ? __atgSiteText(331) : __atgSiteText(332),label))
-.join(__atgSiteText(333));
-return __atgSiteTpl(19,escapeHtml(profile.id),escapeHtml(profile.email || profile.display_name || profile.id),escapeHtml(profile.display_name || __atgSiteText(334)),escapeHtml(formatRoleLabel(role)),escapeHtml(formatDateTime(profile.created_at)),isSelf ? __atgSiteText(335) : __atgSiteText(336),roleOptions,escapeHtml(profile.badge || __atgSiteText(337)),Math.max(0, Math.round(number(profile.points))),escapeHtml(profile.id),state.admin.loading ? __atgSiteText(338) : __atgSiteText(339));
+.map(([value, label]) => __atgSiteTpl(25,value,value === role ? __atgSiteText(379) : __atgSiteText(380),label))
+.join(__atgSiteText(381));
+return __atgSiteTpl(26,escapeHtml(profile.id),escapeHtml(profile.email || profile.display_name || profile.id),escapeHtml(profile.display_name || __atgSiteText(382)),escapeHtml(formatRoleLabel(role)),escapeHtml(formatDateTime(profile.created_at)),isSelf ? __atgSiteText(383) : __atgSiteText(384),roleOptions,escapeHtml(profile.badge || __atgSiteText(385)),Math.max(0, Math.round(number(profile.points))),escapeHtml(profile.id),state.admin.loading ? __atgSiteText(386) : __atgSiteText(387));
+}
+function renderAdminTask(task) {
+const active = Boolean(task.active);
+return __atgSiteTpl(27,escapeHtml(task.title || task.id),formatNumber(task.reward_points),formatNumber(task.sort_order),escapeHtml(task.description || __atgSiteText(388)),active ? __atgSiteText(389) : __atgSiteText(390),escapeHtml(task.id),String(active),state.admin.loading ? __atgSiteText(391) : __atgSiteText(392),active ? __atgSiteText(393) : __atgSiteText(394));
+}
+function renderAdminReward(reward) {
+const active = Boolean(reward.active);
+return __atgSiteTpl(28,escapeHtml(reward.title || reward.id),formatNumber(reward.cost_points),formatNumber(reward.sort_order),escapeHtml(reward.description || __atgSiteText(395)),active ? __atgSiteText(396) : __atgSiteText(397),escapeHtml(reward.id),String(active),state.admin.loading ? __atgSiteText(398) : __atgSiteText(399),active ? __atgSiteText(400) : __atgSiteText(401));
 }
 function renderLedger() {
 const ledger = state.portal.ledger || [];
 if (!ledger.length) {
-els.ledgerList.innerHTML = __atgSiteTpl(20);
+els.ledgerList.innerHTML = __atgSiteTpl(29);
 return;
 }
 els.ledgerList.innerHTML = ledger
 .slice(0, 30)
 .map((item) => {
 const amount = number(item.amount);
-return __atgSiteTpl(21,escapeHtml(item.action || __atgSiteText(340)),formatDateTime(item.created_at),amount >= 0 ? __atgSiteText(341) : __atgSiteText(342),amount >= 0 ? __atgSiteText(343) : __atgSiteText(344),formatNumber(amount));
+return __atgSiteTpl(30,escapeHtml(item.action || __atgSiteText(402)),formatDateTime(item.created_at),amount >= 0 ? __atgSiteText(403) : __atgSiteText(404),amount >= 0 ? __atgSiteText(405) : __atgSiteText(406),formatNumber(amount));
 })
-.join(__atgSiteText(345));
+.join(__atgSiteText(407));
 }
 function renderTasks() {
 const tasks = state.portal.tasks || [];
 els.tasksList.innerHTML = tasks
 .map((task) => {
 const done = state.portal.completedTasks.has(task.id);
-return __atgSiteTpl(22,formatNumber(task.reward_points),escapeHtml(task.title),escapeHtml(task.description || __atgSiteText(346)),escapeHtml(task.id),done ? __atgSiteText(347) : __atgSiteText(348),done ? __atgSiteText(349) : __atgSiteText(350));
+return __atgSiteTpl(31,formatNumber(task.reward_points),escapeHtml(task.title),escapeHtml(task.description || __atgSiteText(408)),escapeHtml(task.id),done ? __atgSiteText(409) : __atgSiteText(410),done ? __atgSiteText(411) : __atgSiteText(412));
 })
-.join(__atgSiteText(351));
+.join(__atgSiteText(413));
 }
 function renderRewards() {
 const rewards = state.portal.rewards || [];
 els.rewardsList.innerHTML = rewards
-.map((reward) => __atgSiteTpl(23,formatNumber(reward.cost_points),escapeHtml(reward.title),escapeHtml(reward.description || __atgSiteText(352)),escapeHtml(reward.id)))
-.join(__atgSiteText(353));
+.map((reward) => __atgSiteTpl(32,formatNumber(reward.cost_points),escapeHtml(reward.title),escapeHtml(reward.description || __atgSiteText(414)),escapeHtml(reward.id)))
+.join(__atgSiteText(415));
 }
 function renderCards() {
 const orders = state.portal.orders || [];
 if (!orders.length) {
-els.cardsList.innerHTML = __atgSiteTpl(24);
+els.cardsList.innerHTML = __atgSiteTpl(33);
 return;
 }
 els.cardsList.innerHTML = orders
-.map((order) => __atgSiteTpl(25,escapeHtml(order.reward_title || __atgSiteText(354)),formatDateTime(order.created_at),formatNumber(order.cost_points),escapeHtml(order.card_number || __atgSiteText(355))))
-.join(__atgSiteText(356));
+.map((order) => __atgSiteTpl(34,escapeHtml(order.reward_title || __atgSiteText(416)),formatDateTime(order.created_at),formatNumber(order.cost_points),escapeHtml(order.card_number || __atgSiteText(417))))
+.join(__atgSiteText(418));
 }
 function renderRoom(room, options = {}) {
 const burst = clamp(number(room.burstProbability), 0, 100);
 const rank = clamp(number(room.rankScore == null ? room.score : room.rankScore), 0, 100);
-const statusClass = room.status === __atgSiteText(357) ? __atgSiteText(358) : __atgSiteText(359);
-const tag = [room.tier, ...(Array.isArray(room.tags) ? room.tags : [])].filter(Boolean).join(__atgSiteText(360)) || __atgSiteText(361);
+const statusClass = room.status === __atgSiteText(419) ? __atgSiteText(420) : __atgSiteText(421);
+const tag = [room.tier, ...(Array.isArray(room.tags) ? room.tags : [])].filter(Boolean).join(__atgSiteText(422)) || __atgSiteText(423);
 const canEnter = Boolean(room.canEnter) && Boolean(options.localBridge);
 const reasons = Array.isArray(room.reasons) ? room.reasons.slice(0, 5) : [];
-return __atgSiteTpl(28,escapeHtml(room.number || room.roomId || __atgSiteText(362)),escapeHtml(tag),rank.toFixed(0),burst.toFixed(0),burst.toFixed(1),burst.toFixed(0),formatRate(room.rate),formatNumber(room.bet),statusClass,escapeHtml(room.statusLabel || STATUS_LABELS[room.status] || room.status || __atgSiteText(363)),formatNullableRate(room.todayRate),formatNullableRate(room.hourRate),formatNullableRate(room.dayRate),formatTurns(room.notOpenTurns),formatTurns(room.previousOneTurns),formatTurns(room.previousTwoTurns),formatPointRange(room),formatPointValue(room.pointAvgPerTurn),escapeHtml(room.pointSource || __atgSiteText(364)),formatTurns(room.pointRemainingTurns),escapeHtml(room.pointStatus || __atgSiteText(365)),formatNullablePercent(room.pointConfidence),formatTurns(room.freeGameTargetTurn),formatTurnWindow(room),formatRemainingWindow(room),escapeHtml(room.freeGameForecastZone || __atgSiteText(366)),formatNullablePercent(room.freeGameForecastConfidence),formatNullablePercent(room.momentumScore),formatNullablePercent(room.cyclePressure),formatNullablePercent(room.pullbackRisk),formatNullablePercent(room.pointReadiness),formatPointValue(room.pointSampleShortfall),formatPointValue(room.pointSampleTarget),reasons.length ? __atgSiteTpl(27,reasons.map((reason) => __atgSiteTpl(26,escapeHtml(reason))).join(__atgSiteText(367))) : __atgSiteText(368),escapeHtml(room.roomId || __atgSiteText(369)),escapeHtml(room.number || __atgSiteText(370)),canEnter ? __atgSiteText(371) : __atgSiteText(372));
+return __atgSiteTpl(37,escapeHtml(room.number || room.roomId || __atgSiteText(424)),escapeHtml(tag),rank.toFixed(0),burst.toFixed(0),burst.toFixed(1),burst.toFixed(0),formatRate(room.rate),formatNumber(room.bet),statusClass,escapeHtml(room.statusLabel || STATUS_LABELS[room.status] || room.status || __atgSiteText(425)),formatNullableRate(room.todayRate),formatNullableRate(room.hourRate),formatNullableRate(room.dayRate),formatTurns(room.notOpenTurns),formatTurns(room.previousOneTurns),formatTurns(room.previousTwoTurns),formatPointRange(room),formatPointValue(room.pointAvgPerTurn),escapeHtml(room.pointSource || __atgSiteText(426)),formatTurns(room.pointRemainingTurns),escapeHtml(room.pointStatus || __atgSiteText(427)),formatNullablePercent(room.pointConfidence),formatTurns(room.freeGameTargetTurn),formatTurnWindow(room),formatRemainingWindow(room),escapeHtml(room.freeGameForecastZone || __atgSiteText(428)),formatNullablePercent(room.freeGameForecastConfidence),formatNullablePercent(room.momentumScore),formatNullablePercent(room.cyclePressure),formatNullablePercent(room.pullbackRisk),formatNullablePercent(room.pointReadiness),formatPointValue(room.pointSampleShortfall),formatPointValue(room.pointSampleTarget),reasons.length ? __atgSiteTpl(36,reasons.map((reason) => __atgSiteTpl(35,escapeHtml(reason))).join(__atgSiteText(429))) : __atgSiteText(430),escapeHtml(room.roomId || __atgSiteText(431)),escapeHtml(room.number || __atgSiteText(432)),canEnter ? __atgSiteText(433) : __atgSiteText(434));
 }
 function filteredRooms() {
 const snapshot = state.snapshot;
 const rooms = snapshot && Array.isArray(snapshot.rooms) ? snapshot.rooms.slice() : [];
 const filters = state.filters;
 const filtered = rooms.filter((room) => {
-const haystack = __atgSiteTpl(29,room.number || __atgSiteText(373),room.roomId || __atgSiteText(374)).toLowerCase();
+const haystack = __atgSiteTpl(38,room.number || __atgSiteText(435),room.roomId || __atgSiteText(436)).toLowerCase();
 if (filters.search && !haystack.includes(filters.search)) return false;
-if (filters.onlyEmpty && room.status !== __atgSiteText(375)) return false;
+if (filters.onlyEmpty && room.status !== __atgSiteText(437)) return false;
 if (number(room.rankScore == null ? room.score : room.rankScore) < filters.minRank) return false;
 if (number(room.burstProbability) < filters.minBurst) return false;
 if (number(room.rate) < filters.minRate) return false;
@@ -1170,13 +1353,13 @@ if (number(room.bet) < filters.minBet) return false;
 return true;
 });
 filtered.sort((a, b) => {
-if (filters.sort === __atgSiteText(376)) {
+if (filters.sort === __atgSiteText(438)) {
 return number(b.burstProbability) - number(a.burstProbability) || number(b.rankScore) - number(a.rankScore);
 }
-if (filters.sort === __atgSiteText(377)) {
+if (filters.sort === __atgSiteText(439)) {
 return number(a.pointEstimated) - number(b.pointEstimated) || number(b.burstProbability) - number(a.burstProbability);
 }
-if (filters.sort === __atgSiteText(378)) {
+if (filters.sort === __atgSiteText(440)) {
 return number(b.rate) - number(a.rate) || number(b.bet) - number(a.bet);
 }
 return number(b.rankScore == null ? b.score : b.rankScore) - number(a.rankScore == null ? a.score : a.rankScore) || number(b.burstProbability) - number(a.burstProbability);
@@ -1188,7 +1371,7 @@ state.bridgeConnected = false;
 state.autoMonitorRequested = false;
 state.snapshot = null;
 state.notice = DEFAULT_NOTICE;
-els.rooms.innerHTML = __atgSiteText(379);
+els.rooms.innerHTML = __atgSiteText(441);
 renderCloudControls();
 }
 function clearPortal() {
@@ -1196,48 +1379,63 @@ state.portal.profile = null;
 state.portal.ledger = [];
 state.portal.orders = [];
 state.portal.completedTasks = new Set();
-state.portal.status = __atgSiteText(380);
+state.portal.status = __atgSiteText(442);
 }
 function clearAdmin() {
 state.admin.loading = false;
-state.admin.status = __atgSiteText(381);
+state.admin.status = __atgSiteText(443);
 state.admin.profiles = [];
+state.admin.tasks = [];
+state.admin.rewards = [];
+}
+function clearAdminTaskForm() {
+els.adminTaskTitle.value = __atgSiteText(444);
+els.adminTaskDesc.value = __atgSiteText(445);
+els.adminTaskUrl.value = __atgSiteText(446);
+els.adminTaskReward.value = __atgSiteText(447);
+els.adminTaskSort.value = __atgSiteText(448);
+}
+function clearAdminRewardForm() {
+els.adminRewardTitle.value = __atgSiteText(449);
+els.adminRewardDesc.value = __atgSiteText(450);
+els.adminRewardCost.value = __atgSiteText(451);
+els.adminRewardSort.value = __atgSiteText(452);
 }
 function fallbackProfile() {
 const user = state.auth.user || {};
 return {
-id: user.id || __atgSiteText(382),
-email: user.email || __atgSiteText(383),
-display_name: user.email ? user.email.split(__atgSiteText(384))[0] : __atgSiteText(385),
+id: user.id || __atgSiteText(453),
+email: user.email || __atgSiteText(454),
+display_name: user.email ? user.email.split(__atgSiteText(455))[0] : __atgSiteText(456),
 points: 100,
-badge: __atgSiteText(386),
-role: __atgSiteText(387),
-bound_game_url: __atgSiteText(388),
+badge: __atgSiteText(457),
+role: __atgSiteText(458),
+bound_game_url: __atgSiteText(459),
 last_checkin_at: null
 };
 }
 function formatRoleLabel(role) {
 const normalized = normalizeRole(role);
 const found = ROLE_OPTIONS.find(([value]) => value === normalized);
-return found ? found[1] : __atgSiteText(389);
+return found ? found[1] : __atgSiteText(460);
 }
 function normalizeRole(role) {
-const value = String(role || __atgSiteText(390)).trim().toLowerCase();
-if (value === __atgSiteText(391) || value === __atgSiteText(392) || value === __atgSiteText(393) || value === __atgSiteText(394)) return __atgSiteText(395);
-if (value === __atgSiteText(396) || value === __atgSiteText(397)) return __atgSiteText(398);
-if (value === __atgSiteText(399) || value === __atgSiteText(400) || value === __atgSiteText(401)) return __atgSiteText(402);
-if (value === __atgSiteText(403)) return __atgSiteText(404);
-return __atgSiteText(405);
+const value = String(role || __atgSiteText(461)).trim().toLowerCase();
+if (value === __atgSiteText(462) || value === __atgSiteText(463) || value === __atgSiteText(464) || value === __atgSiteText(465)) return __atgSiteText(466);
+if (value === __atgSiteText(467) || value === __atgSiteText(468)) return __atgSiteText(469);
+if (value === __atgSiteText(470) || value === __atgSiteText(471) || value === __atgSiteText(472)) return __atgSiteText(473);
+if (value === __atgSiteText(474)) return __atgSiteText(475);
+return __atgSiteText(476);
 }
 function canUseAdminPanel() {
-return Boolean(state.portal.dbReady && state.portal.profile && normalizeRole(state.portal.profile.role) === __atgSiteText(406));
+return Boolean(state.portal.dbReady && state.portal.profile && normalizeRole(state.portal.profile.role) === __atgSiteText(477));
 }
 function adminRowById(userId) {
-return Array.from(document.querySelectorAll(__atgSiteText(407))).find((row) => row.dataset.adminRowId === userId) || null;
+return Array.from(document.querySelectorAll(__atgSiteText(478))).find((row) => row.dataset.adminRowId === userId) || null;
 }
 function readLocalPortal() {
 try {
-return JSON.parse(localStorage.getItem(localPortalKey()) || __atgSiteText(408));
+return JSON.parse(localStorage.getItem(localPortalKey()) || __atgSiteText(479));
 } catch {
 return {};
 }
@@ -1256,7 +1454,7 @@ completedTasks: Array.from(state.portal.completedTasks)
 }
 function localPortalKey() {
 const user = state.auth.user;
-return __atgSiteTpl(30,user ? user.id || user.email : __atgSiteText(409));
+return __atgSiteTpl(39,user ? user.id || user.email : __atgSiteText(480));
 }
 function addLocalPoints(amount, action) {
 const profile = state.portal.profile || fallbackProfile();
@@ -1271,11 +1469,11 @@ created_at: new Date().toISOString()
 }
 function generateCardNumber() {
 const part = () => Math.random().toString(36).slice(2, 6).toUpperCase();
-return __atgSiteTpl(31,part(),part(),Date.now().toString().slice(-4));
+return __atgSiteTpl(40,part(),part(),Date.now().toString().slice(-4));
 }
 function rpcMessage(data, fallback) {
 const value = Array.isArray(data) ? data[0] : data;
-if (value && typeof value === __atgSiteText(410)) {
+if (value && typeof value === __atgSiteText(481)) {
 if (value.message) return value.message;
 if (value.ok === false && value.error) return value.error;
 }
@@ -1286,13 +1484,13 @@ return Boolean(state.auth.user);
 }
 function requireSignedIn() {
 if (isAuthenticated()) return true;
-state.auth.status = __atgSiteText(411);
+state.auth.status = __atgSiteText(482);
 renderAuth();
 return false;
 }
 function requireAuthClient() {
 if (state.auth.client) return true;
-state.auth.status = state.auth.configured ? __atgSiteText(412) : __atgSiteText(413);
+state.auth.status = state.auth.configured ? __atgSiteText(483) : __atgSiteText(484);
 renderAuth();
 return false;
 }
@@ -1300,47 +1498,47 @@ function readCredentials() {
 const email = els.authEmail.value.trim();
 const password = els.authPassword.value;
 if (!email || !password) {
-state.auth.status = __atgSiteText(414);
+state.auth.status = __atgSiteText(485);
 renderAuth();
 return null;
 }
 if (password.length < 6) {
-state.auth.status = __atgSiteText(415);
+state.auth.status = __atgSiteText(486);
 renderAuth();
 return null;
 }
 return { email, password };
 }
 function hasValidSupabaseConfig(config) {
-if (!config || typeof config.url !== __atgSiteText(416) || typeof config.anonKey !== __atgSiteText(417)) return false;
+if (!config || typeof config.url !== __atgSiteText(487) || typeof config.anonKey !== __atgSiteText(488)) return false;
 if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(config.url.trim())) return false;
-if (config.url.includes(__atgSiteText(418)) || config.anonKey.includes(__atgSiteText(419))) return false;
+if (config.url.includes(__atgSiteText(489)) || config.anonKey.includes(__atgSiteText(490))) return false;
 return config.anonKey.trim().length > 40;
 }
 function formatAuthError(error) {
-const message = error && error.message ? error.message : String(error || __atgSiteText(420));
+const message = error && error.message ? error.message : String(error || __atgSiteText(491));
 const normalized = message.toLowerCase();
-if (normalized.includes(__atgSiteText(421))) return __atgSiteText(422);
-if (normalized.includes(__atgSiteText(423))) return __atgSiteText(424);
-if (normalized.includes(__atgSiteText(425))) return __atgSiteText(426);
-if (normalized.includes(__atgSiteText(427))) return __atgSiteText(428);
-if (normalized.includes(__atgSiteText(429))) return __atgSiteText(430);
+if (normalized.includes(__atgSiteText(492))) return __atgSiteText(493);
+if (normalized.includes(__atgSiteText(494))) return __atgSiteText(495);
+if (normalized.includes(__atgSiteText(496))) return __atgSiteText(497);
+if (normalized.includes(__atgSiteText(498))) return __atgSiteText(499);
+if (normalized.includes(__atgSiteText(500))) return __atgSiteText(501);
 return message;
 }
 function normalizeUrl(value) {
-if (!value) return __atgSiteText(431);
-const url = value.startsWith(__atgSiteText(432)) || value.startsWith(__atgSiteText(433)) ? value : __atgSiteTpl(32,value);
+if (!value) return __atgSiteText(502);
+const url = value.startsWith(__atgSiteText(503)) || value.startsWith(__atgSiteText(504)) ? value : __atgSiteTpl(41,value);
 try {
 return new URL(url).href;
 } catch {
-return __atgSiteText(434);
+return __atgSiteText(505);
 }
 }
 function readPairParams() {
 try {
 const params = new URLSearchParams(window.location.search);
-const deviceId = params.get(__atgSiteText(435)) || params.get(__atgSiteText(436));
-const pairToken = params.get(__atgSiteText(437)) || params.get(__atgSiteText(438));
+const deviceId = params.get(__atgSiteText(506)) || params.get(__atgSiteText(507));
+const pairToken = params.get(__atgSiteText(508)) || params.get(__atgSiteText(509));
 if (!deviceId || !pairToken) return null;
 return { deviceId, pairToken };
 } catch {
@@ -1350,17 +1548,17 @@ return null;
 function clearPairParams() {
 try {
 const url = new URL(window.location.href);
-for (const key of [__atgSiteText(439), __atgSiteText(440), __atgSiteText(441), __atgSiteText(442)]) {
+for (const key of [__atgSiteText(510), __atgSiteText(511), __atgSiteText(512), __atgSiteText(513)]) {
 url.searchParams.delete(key);
 }
-window.history.replaceState({}, document.title, __atgSiteTpl(33,url.pathname,url.search,url.hash));
+window.history.replaceState({}, document.title, __atgSiteTpl(42,url.pathname,url.search,url.hash));
 } catch {
 }
 }
 function shortDeviceId(value) {
-const text = String(value || __atgSiteText(443));
-if (text.length <= 12) return text || __atgSiteText(444);
-return __atgSiteTpl(34,text.slice(0, 6),text.slice(-4));
+const text = String(value || __atgSiteText(514));
+if (text.length <= 12) return text || __atgSiteText(515);
+return __atgSiteTpl(43,text.slice(0, 6),text.slice(-4));
 }
 function isToday(value) {
 if (!value) return false;
@@ -1377,57 +1575,57 @@ function clamp(value, min, max) {
 return Math.min(max, Math.max(min, value));
 }
 function formatRate(value) {
-return __atgSiteTpl(35,number(value).toFixed(2));
+return __atgSiteTpl(44,number(value).toFixed(2));
 }
 function formatNullableRate(value) {
-return value == null ? __atgSiteText(445) : formatRate(value);
+return value == null ? __atgSiteText(516) : formatRate(value);
 }
 function formatNullablePercent(value) {
-return value == null ? __atgSiteText(446) : __atgSiteTpl(36,clamp(number(value), 0, 100).toFixed(0));
+return value == null ? __atgSiteText(517) : __atgSiteTpl(45,clamp(number(value), 0, 100).toFixed(0));
 }
 function formatNumber(value) {
-return new Intl.NumberFormat(__atgSiteText(447), { maximumFractionDigits: 2 }).format(number(value));
+return new Intl.NumberFormat(__atgSiteText(518), { maximumFractionDigits: 2 }).format(number(value));
 }
 function formatTurns(value) {
-return value == null ? __atgSiteText(448) : __atgSiteTpl(37,Math.round(number(value)));
+return value == null ? __atgSiteText(519) : __atgSiteTpl(46,Math.round(number(value)));
 }
 function formatTurnWindow(room) {
-if (room.freeGameWindowStart == null || room.freeGameWindowEnd == null) return __atgSiteText(449);
-return __atgSiteTpl(38,Math.round(number(room.freeGameWindowStart)),Math.round(number(room.freeGameWindowEnd)));
+if (room.freeGameWindowStart == null || room.freeGameWindowEnd == null) return __atgSiteText(520);
+return __atgSiteTpl(47,Math.round(number(room.freeGameWindowStart)),Math.round(number(room.freeGameWindowEnd)));
 }
 function formatRemainingWindow(room) {
-if (room.freeGameRemainingStart == null || room.freeGameRemainingEnd == null) return __atgSiteText(450);
+if (room.freeGameRemainingStart == null || room.freeGameRemainingEnd == null) return __atgSiteText(521);
 const start = Math.round(number(room.freeGameRemainingStart));
 const end = Math.round(number(room.freeGameRemainingEnd));
-if (end <= 0) return __atgSiteText(451);
-if (start === end) return __atgSiteTpl(39,end);
-return __atgSiteTpl(40,start,end);
+if (end <= 0) return __atgSiteText(522);
+if (start === end) return __atgSiteTpl(48,end);
+return __atgSiteTpl(49,start,end);
 }
 function formatPointValue(value) {
-if (value == null) return __atgSiteText(452);
+if (value == null) return __atgSiteText(523);
 const points = Math.max(0, number(value));
-if (points <= 0) return __atgSiteText(453);
+if (points <= 0) return __atgSiteText(524);
 return formatNumber(Math.round(points));
 }
 function formatPointRange(room) {
-if (room.pointEstimated == null && room.pointMin == null && room.pointMax == null) return __atgSiteText(454);
+if (room.pointEstimated == null && room.pointMin == null && room.pointMax == null) return __atgSiteText(525);
 const min = Math.max(0, Math.round(number(room.pointMin == null ? room.pointEstimated : room.pointMin)));
 const max = Math.max(min, Math.round(number(room.pointMax == null ? room.pointEstimated : room.pointMax)));
-if (max <= 0) return __atgSiteText(455);
+if (max <= 0) return __atgSiteText(526);
 if (min === max) return formatPointValue(max);
-return __atgSiteTpl(41,formatPointValue(min),formatPointValue(max));
+return __atgSiteTpl(50,formatPointValue(min),formatPointValue(max));
 }
 function formatDateTime(value) {
-if (!value) return __atgSiteText(456);
+if (!value) return __atgSiteText(527);
 const date = new Date(value);
 if (Number.isNaN(date.getTime())) return String(value);
-return date.toLocaleString(__atgSiteText(457), { hour12: false });
+return date.toLocaleString(__atgSiteText(528), { hour12: false });
 }
 function escapeHtml(value) {
 return String(value)
-.replace(/&/g, __atgSiteText(458))
-.replace(/</g, __atgSiteText(459))
-.replace(/>/g, __atgSiteText(460))
-.replace(/"/g, __atgSiteText(461))
-.replace(/'/g, __atgSiteText(462));
+.replace(/&/g, __atgSiteText(529))
+.replace(/</g, __atgSiteText(530))
+.replace(/>/g, __atgSiteText(531))
+.replace(/"/g, __atgSiteText(532))
+.replace(/'/g, __atgSiteText(533));
 }

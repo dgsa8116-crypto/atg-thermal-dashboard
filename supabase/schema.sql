@@ -437,12 +437,255 @@ begin
 end;
 $$;
 
+create or replace function public.admin_list_tasks()
+returns table (
+  id text,
+  title text,
+  description text,
+  reward_points integer,
+  url text,
+  sort_order integer,
+  active boolean,
+  created_at timestamptz,
+  updated_at timestamptz
+)
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_actor_role text := public.current_profile_role();
+begin
+  if v_actor_role not in ('super_admin', 'admin', 'admin_assistant') then
+    return;
+  end if;
+
+  return query
+  select
+    t.id,
+    t.title,
+    t.description,
+    t.reward_points,
+    t.url,
+    t.sort_order,
+    t.active,
+    t.created_at,
+    t.updated_at
+  from public.portal_tasks t
+  order by t.active desc, t.sort_order asc, t.created_at desc;
+end;
+$$;
+
+create or replace function public.admin_upsert_task(
+  p_task_id text default null,
+  p_title text default '',
+  p_description text default '',
+  p_reward_points integer default 0,
+  p_url text default '',
+  p_sort_order integer default 100,
+  p_active boolean default true
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_actor_role text := public.current_profile_role();
+  v_id text := nullif(trim(coalesce(p_task_id, '')), '');
+  v_title text := trim(coalesce(p_title, ''));
+begin
+  if v_actor_role not in ('super_admin', 'admin') then
+    return jsonb_build_object('ok', false, 'message', '沒有任務管理權限。');
+  end if;
+
+  if v_title = '' then
+    return jsonb_build_object('ok', false, 'message', '任務名稱不能空白。');
+  end if;
+
+  if v_id is null then
+    v_id := 'task_' || substr(replace(gen_random_uuid()::text, '-', ''), 1, 16);
+  end if;
+
+  insert into public.portal_tasks (id, title, description, reward_points, url, sort_order, active)
+  values (
+    v_id,
+    v_title,
+    trim(coalesce(p_description, '')),
+    greatest(0, coalesce(p_reward_points, 0)),
+    trim(coalesce(p_url, '')),
+    coalesce(p_sort_order, 100),
+    coalesce(p_active, true)
+  )
+  on conflict (id) do update
+  set
+    title = excluded.title,
+    description = excluded.description,
+    reward_points = excluded.reward_points,
+    url = excluded.url,
+    sort_order = excluded.sort_order,
+    active = excluded.active;
+
+  return jsonb_build_object('ok', true, 'message', '任務已儲存。', 'id', v_id);
+end;
+$$;
+
+create or replace function public.admin_set_task_active(
+  p_task_id text,
+  p_active boolean default true
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_actor_role text := public.current_profile_role();
+begin
+  if v_actor_role not in ('super_admin', 'admin') then
+    return jsonb_build_object('ok', false, 'message', '沒有任務管理權限。');
+  end if;
+
+  update public.portal_tasks
+  set active = coalesce(p_active, true)
+  where id = p_task_id;
+
+  if not found then
+    return jsonb_build_object('ok', false, 'message', '找不到任務。');
+  end if;
+
+  return jsonb_build_object('ok', true, 'message', case when coalesce(p_active, true) then '任務已啟用。' else '任務已停用。' end);
+end;
+$$;
+
+create or replace function public.admin_list_rewards()
+returns table (
+  id text,
+  title text,
+  description text,
+  cost_points integer,
+  sort_order integer,
+  active boolean,
+  created_at timestamptz,
+  updated_at timestamptz
+)
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_actor_role text := public.current_profile_role();
+begin
+  if v_actor_role not in ('super_admin', 'admin', 'admin_assistant') then
+    return;
+  end if;
+
+  return query
+  select
+    r.id,
+    r.title,
+    r.description,
+    r.cost_points,
+    r.sort_order,
+    r.active,
+    r.created_at,
+    r.updated_at
+  from public.rewards r
+  order by r.active desc, r.sort_order asc, r.created_at desc;
+end;
+$$;
+
+create or replace function public.admin_upsert_reward(
+  p_reward_id text default null,
+  p_title text default '',
+  p_description text default '',
+  p_cost_points integer default 0,
+  p_sort_order integer default 100,
+  p_active boolean default true
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_actor_role text := public.current_profile_role();
+  v_id text := nullif(trim(coalesce(p_reward_id, '')), '');
+  v_title text := trim(coalesce(p_title, ''));
+begin
+  if v_actor_role not in ('super_admin', 'admin') then
+    return jsonb_build_object('ok', false, 'message', '沒有商品管理權限。');
+  end if;
+
+  if v_title = '' then
+    return jsonb_build_object('ok', false, 'message', '商品名稱不能空白。');
+  end if;
+
+  if v_id is null then
+    v_id := 'reward_' || substr(replace(gen_random_uuid()::text, '-', ''), 1, 16);
+  end if;
+
+  insert into public.rewards (id, title, description, cost_points, sort_order, active)
+  values (
+    v_id,
+    v_title,
+    trim(coalesce(p_description, '')),
+    greatest(0, coalesce(p_cost_points, 0)),
+    coalesce(p_sort_order, 100),
+    coalesce(p_active, true)
+  )
+  on conflict (id) do update
+  set
+    title = excluded.title,
+    description = excluded.description,
+    cost_points = excluded.cost_points,
+    sort_order = excluded.sort_order,
+    active = excluded.active;
+
+  return jsonb_build_object('ok', true, 'message', '商品已儲存。', 'id', v_id);
+end;
+$$;
+
+create or replace function public.admin_set_reward_active(
+  p_reward_id text,
+  p_active boolean default true
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_actor_role text := public.current_profile_role();
+begin
+  if v_actor_role not in ('super_admin', 'admin') then
+    return jsonb_build_object('ok', false, 'message', '沒有商品管理權限。');
+  end if;
+
+  update public.rewards
+  set active = coalesce(p_active, true)
+  where id = p_reward_id;
+
+  if not found then
+    return jsonb_build_object('ok', false, 'message', '找不到商品。');
+  end if;
+
+  return jsonb_build_object('ok', true, 'message', case when coalesce(p_active, true) then '商品已啟用。' else '商品已停用。' end);
+end;
+$$;
+
 grant execute on function public.current_profile_role() to authenticated;
 grant execute on function public.normalize_profile_role(text) to authenticated;
 grant execute on function public.profile_role_level(text) to authenticated;
 grant execute on function public.admin_list_profiles() to authenticated;
 grant execute on function public.admin_update_profile(uuid, text, text, integer) to authenticated;
 grant execute on function public.admin_set_broadcaster(uuid, boolean) to authenticated;
+grant execute on function public.admin_list_tasks() to authenticated;
+grant execute on function public.admin_upsert_task(text, text, text, integer, text, integer, boolean) to authenticated;
+grant execute on function public.admin_set_task_active(text, boolean) to authenticated;
+grant execute on function public.admin_list_rewards() to authenticated;
+grant execute on function public.admin_upsert_reward(text, text, text, integer, integer, boolean) to authenticated;
+grant execute on function public.admin_set_reward_active(text, boolean) to authenticated;
 
 create table if not exists public.point_ledger (
   id uuid primary key default gen_random_uuid(),

@@ -4,29 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="atg-dashboard" content="thermal-glow">
-    <title>熱能柔光平台 | 即時模組中心</title>
-    <meta name="description" content="熱能柔光平台提供會員系統、即時資料模組、監測端配對、積分任務與可擴充功能中心。">
-    <meta name="keywords" content="熱能柔光, 即時資料平台, 會員系統, 監測端配對, 任務中心, 擴充模組">
-    <meta name="author" content="Thermal Platform">
+    <title>Nexus Thermal | 都市極簡管理系統</title>
+    <meta name="description" content="Nexus Thermal 都市極簡管理系統提供會員系統、即時資料模組、監測端配對、積分任務與可擴充功能中心。">
+    <meta name="keywords" content="Nexus Thermal, 都市極簡管理系統, 即時資料平台, 會員系統, 監測端配對, 任務中心, 擴充模組">
+    <meta name="author" content="Nexus Thermal">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://tntlinebotseemyeyes.online/">
-    <meta name="theme-color" content="#2a1718">
+    <meta name="theme-color" content="#111827">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tntlinebotseemyeyes.online/">
-    <meta property="og:title" content="熱能柔光平台">
+    <meta property="og:title" content="Nexus Thermal 都市極簡管理系統">
     <meta property="og:description" content="會員系統、即時資料模組、監測端配對與可擴充功能中心。">
     <meta property="og:image" content="https://tntlinebotseemyeyes.online/og-image.svg">
     <meta property="og:locale" content="zh_TW">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="熱能柔光平台">
+    <meta name="twitter:title" content="Nexus Thermal 都市極簡管理系統">
     <meta name="twitter:description" content="會員系統、即時資料模組、監測端配對與可擴充功能中心。">
     <meta name="twitter:image" content="https://tntlinebotseemyeyes.online/og-image.svg">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css?v=20260527-urban">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "熱能柔光平台",
+        "name": "Nexus Thermal 都市極簡管理系統",
         "url": "https://tntlinebotseemyeyes.online/",
         "description": "會員系統、即時資料模組、監測端配對、任務與兌換中心。",
         "applicationCategory": "UtilityApplication",
@@ -38,8 +38,8 @@
   <body>
     <section id="authGate" class="auth-gate">
       <form id="authForm" class="auth-card">
-        <p class="eyebrow">Thermal Platform</p>
-        <h1>熱能柔光登入</h1>
+        <p class="eyebrow">Nexus Thermal</p>
+        <h1>Nexus Thermal 登入</h1>
         <label>
           Email
           <input id="authEmail" type="email" autocomplete="username" placeholder="you@example.com" required>
@@ -59,10 +59,10 @@
     <main id="appShell" class="app-shell">
       <aside class="sidebar">
         <div class="brand">
-          <span class="brand-mark">TP</span>
+          <span class="brand-mark">NT</span>
           <div>
-            <strong>熱能柔光</strong>
-            <small>模組中心</small>
+            <strong>Nexus Thermal</strong>
+            <small>都市極簡管理系統</small>
           </div>
         </div>
         <nav class="nav-list" aria-label="主選單">
@@ -196,9 +196,19 @@
               <p>讀取監測端回傳資料，顯示房間排名、爆破可能、高爆點數與週期資訊。</p>
             </article>
             <article class="catalog-card">
-              <div class="catalog-meta"><span>規劃中</span><b>擴充</b></div>
-              <h3>後續功能模組</h3>
-              <p>平台已保留會員、任務、兌換、卡號與監測端配對架構，可繼續接入新功能。</p>
+              <div class="catalog-meta"><span>已啟用</span><b>任務</b></div>
+              <h3>懸賞任務中心</h3>
+              <p>超級管理員可發布任務，會員完成後由系統發放積分並寫入紀錄。</p>
+            </article>
+            <article class="catalog-card">
+              <div class="catalog-meta"><span>已啟用</span><b>兌換</b></div>
+              <h3>商品兌換與卡號</h3>
+              <p>支援商品發布、積分兌換、卡號產生與會員專屬紀錄保存。</p>
+            </article>
+            <article class="catalog-card">
+              <div class="catalog-meta"><span>已啟用</span><b>後台</b></div>
+              <h3>管理中心</h3>
+              <p>超級管理員可管理會員權限、發布任務、管理任務與商品狀態。</p>
             </article>
           </div>
         </section>
@@ -272,14 +282,104 @@
             </div>
             <button id="adminRefreshBtn" type="button">刷新會員</button>
           </div>
-          <p id="adminStatus" class="notice">只有超級管理員可以指派帳號權限。</p>
-          <div id="adminList" class="admin-list"></div>
+          <p id="adminStatus" class="notice">只有超級管理員可以指派帳號權限、發布任務與管理商品。</p>
+          <section class="admin-summary">
+            <article class="status-card">
+              <span>會員數</span>
+              <strong id="adminUserCount">0</strong>
+            </article>
+            <article class="status-card">
+              <span>任務數</span>
+              <strong id="adminTaskCount">0</strong>
+            </article>
+            <article class="status-card">
+              <span>商品數</span>
+              <strong id="adminRewardCount">0</strong>
+            </article>
+          </section>
+
+          <section class="management-grid">
+            <article class="admin-panel">
+              <h3>發布任務</h3>
+              <div class="admin-form-grid">
+                <label>
+                  任務類型
+                  <select id="adminTaskPrefix">
+                    <option value="每日">每日</option>
+                    <option value="推廣">推廣</option>
+                    <option value="監測">監測</option>
+                    <option value="活動">活動</option>
+                  </select>
+                </label>
+                <label>
+                  任務名稱
+                  <input id="adminTaskTitle" type="text" placeholder="例如 完成今日資料檢查">
+                </label>
+                <label>
+                  獎勵積分
+                  <input id="adminTaskReward" type="number" min="0" step="1" value="20">
+                </label>
+                <label>
+                  排序
+                  <input id="adminTaskSort" type="number" step="1" value="100">
+                </label>
+                <label class="admin-wide">
+                  任務連結
+                  <input id="adminTaskUrl" type="url" placeholder="https://">
+                </label>
+                <label class="admin-wide">
+                  任務描述
+                  <input id="adminTaskDesc" type="text" placeholder="簡短說明使用者要完成的動作">
+                </label>
+              </div>
+              <button id="adminPublishTaskBtn" type="button">發布任務</button>
+            </article>
+
+            <article class="admin-panel">
+              <h3>發布商品</h3>
+              <div class="admin-form-grid">
+                <label>
+                  商品名稱
+                  <input id="adminRewardTitle" type="text" placeholder="例如 專屬稱號">
+                </label>
+                <label>
+                  所需積分
+                  <input id="adminRewardCost" type="number" min="0" step="1" value="100">
+                </label>
+                <label>
+                  排序
+                  <input id="adminRewardSort" type="number" step="1" value="100">
+                </label>
+                <label class="admin-wide">
+                  商品描述
+                  <input id="adminRewardDesc" type="text" placeholder="兌換後會取得的內容">
+                </label>
+              </div>
+              <button id="adminPublishRewardBtn" type="button">發布商品</button>
+            </article>
+          </section>
+
+          <section class="management-grid">
+            <article class="admin-panel">
+              <h3>管理任務</h3>
+              <div id="adminTaskList" class="admin-list compact"></div>
+            </article>
+            <article class="admin-panel">
+              <h3>管理商品</h3>
+              <div id="adminRewardList" class="admin-list compact"></div>
+            </article>
+          </section>
+
+          <section class="admin-panel">
+            <h3>會員權限</h3>
+            <div id="adminList" class="admin-list"></div>
+          </section>
         </section>
       </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./supabase-config.js?v=20260527-bridge"></script>
-    <script src="./app.js?v=20260527-bridge"></script>
+    <script src="./supabase-config.js?v=20260527-urban"></script>
+    <script src="./app.js?v=20260527-urban"></script>
   </body>
 </html>
