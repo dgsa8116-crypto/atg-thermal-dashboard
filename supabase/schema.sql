@@ -727,6 +727,13 @@ for select
 to authenticated
 using (active = true);
 
+drop policy if exists portal_tasks_select_admin_all on public.portal_tasks;
+create policy portal_tasks_select_admin_all
+on public.portal_tasks
+for select
+to authenticated
+using (public.current_profile_role() in ('super_admin', 'admin', 'admin_assistant'));
+
 drop trigger if exists portal_tasks_touch_updated_at on public.portal_tasks;
 create trigger portal_tasks_touch_updated_at
 before update on public.portal_tasks
@@ -768,6 +775,13 @@ on public.rewards
 for select
 to authenticated
 using (active = true);
+
+drop policy if exists rewards_select_admin_all on public.rewards;
+create policy rewards_select_admin_all
+on public.rewards
+for select
+to authenticated
+using (public.current_profile_role() in ('super_admin', 'admin', 'admin_assistant'));
 
 drop trigger if exists rewards_touch_updated_at on public.rewards;
 create trigger rewards_touch_updated_at
