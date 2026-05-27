@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "ATG 熱能柔光監控",
-  "version": "2.0.0",
-  "description": "只讀式讀取 ATG 房間資料，提供高回報排名、爆破可能、高爆點數與雲端監控台橋接。",
+  "version": "2.1.0",
+  "description": "只讀式讀取 ATG 房間資料，自動橋接網站並回傳高回報排名、爆破可能與高爆點數。",
   "permissions": [
     "storage",
     "tabs"
@@ -14,6 +14,7 @@
     "https://*.netlify.app/*",
     "https://tntlinebotseemyeyes.online/*",
     "https://www.tntlinebotseemyeyes.online/*",
+    "https://*.supabase.co/*",
     "http://localhost/*",
     "http://127.0.0.1/*"
   ],
@@ -61,5 +62,5 @@
       "world": "ISOLATED"
     }
   ],
-  "version_name": "2.0.0 protected"
+  "version_name": "2.1.0 protected"
 }

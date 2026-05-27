@@ -1,14 +1,14 @@
 {
-  "siteName": "ATG 熱能柔光監控台",
+  "siteName": "熱能柔光平台",
   "canonical": "https://tntlinebotseemyeyes.online/",
-  "description": "只讀式房間快照、爆破可能、高回報排名、高爆點數、免費遊戲週期與雲端即時同步。",
+  "description": "會員系統、即時資料模組、監測端配對、任務中心、兌換中心與可擴充功能平台。",
   "keywords": [
-    "ATG",
     "熱能柔光",
-    "房間監控",
-    "高回報率",
-    "爆破可能",
-    "免費遊戲",
+    "即時資料平台",
+    "會員系統",
+    "監測端配對",
+    "功能模組",
+    "任務中心",
     "Supabase",
     "GitHub Pages"
   ],

@@ -360,6 +360,35 @@ body.is-authed .auth-gate {
   font-weight: 750;
 }
 
+.device-status {
+  color: var(--hot) !important;
+}
+
+.device-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -2px 0 12px;
+}
+
+.device-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 211, 109, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.device-pill b {
+  color: var(--mint);
+}
+
 .source-actions {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) auto auto;
@@ -543,8 +572,7 @@ body.is-authed .auth-gate {
   margin: 18px 0 12px;
 }
 
-.account-grid,
-.deploy-grid {
+.account-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
@@ -617,6 +645,51 @@ body.is-authed .auth-gate {
   gap: 10px;
 }
 
+.admin-list {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) minmax(140px, 0.8fr) minmax(150px, 0.8fr) minmax(110px, 0.55fr) auto;
+  align-items: end;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045)), var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.admin-card label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.admin-member {
+  min-width: 0;
+}
+
+.admin-member strong,
+.admin-member span,
+.admin-member small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-member span,
+.admin-member small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .record-card {
   display: flex;
   align-items: center;
@@ -661,8 +734,11 @@ body.is-authed .auth-gate {
   }
 
   .status-grid,
-  .account-grid,
-  .deploy-grid {
+  .account-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-card {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -680,7 +756,6 @@ body.is-authed .auth-gate {
 @media (max-width: 620px) {
   .status-grid,
   .account-grid,
-  .deploy-grid,
   .metrics,
   .detail-grid,
   .free-grid,
@@ -694,8 +769,14 @@ body.is-authed .auth-gate {
   }
 
   .record-card,
+  .admin-card,
   .room-head {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .admin-card {
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 }
