@@ -1,8 +1,4 @@
-"use strict";
-
-// Copy this file to supabase-config.js and fill the public Supabase URL/key.
-// Never place service-role or admin secrets in this browser file.
-window.ATG_SUPABASE_CONFIG = {
+window.PULSEPLAY_SUPABASE = {
   url: "https://YOUR_PROJECT_ID.supabase.co",
-  anonKey: "YOUR_SUPABASE_ANON_KEY"
+  publishableKey: "YOUR_SUPABASE_PUBLISHABLE_KEY"
 };
