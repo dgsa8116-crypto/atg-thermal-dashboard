@@ -1,33 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="PulsePlay 積分商城">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="NexaPredict OS">
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#07111f"/>
-      <stop offset="0.55" stop-color="#10213a"/>
-      <stop offset="1" stop-color="#081827"/>
+      <stop offset="0" stop-color="#030814"/>
+      <stop offset="0.52" stop-color="#082c52"/>
+      <stop offset="1" stop-color="#071527"/>
     </linearGradient>
     <linearGradient id="line" x1="0" x2="1">
-      <stop offset="0" stop-color="#57a8ff"/>
-      <stop offset="0.5" stop-color="#a78bfa"/>
-      <stop offset="1" stop-color="#33e6d0"/>
+      <stop offset="0" stop-color="#3df2e0"/>
+      <stop offset="0.5" stop-color="#4da3ff"/>
+      <stop offset="1" stop-color="#8c7cff"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="70" y="70" width="1060" height="490" rx="22" fill="#0d1728" stroke="#334155"/>
-  <rect x="112" y="116" width="92" height="92" rx="18" fill="#111c30" stroke="#33e6d0"/>
-  <text x="158" y="174" text-anchor="middle" fill="#33e6d0" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="34" font-weight="900">PP</text>
-  <text x="112" y="276" fill="#edf5ff" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="62" font-weight="900">PulsePlay 積分商城</text>
-  <text x="112" y="342" fill="#d5e4f7" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="34" font-weight="800">完成任務賺積分，兌換預測遊戲虛擬道具</text>
-  <rect x="112" y="406" width="260" height="54" rx="12" fill="url(#line)"/>
-  <text x="242" y="441" text-anchor="middle" fill="#06111f" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="22" font-weight="900">查看虛擬商城</text>
-  <g transform="translate(730 145)">
-    <rect width="300" height="330" rx="18" fill="#111c30" stroke="#334155"/>
-    <rect x="28" y="28" width="244" height="56" rx="12" fill="#17243a"/>
-    <rect x="28" y="108" width="244" height="56" rx="12" fill="#17243a"/>
-    <rect x="28" y="188" width="244" height="56" rx="12" fill="#17243a"/>
-    <rect x="28" y="270" width="112" height="28" rx="8" fill="#57a8ff"/>
-    <rect x="156" y="270" width="116" height="28" rx="8" fill="#33e6d0"/>
-    <circle cx="58" cy="56" r="12" fill="#57a8ff"/>
-    <circle cx="58" cy="136" r="12" fill="#a78bfa"/>
-    <circle cx="58" cy="216" r="12" fill="#33e6d0"/>
+  <g opacity="0.18" stroke="#cfe9ff">
+    <path d="M0 160h1200M0 300h1200M0 440h1200M200 0v630M420 0v630M760 0v630M980 0v630"/>
+  </g>
+  <rect x="72" y="72" width="1056" height="486" rx="20" fill="#071527" opacity="0.86" stroke="#3df2e0" stroke-opacity="0.34"/>
+  <rect x="112" y="118" width="92" height="92" rx="18" fill="#0b213c" stroke="#3df2e0"/>
+  <text x="158" y="176" text-anchor="middle" fill="#3df2e0" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="34" font-weight="900">NX</text>
+  <text x="112" y="274" fill="#eef8ff" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="60" font-weight="900">NexaPredict OS</text>
+  <text x="112" y="338" fill="#d9eaff" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="32" font-weight="800">娛樂預測內容後台＋會員點數＋推廣積分系統</text>
+  <rect x="112" y="408" width="300" height="54" rx="12" fill="url(#line)"/>
+  <text x="262" y="443" text-anchor="middle" fill="#03101f" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="22" font-weight="900">白標後台展示</text>
+  <g transform="translate(724 132)">
+    <rect width="320" height="360" rx="18" fill="#0b213c" stroke="#91c2ff" stroke-opacity="0.32"/>
+    <rect x="28" y="30" width="264" height="58" rx="12" fill="#102d50"/>
+    <rect x="28" y="112" width="264" height="58" rx="12" fill="#102d50"/>
+    <rect x="28" y="194" width="264" height="58" rx="12" fill="#102d50"/>
+    <rect x="28" y="278" width="120" height="30" rx="8" fill="#4da3ff"/>
+    <rect x="166" y="278" width="126" height="30" rx="8" fill="#3df2e0"/>
+    <circle cx="60" cy="59" r="12" fill="#3df2e0"/>
+    <circle cx="60" cy="141" r="12" fill="#4da3ff"/>
+    <circle cx="60" cy="223" r="12" fill="#8c7cff"/>
   </g>
 </svg>

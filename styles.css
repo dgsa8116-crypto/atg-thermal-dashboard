@@ -421,9 +421,7 @@ p {
 .faq-item,
 .seo-card,
 .admin-card,
-.wallet-row,
-.inventory-row,
-.rank-row {
+.wallet-row {
   position: relative;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -546,7 +544,8 @@ p {
 .grid,
 .grid-2,
 .grid-3,
-.grid-4 {
+.grid-4,
+.grid-5 {
   display: grid;
   gap: 14px;
 }
@@ -561,6 +560,10 @@ p {
 
 .grid-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .section-head {
@@ -760,22 +763,12 @@ p {
   color: var(--cyan);
 }
 
-.wallet-row,
-.inventory-row,
-.rank-row {
+.wallet-row {
   display: grid;
   grid-template-columns: 1.1fr 0.8fr 0.7fr 0.8fr 1fr;
   gap: 12px;
   align-items: center;
   padding: 14px;
-}
-
-.inventory-row {
-  grid-template-columns: auto 1fr 0.7fr 0.8fr auto;
-}
-
-.rank-row {
-  grid-template-columns: 70px 1fr 0.8fr 0.8fr 0.8fr;
 }
 
 .leader-me {
@@ -919,6 +912,37 @@ p {
   gap: 8px;
 }
 
+.data-table {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(130px, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(9, 25, 45, 0.62);
+  box-shadow: var(--shadow), var(--glow);
+}
+
+.data-table strong,
+.data-table span {
+  min-width: 0;
+  border-bottom: 1px solid rgba(145, 194, 255, 0.12);
+  padding: 12px;
+  word-break: break-word;
+}
+
+.data-table strong {
+  background: rgba(61, 242, 224, 0.08);
+  color: #dffdfa;
+}
+
+.data-table span {
+  color: var(--muted);
+}
+
+.admin-nav {
+  margin-bottom: 0;
+}
+
 @media (max-width: 1040px) {
   .site-header {
     grid-template-columns: auto auto;
@@ -958,6 +982,7 @@ p {
   .grid-2,
   .grid-3,
   .grid-4,
+  .grid-5,
   .product-grid,
   .task-grid,
   .challenge-grid,
@@ -984,13 +1009,12 @@ p {
   .grid-2,
   .grid-3,
   .grid-4,
+  .grid-5,
   .product-grid,
   .task-grid,
   .challenge-grid,
   .stats-strip,
   .wallet-row,
-  .inventory-row,
-  .rank-row,
   .site-footer {
     grid-template-columns: 1fr;
   }
@@ -1014,5 +1038,14 @@ p {
 
   .mock-score {
     grid-column: 1 / -1;
+  }
+
+  .data-table {
+    display: block;
+  }
+
+  .data-table strong,
+  .data-table span {
+    display: block;
   }
 }

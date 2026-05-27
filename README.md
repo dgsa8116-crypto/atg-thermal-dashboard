@@ -1,49 +1,85 @@
-# PulsePlay 積分商城｜可直接上架版
+# NexaPredict OS｜可直接上架版
 
-這是一個可直接部署到 GitHub Pages 的繁體中文靜態網站，主題為「娛樂型預測遊戲積分商城」。
+這是一套繁體中文「娛樂預測內容後台＋會員點數＋推廣積分系統」，可部署到 GitHub Pages 作為白標 SaaS 展示站，也可串接 Supabase 作為會員、點數、內容、推廣與後台資料庫。
 
-## 已包含頁面
+## 產品定位
+
+本系統提供：
+
+- 預測內容管理
+- 會員註冊與登入
+- 點數錢包
+- 點數解鎖內容
+- 推廣邀請與積分獎勵
+- 任務中心
+- 虛擬商品商城
+- 後台管理
+- SEO 管理
+- 白標設定
+
+本系統不處理投注、不提供現金兌換、不保證任何預測結果。
+
+## 前台頁面
 
 - `/` 首頁
-- `/earn-points` 積分任務頁
-- `/shop` 虛擬商城頁
-- `/shop/challenge-ticket` 商品詳情頁
-- `/shop/hint-card` 商品詳情頁
-- `/inventory` 我的背包頁
-- `/predictions` 預測挑戰頁
-- `/wallet` 積分錢包頁
-- `/referral` 邀請好友頁
-- `/leaderboard` 排行榜頁
+- `/predictions` 預測內容頁
+- `/predictions/daily-signal` 預測內容詳情頁
+- `/shop` 點數商城
+- `/wallet` 點數錢包
+- `/referral` 推廣中心
+- `/tasks` 任務中心
 - `/account` 會員中心
 - `/faq` FAQ
-- `/terms` 使用條款與隱私權
-- `/admin-plan` 後台管理介面規劃
-- `/seo-plan` SEO 與轉換率規劃
+- `/terms` 條款
 
-## 已包含資料庫
+## 後台頁面
 
-- `supabase/schema.sql`：完整 Supabase schema、RLS 權限、RPC 函式與種子資料
-- `supabase/README.md`：資料庫建立順序
-- `supabase-config.js`：公開前端設定檔，只填 Supabase URL 與 publishable key
-- `database.js`：前端資料庫連線層
+- `/admin` 後台儀表板
+- `/admin/users` 會員管理
+- `/admin/predictions` 預測內容管理
+- `/admin/categories` 分類管理
+- `/admin/products` 商品管理
+- `/admin/orders` 訂單管理
+- `/admin/points` 點數管理
+- `/admin/referrals` 推廣管理
+- `/admin/tasks` 任務管理
+- `/admin/risk` 風控管理
+- `/admin/seo` SEO 管理
+- `/admin/settings` 白標設定
 
-已包含的資料表：
+## 資料庫
 
-- `profiles` 會員資料、角色、狀態與積分
-- `point_ledger` 積分流水
-- `tasks` 任務
-- `user_tasks` 任務送審與審核
-- `products` 虛擬商品
-- `inventory_items` 我的背包
-- `predictions` 預測挑戰
-- `prediction_entries` 參與紀錄
-- `referrals` 邀請好友
-- `payments` 點數購買紀錄
-- `risk_alerts` 風控警示
-- `admin_audit_logs` 後台操作紀錄
-- `monitor_devices` 外接監測端配對
-- `monitor_device_snapshots` 外接監測端即時資料
-- `site_settings` 網站設定
+`supabase/schema.sql` 已包含指定資料表：
+
+- `users`
+- `roles`
+- `permissions`
+- `wallets`
+- `point_transactions`
+- `predictions`
+- `prediction_categories`
+- `products`
+- `orders`
+- `payments`
+- `referrals`
+- `referral_rewards`
+- `tasks`
+- `task_completions`
+- `memberships`
+- `risk_flags`
+- `audit_logs`
+- `site_settings`
+- `seo_settings`
+
+另外補充 `prediction_unlocks`，用來記錄會員是否已解鎖內容。
+
+## 點數規則
+
+- `wallets` 只保存錢包快照。
+- `point_transactions` 是唯一可信流水帳。
+- 點數增加、扣除、凍結、退款、調整都要寫入 `point_transactions`。
+- 管理員手動補點或扣點必須填寫原因並寫入 `audit_logs`。
+- 付款 webhook 使用 `payments.webhook_event_id` 與 `orders.idempotency_key` 避免重複入帳。
 
 ## Supabase 串接順序
 
@@ -53,8 +89,8 @@
 4. 回到 `SQL Editor`，把你的帳號設成超級管理員：
 
 ```sql
-update public.profiles
-set role = 'super_admin'
+update public.users
+set role_id = 'super_admin'
 where email = '你的Email';
 ```
 
@@ -62,24 +98,13 @@ where email = '你的Email';
 6. 編輯網站第一層 `supabase-config.js`：
 
 ```js
-window.PULSEPLAY_SUPABASE = {
+window.NEXA_SUPABASE = {
   url: "https://你的專案.supabase.co",
   publishableKey: "你的 publishable key"
 };
 ```
 
 公開網站不要放 `secret key`。
-
-## 權限設計
-
-- `super_admin`：100% 權限，可在資料庫與後台 RPC 指派其他角色。
-- `admin`：管理會員、任務、商品、積分與審核。
-- `admin_assistant`：查看資料與處理基礎審核。
-- `member`：一般會員。
-
-## 禁用字設定
-
-資料庫已解禁禁用文字。`site_settings.restricted_terms` 預設為空陣列，代表不封鎖指定文字。日後若要重新限制，可自行在 Supabase 更新該欄位。
 
 ## 上架方式
 
@@ -95,8 +120,6 @@ tntlinebotseemyeyes.online
 ```
 
 ## Namecheap DNS 建議
-
-若要使用裸網域 `tntlinebotseemyeyes.online`，Namecheap DNS 建議設定：
 
 ```txt
 Type: A Record
@@ -120,16 +143,12 @@ Host: www
 Value: dgsa8116-crypto.github.io.
 ```
 
-## 重要聲明
-
-本平台為娛樂型預測遊戲與虛擬商品服務。所有積分與虛擬商品僅限站內使用，不具現金價值，不可轉售，不可兌換現金；平台不提供投資、金錢型競猜或結果承諾服務。
-
 ## 發布前檢查
 
 - `index.html` 存在於第一層
 - `404.html` 存在於第一層，可支援 GitHub Pages 子路由
 - `CNAME` 存在於第一層
 - `sitemap.xml` 與 `robots.txt` 存在於第一層
-- 不填 Supabase 時可展示完整網站；填完 Supabase 後會讀取資料庫
-- `supabase/schema.sql` 已包含會員、任務、商品、背包、錢包、權限與外接監測資料表
-- 不需要安裝擴充即可瀏覽網站
+- `supabase/schema.sql` 已包含資料庫結構、RLS、RPC 與種子資料
+- `supabase/API_SPEC.md` 已包含前後端 API 規格
+- 不填 Supabase 時可展示完整網站；填完 Supabase 後可接會員與資料庫
