@@ -46,7 +46,19 @@
     if (!client) return disabledResult();
     const { data, error } = await client.auth.signInWithPassword({ email, password });
     if (error) return { ok: false, message: error.message };
-    return { ok: true, message: "登入成功。", data };
+    await recordLoginEvent();
+    return { ok: true, message: "登入成功，正在進入主控台。", data };
+  }
+
+  async function signInWithLine() {
+    if (!client) return disabledResult();
+    const redirectTo = `${window.location.origin}/login`;
+    const { data, error } = await client.auth.signInWithOAuth({
+      provider: "line",
+      options: { redirectTo }
+    });
+    if (error) return { ok: false, message: error.message };
+    return { ok: true, message: "正在前往 LINE 快速登入。", data };
   }
 
   async function signUp(email, password) {
@@ -60,7 +72,21 @@
     if (!client) return disabledResult();
     const { error } = await client.auth.signOut();
     if (error) return { ok: false, message: error.message };
-    return { ok: true, message: "已登出。" };
+    Object.keys(sessionStorage)
+      .filter((key) => key.startsWith("nexaLoginRecorded:"))
+      .forEach((key) => sessionStorage.removeItem(key));
+    return { ok: true, message: "已成功登出。" };
+  }
+
+  async function recordLoginEvent() {
+    if (!client) return disabledResult();
+    const { user } = await getSession();
+    if (!user) return { ok: false, message: "尚未登入。" };
+    const key = `nexaLoginRecorded:${user.id}`;
+    if (sessionStorage.getItem(key)) return { ok: true, message: "本次瀏覽已記錄登入。" };
+    const result = await rpc("record_login_event", {});
+    if (result.ok) sessionStorage.setItem(key, "1");
+    return result;
   }
 
   async function select(table, query) {
@@ -73,6 +99,7 @@
     if (!client) return disabledResult();
     const session = await getSession();
     const userId = session.user ? session.user.id : null;
+    if (userId) await recordLoginEvent().catch(() => null);
     const [site, profile, predictions, categories, products, wallet, pointRows, memberships, referrals, tasks] = await Promise.all([
       select("site_settings", "*"),
       userId ? client.from("users").select("*").eq("id", userId).maybeSingle() : Promise.resolve({ data: null, error: null }),
@@ -111,8 +138,10 @@
     client,
     getSession,
     signIn,
+    signInWithLine,
     signUp,
     signOut,
+    recordLoginEvent,
     bootstrap,
     onAuthChange: (callback) => {
       if (!client) return function () {};

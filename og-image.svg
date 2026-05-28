@@ -1,36 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="NexaPredict OS">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="黑曜智流 AI">
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#030814"/>
-      <stop offset="0.52" stop-color="#082c52"/>
-      <stop offset="1" stop-color="#071527"/>
+      <stop offset="0" stop-color="#030604"/>
+      <stop offset="0.52" stop-color="#06140a"/>
+      <stop offset="1" stop-color="#020503"/>
     </linearGradient>
     <linearGradient id="line" x1="0" x2="1">
-      <stop offset="0" stop-color="#3df2e0"/>
-      <stop offset="0.5" stop-color="#4da3ff"/>
-      <stop offset="1" stop-color="#8c7cff"/>
+      <stop offset="0" stop-color="#39ff14"/>
+      <stop offset="0.5" stop-color="#00ff99"/>
+      <stop offset="1" stop-color="#7dff5e"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g opacity="0.18" stroke="#cfe9ff">
+  <g opacity="0.18" stroke="#bfffd0">
     <path d="M0 160h1200M0 300h1200M0 440h1200M200 0v630M420 0v630M760 0v630M980 0v630"/>
   </g>
-  <rect x="72" y="72" width="1056" height="486" rx="20" fill="#071527" opacity="0.86" stroke="#3df2e0" stroke-opacity="0.34"/>
-  <rect x="112" y="118" width="92" height="92" rx="18" fill="#0b213c" stroke="#3df2e0"/>
-  <text x="158" y="176" text-anchor="middle" fill="#3df2e0" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="34" font-weight="900">NX</text>
-  <text x="112" y="274" fill="#eef8ff" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="60" font-weight="900">NexaPredict OS</text>
+  <rect x="72" y="72" width="1056" height="486" rx="20" fill="#020503" opacity="0.86" stroke="#39ff14" stroke-opacity="0.34"/>
+  <rect x="112" y="118" width="92" height="92" rx="18" fill="#07110a" stroke="#39ff14"/>
+  <text x="158" y="176" text-anchor="middle" fill="#39ff14" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="34" font-weight="900">AI</text>
+  <text x="112" y="274" fill="#eef8ff" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="60" font-weight="900">黑曜智流 AI</text>
   <text x="112" y="338" fill="#d9eaff" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="32" font-weight="800">娛樂預測內容後台＋會員點數＋推廣積分系統</text>
   <rect x="112" y="408" width="300" height="54" rx="12" fill="url(#line)"/>
   <text x="262" y="443" text-anchor="middle" fill="#03101f" font-family="Arial, 'Microsoft JhengHei', sans-serif" font-size="22" font-weight="900">白標後台展示</text>
   <g transform="translate(724 132)">
-    <rect width="320" height="360" rx="18" fill="#0b213c" stroke="#91c2ff" stroke-opacity="0.32"/>
+    <rect width="320" height="360" rx="18" fill="#07110a" stroke="#91c2ff" stroke-opacity="0.32"/>
     <rect x="28" y="30" width="264" height="58" rx="12" fill="#102d50"/>
     <rect x="28" y="112" width="264" height="58" rx="12" fill="#102d50"/>
     <rect x="28" y="194" width="264" height="58" rx="12" fill="#102d50"/>
-    <rect x="28" y="278" width="120" height="30" rx="8" fill="#4da3ff"/>
-    <rect x="166" y="278" width="126" height="30" rx="8" fill="#3df2e0"/>
-    <circle cx="60" cy="59" r="12" fill="#3df2e0"/>
-    <circle cx="60" cy="141" r="12" fill="#4da3ff"/>
-    <circle cx="60" cy="223" r="12" fill="#8c7cff"/>
+    <rect x="28" y="278" width="120" height="30" rx="8" fill="#00ff99"/>
+    <rect x="166" y="278" width="126" height="30" rx="8" fill="#39ff14"/>
+    <circle cx="60" cy="59" r="12" fill="#39ff14"/>
+    <circle cx="60" cy="141" r="12" fill="#00ff99"/>
+    <circle cx="60" cy="223" r="12" fill="#7dff5e"/>
   </g>
 </svg>

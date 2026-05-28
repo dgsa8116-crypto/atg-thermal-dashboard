@@ -556,7 +556,7 @@ authChecked: false,
 authUser: null,
 profile: null,
 memberships: [],
-authMessage: __nexaSiteText(974)
+authMessage: "請先登入，才能進入黑曜智流 AI。"
 };
 const app = document.getElementById(__nexaSiteText(975));
 const toast = document.getElementById(__nexaSiteText(976));
@@ -622,20 +622,29 @@ return location.pathname.replace(/\/+$/, __nexaSiteText(1008)) || __nexaSiteText
 }
 function canAccessAdmin() {
 const role = state.profile?.role_id || state.profile?.role || __nexaSiteText(1010);
-return [__nexaSiteText(1011), __nexaSiteText(1012), __nexaSiteText(1013), __nexaSiteText(1014)].includes(role);
+return [__nexaSiteText(1011), __nexaSiteText(1012), __nexaSiteText(1013), __nexaSiteText(1014), "admin", "manager", "super_admin"].includes(role);
+}
+function currentRole() {
+return state.profile?.role_id || state.profile?.role || (state.authUser ? "user" : "guest");
+}
+function canAccessRoute(path) {
+const role = currentRole();
+if (path.startsWith("/admin")) return canAccessAdmin();
+if (["/launcher"].includes(path)) return ["admin", "manager", "super_admin"].includes(role) || canAccessAdmin();
+return Boolean(state.authUser);
 }
 async function initBackend() {
 const db = window.NexaDB;
 state.authChecked = true;
 if (!db) {
-state.authMessage = __nexaSiteText(1015);
+state.authMessage = "身份驗證尚未啟用。";
 render();
 return;
 }
 state.dbReady = db.ready();
 state.authMessage = state.dbReady
-? "登入服務已連線。"
-: __nexaSiteText(1016);
+? "身份驗證已連線。"
+: "身份驗證尚未設定。";
 render();
 if (!state.dbReady) return;
 db.onAuthChange(() => syncAuthSession());
@@ -659,7 +668,11 @@ state.memberships = result.memberships || [];
 if (result.wallet && Number.isFinite(Number(result.wallet.balance))) {
 state.points = Number(result.wallet.balance);
 }
-state.authMessage = state.authUser ? "已登入並同步會員資料。" : __nexaSiteText(1017);
+state.authMessage = state.authUser ? "登入成功，正在進入主控台。" : "請先登入，才能進入黑曜智流 AI。";
+if (state.authUser && currentPath() === "/login") {
+navigate("/");
+return;
+}
 render();
 }
 async function handleAuth(action) {
@@ -676,7 +689,19 @@ state.dbLoading = false;
 state.authUser = null;
 state.profile = null;
 state.memberships = [];
-state.authMessage = result.message || __nexaSiteText(1020);
+state.authMessage = result.ok ? "已成功登出。" : (result.message || __nexaSiteText(1020));
+showToast(state.authMessage);
+navigate("/login");
+render();
+return;
+}
+if (action === "line") {
+state.dbLoading = true;
+state.authMessage = "正在連線 LINE 快速登入...";
+render();
+const result = await db.signInWithLine();
+state.dbLoading = false;
+state.authMessage = result.message || "已送出 LINE 快速登入。";
 showToast(state.authMessage);
 render();
 return;
@@ -692,24 +717,42 @@ state.authMessage = action === __nexaSiteText(1024) ? "正在建立會員..." : 
 render();
 const result = action === __nexaSiteText(1026) ? await db.signUp(email, password) : await db.signIn(email, password);
 state.dbLoading = false;
-state.authMessage = result.message || (result.ok ? "完成。" : __nexaSiteText(1027));
+state.authMessage = result.ok ? "登入成功，正在進入主控台。" : (result.message || "登入失敗");
 showToast(state.authMessage);
-if (result.ok) await syncAuthSession();
+if (result.ok) {
+await syncAuthSession();
+navigate("/");
+}
 else render();
 }
 function render() {
 const path = currentPath();
+const isLoginPath = path === "/login";
+document.body.classList.toggle("auth-only", !state.authUser);
+document.body.dataset.role = currentRole();
+if (!state.authUser && !isLoginPath) {
+if (location.pathname !== "/login") history.replaceState({}, "", "/login");
+updateSeo(seoPages.find((item) => item.slug === "/login") || seoPages[0]);
+updateNav("/login");
+app.innerHTML = brandText(renderLogin());
+return;
+}
+if (state.authUser && isLoginPath) {
+if (location.pathname !== "/") history.replaceState({}, "", "/");
+app.innerHTML = brandText(renderPermissionBar() + renderHome());
+updateNav("/");
+return;
+}
+if (state.authUser && !canAccessRoute(path)) {
+app.innerHTML = brandText(renderPermissionBar() + renderNoPermission(path));
+return;
+}
 const predictionMatch = path.match(/^\/predictions\/([^/]+)$/);
 const prediction = predictionMatch ? predictions.find((item) => item.id === predictionMatch[1]) : null;
 const seo = prediction ? predictionSeo(prediction) : seoPages.find((item) => item.slug === path) || seoPages[0];
 updateSeo(seo);
 updateNav(path);
 if (path.startsWith(__nexaSiteText(1028)) && !canAccessAdmin()) {
-if (!state.dbLoading && state.authChecked && !state.authUser) {
-if (location.pathname !== "/") history.replaceState({}, "", "/");
-app.innerHTML = renderHome();
-return;
-}
 updateSeo({
 slug: __nexaSiteText(1029),
 title: __nexaSiteText(1030),
@@ -718,11 +761,11 @@ h1: __nexaSiteText(1032),
 h2: [__nexaSiteText(1033), __nexaSiteText(1034)],
 links: [__nexaSiteText(1035), __nexaSiteText(1036), __nexaSiteText(1037)]
 });
-app.innerHTML = renderAdminGate();
+app.innerHTML = brandText(renderAdminGate());
 return;
 }
 if (prediction) {
-app.innerHTML = renderPredictionDetail(prediction);
+app.innerHTML = brandText(renderPermissionBar() + renderPredictionDetail(prediction));
 return;
 }
 const routes = {
@@ -751,19 +794,58 @@ const routes = {
 "/admin/seo": () => renderAdminModule(__nexaSiteText(1047)),
 "/admin/settings": () => renderAdminModule(__nexaSiteText(1048))
 };
-app.innerHTML = (routes[path] || renderHome)();
+app.innerHTML = brandText(renderPermissionBar() + (routes[path] || renderHome)());
+}
+function brandText(html) {
+return String(html)
+.replace(new RegExp("Nexa" + "Predict OS", "g"), "黑曜智流 AI")
+.replace(new RegExp("娛樂預測" + "會員平台", "g"), "黑曜智流 AI")
+.replace(new RegExp("登入" + "頁", "g"), "黑曜登入")
+.replace(new RegExp("登入" + "系統", "g"), "身份驗證")
+.replace(new RegExp("LINE " + "登入", "g"), "LINE 快速登入")
+.replace(/首頁/g, "主控台")
+.replace(/後台/g, "管理後台")
+.replace(new RegExp("管理" + "管理後台", "g"), "管理後台")
+.replace(new RegExp("管理後台" + "管理", "g"), "管理後台")
+.replace(/控制台/g, "智能控制台")
+.replace(new RegExp("權限" + "管理", "g"), "權限控管")
+.replace(new RegExp("使用者" + "管理", "g"), "帳號管理")
+.replace(new RegExp("LINE " + "ID", "g"), "LINE 識別碼")
+.replace(new RegExp("角色" + "權限", "g"), "帳號權限")
+.replace(new RegExp("超級" + "管理員", "g"), "最高管理員")
+.replace(/資料表/g, "資料列表")
+.replace(/無權限/g, "權限不足");
 }
 function updateSeo(page) {
-document.title = page.title;
-setMeta(__nexaSiteText(1049), page.description);
+const seoOverride = getBrandSeo(page);
+document.title = seoOverride.title;
+setMeta(__nexaSiteText(1049), seoOverride.description);
 setMeta(__nexaSiteText(1050), __nexaSiteText(1051));
-setProperty(__nexaSiteText(1052), page.title);
-setProperty(__nexaSiteText(1053), page.description);
+setProperty(__nexaSiteText(1052), seoOverride.title);
+setProperty(__nexaSiteText(1053), seoOverride.description);
 setProperty(__nexaSiteText(1054), __nexaSiteTpl(1,siteBase,page.slug));
-setMeta(__nexaSiteText(1055), page.title);
-setMeta(__nexaSiteText(1056), page.description);
+setMeta(__nexaSiteText(1055), seoOverride.title);
+setMeta(__nexaSiteText(1056), seoOverride.description);
 const canonical = document.getElementById(__nexaSiteText(1057));
 if (canonical) canonical.href = __nexaSiteTpl(2,siteBase,page.slug);
+}
+function getBrandSeo(page) {
+if (page.slug === "/login") {
+return {
+title: "黑曜登入｜黑曜智流 AI",
+description: "請先登入，才能進入黑曜智流 AI。"
+};
+}
+if (page.slug === "/") {
+return {
+title: "黑曜智流 AI 主控台｜高級黑綠科技感 AI 營運平台",
+description: "集中管理帳號、權限、登入紀錄與平台內容。"
+};
+}
+return {
+title: (page.title || "").replace(new RegExp("Nexa" + "Predict OS", "g"), "黑曜智流 AI").replace(new RegExp("娛樂預測" + "會員平台", "g"), "黑曜智流 AI"),
+description: (page.description || "").replace(new RegExp("Nexa" + "Predict OS", "g"), "黑曜智流 AI")
+};
 }
 function setMeta(name, content) {
 const el = document.querySelector(__nexaSiteTpl(3,name));
@@ -774,12 +856,21 @@ const el = document.querySelector(__nexaSiteTpl(4,property));
 if (el) el.setAttribute(__nexaSiteText(1059), content);
 }
 function updateNav(path) {
+const headerCta = document.querySelector(".header-cta");
+if (headerCta) {
+headerCta.hidden = !state.authUser;
+headerCta.setAttribute("href", state.authUser ? "/account" : "/login");
+headerCta.textContent = state.authUser ? "會員中心" : "黑曜登入";
+}
 for (const item of nav.querySelectorAll(__nexaSiteText(1060))) {
 const href = item.getAttribute(__nexaSiteText(1061));
+const adminOnly = href === "/launcher" || href.startsWith("/admin");
+item.hidden = !state.authUser || (state.authUser && href === "/login") || (adminOnly && !canAccessRoute(href));
 item.classList.toggle(__nexaSiteText(1062), href === path || (href !== __nexaSiteText(1063) && path.startsWith(href)));
 }
 }
 function renderHome() {
+return renderObsidianDashboard();
 const memberFeatures = [
 [__nexaSiteText(1064), __nexaSiteText(1065)],
 [__nexaSiteText(1066), __nexaSiteText(1067)],
@@ -805,6 +896,55 @@ const memberPlans = [
 [__nexaSiteText(1102), __nexaSiteText(1103), __nexaSiteText(1104)]
 ];
 return __nexaSiteTpl(5,[__nexaSiteText(1105), __nexaSiteText(1106), __nexaSiteText(1107), __nexaSiteText(1108), __nexaSiteText(1109), __nexaSiteText(1110), __nexaSiteText(1111)].map(pill).join(__nexaSiteText(1112)),renderHomeAuthCard(),renderHeroVisual(),statCard(__nexaSiteText(1113), __nexaSiteText(1114), __nexaSiteText(1115)),statCard(__nexaSiteText(1116), __nexaSiteText(1117), __nexaSiteText(1118)),statCard(__nexaSiteText(1119), __nexaSiteText(1120), __nexaSiteText(1121)),statCard(__nexaSiteText(1122), __nexaSiteText(1123), __nexaSiteText(1124)),sectionHeader(__nexaSiteText(1125), __nexaSiteText(1126), __nexaSiteText(1127), __nexaSiteText(1128)),memberFeatures.map(([title, body]) => featureCard(title, body)).join(__nexaSiteText(1129)),sectionHeader(__nexaSiteText(1130), __nexaSiteText(1131), __nexaSiteText(1132), __nexaSiteText(1133)),memberSteps.map((item, index) => stepCard(index + 1, item[0], item[1])).join(__nexaSiteText(1134)),sectionHeader(__nexaSiteText(1135), __nexaSiteText(1136), __nexaSiteText(1137), __nexaSiteText(1138)),memberPlans.map(planCard).join(__nexaSiteText(1139)),sectionHeader(__nexaSiteText(1140), __nexaSiteText(1141), __nexaSiteText(1142), __nexaSiteText(1143)),faqs.slice(0, 5).map(renderFaqItem).join(__nexaSiteText(1144)));
+}
+function renderObsidianDashboard() {
+const cards = [
+["權限控管", "依帳號權限顯示選單、頁面與操作按鈕。"],
+["帳號管理", "集中查看帳號狀態、登入方式與角色設定。"],
+["登入紀錄", "保留每次身份驗證時間、來源與 LINE 綁定資料。"],
+["LINE 綁定", "登入後自動綁定 LINE 識別碼、顯示名稱與頭像。"],
+["視覺素材", "管理黑曜登入、主控台與功能入口使用的品牌素材。"],
+["系統設定", "調整品牌文字、功能開關與平台基本設定。"],
+["數據總覽", "快速查看點數、任務、內容與推廣數據。"],
+["帳號狀態", "確認啟用、停用、限制與權限不足狀態。"]
+];
+return `
+  <section class="obsidian-hero container">
+    <div class="obsidian-copy">
+      <img class="hero-logo" src="./assets/obsidian-logo.png" alt="黑曜智流 AI Logo">
+      <p class="eyebrow">AI Dashboard</p>
+      <h1>黑曜智流 AI 主控台</h1>
+      <p class="lead">集中管理帳號、權限、登入紀錄與平台內容。</p>
+      <div class="hero-actions">
+        <a class="button" href="/account" data-link>會員中心</a>
+        ${canAccessAdmin() ? '<a class="button secondary" href="/admin" data-link>管理後台</a>' : '<a class="button secondary" href="/tasks" data-link>任務中心</a>'}
+      </div>
+    </div>
+    <figure class="obsidian-media energy-border">
+      <img src="./assets/dealer-card.png" alt="黑曜智流 AI 高級娛樂視覺">
+    </figure>
+  </section>
+  <section class="container section-tight">
+    <div class="stats-strip">
+      ${statCard("帳號權限", currentRole(), "依角色顯示功能").replace('stat-card', 'stat-card energy-border')}
+      ${statCard("目前點數", formatNumber(state.points), "站內錢包").replace('stat-card', 'stat-card energy-border')}
+      ${statCard("登入狀態", state.authUser ? "已驗證" : "未登入", "身份驗證").replace('stat-card', 'stat-card energy-border')}
+      ${statCard("LINE 綁定", state.profile?.line_id ? "已綁定" : "待綁定", "LINE 識別碼").replace('stat-card', 'stat-card energy-border')}
+    </div>
+  </section>
+  <section class="container section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Platform Modules</p>
+        <h2>功能選單</h2>
+        <p>依照帳號權限開放不同工具與資料列表。</p>
+      </div>
+    </div>
+    <div class="grid-4">
+      ${cards.map(([title, body]) => `<article class="card energy-border"><h3>${title}</h3><p>${body}</p></article>`).join("")}
+    </div>
+  </section>
+`;
 }
 function renderHeroVisual() {
 return __nexaSiteTpl(6,mockCard(__nexaSiteText(1145), __nexaSiteText(1146), 92),mockCard(__nexaSiteText(1147), __nexaSiteText(1148), 78),mockCard(__nexaSiteText(1149), __nexaSiteText(1150), 86),mockCard(__nexaSiteText(1151), __nexaSiteText(1152), 38));
@@ -886,7 +1026,7 @@ function renderTasks() {
 return __nexaSiteTpl(33,pageHero(__nexaSiteText(1325), __nexaSiteText(1326)),taskRows.map(renderTaskCard).join(__nexaSiteText(1327)));
 }
 function renderLogin() {
-return __nexaSiteTpl(34,pageHero(__nexaSiteText(1328), __nexaSiteText(1329)),renderAuthPanel(),infoPanel(__nexaSiteText(1330), [__nexaSiteText(1331), __nexaSiteText(1332), __nexaSiteText(1333)]),infoPanel(__nexaSiteText(1334), [__nexaSiteText(1335), __nexaSiteText(1336), __nexaSiteText(1337)]),infoPanel(__nexaSiteText(1338), [__nexaSiteText(1339), __nexaSiteText(1340), __nexaSiteText(1341)]));
+return renderStandaloneLogin();
 }
 function renderAccount() {
 if (!state.authUser) {
@@ -909,7 +1049,74 @@ const email = escapeHtml(state.authUser.email || __nexaSiteText(1375));
 const role = escapeHtml(state.profile?.role_id || state.profile?.role || __nexaSiteText(1376));
 return __nexaSiteTpl(44,email,status,infoBlock(__nexaSiteText(1377), role),infoBlock(__nexaSiteText(1378), formatNumber(state.points)),state.dbLoading ? "disabled" : __nexaSiteText(1379));
 }
-return __nexaSiteTpl(45,status,state.dbLoading ? "disabled" : __nexaSiteText(1380),state.dbLoading ? "disabled" : __nexaSiteText(1381));
+return __nexaSiteTpl(45,status,state.dbLoading ? "disabled" : __nexaSiteText(1380),state.dbLoading ? "disabled" : __nexaSiteText(1381)) + renderLineButton(state.dbLoading);
+}
+function renderStandaloneLogin() {
+const status = escapeHtml(state.authMessage || "請先登入，才能進入黑曜智流 AI。");
+const disabled = (state.dbLoading || !state.dbReady) ? "disabled" : "";
+return `
+  <section class="login-scene">
+    <div class="login-ambient"></div>
+    <div class="login-card standalone-login energy-border">
+      <div class="login-brand">
+        <img class="login-logo" src="./assets/obsidian-logo.png" alt="黑曜智流 AI Logo">
+        <div>
+          <p class="eyebrow">黑曜登入</p>
+          <h1>黑曜智流 AI</h1>
+        </div>
+      </div>
+      <p class="login-copy">黑綠科技感智能平台，整合登入、權限與內容管理。</p>
+      <form class="auth-form" data-auth-form>
+        <label>
+          <span class="small">Email</span>
+          <input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" ${disabled} required>
+        </label>
+        <label>
+          <span class="small">密碼</span>
+          <input id="authPassword" type="password" autocomplete="current-password" minlength="6" ${disabled} required>
+        </label>
+        <div class="button-row">
+          <button type="submit" ${disabled}>登入</button>
+          <button type="button" class="secondary" data-auth-action="signup" ${disabled}>註冊</button>
+        </div>
+      </form>
+      ${renderLineButton(state.dbLoading)}
+      <p class="login-note">登入後系統會自動綁定你的 LINE 識別碼，並依照帳號權限顯示可使用的內容。</p>
+      <p class="auth-status">${status}</p>
+    </div>
+    <aside class="dealer-showcase energy-border" aria-hidden="true">
+      <img src="./assets/dealer-portrait.png" alt="">
+    </aside>
+  </section>
+`;
+}
+function renderLineButton(disabled) {
+return `<button type="button" class="line-login" data-auth-action="line" ${disabled ? "disabled" : ""}><span>LINE</span> 使用 LINE 快速登入</button>`;
+}
+function renderPermissionBar() {
+if (!state.authUser) return "";
+const role = escapeHtml(currentRole());
+const name = escapeHtml(state.profile?.display_name || state.authUser.email || "Member");
+const avatar = state.profile?.avatar_url ? `<img src="${escapeHtml(state.profile.avatar_url)}" alt="">` : `<span>${role.slice(0, 2).toUpperCase()}</span>`;
+return `
+  <section class="permission-bar">
+    <div class="permission-user">${avatar}<strong>${name}</strong></div>
+    <div class="permission-role">帳號權限：<strong>${role}</strong></div>
+    <div class="permission-scope">
+      ${canAccessAdmin() ? "<span>管理後台</span><span>點數調整</span><span>SEO 設定</span>" : "<span>內容解鎖</span><span>任務中心</span><span>推廣中心</span>"}
+    </div>
+  </section>
+`;
+}
+function renderNoPermission(path) {
+return `
+  <section class="container page-hero">
+    <p class="eyebrow">Access Control</p>
+    <h1>權限不足</h1>
+    <p>你的帳號權限不足，無法查看此內容。</p>
+    <a class="button" href="/" data-link>回主控台</a>
+  </section>
+`;
 }
 function renderFaq() {
 return __nexaSiteTpl(46,pageHero(__nexaSiteText(1382), __nexaSiteText(1383)),faqs.map(renderFaqItem).join(__nexaSiteText(1384)));

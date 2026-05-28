@@ -1,4 +1,4 @@
-# NexaPredict OS｜測試版A1（整合版）
+# 黑曜智流 AI｜測試版A1（整合版）
 
 這是一套繁體中文「娛樂預測內容後台＋會員點數＋推廣積分系統」，可部署到 GitHub Pages 作為白標 SaaS 展示站，也可串接 Supabase 作為會員、點數、內容、推廣與後台資料庫。
 
@@ -9,7 +9,7 @@
 - `A1_初版方案與整合策略.md`：三種初版內容與整合決策
 - `A1_完整系統規格.md`：完整前台/後台/DB/API/SEO/權限/風控規格
 - `supabase/API_SPEC.md`：可實作的 API 路由定義
-- `supabase/schema.sql`：資料表、RLS、RPC、種子資料
+- `supabase/schema.sql`：資料列表、RLS、RPC、種子資料
 
 ## 產品定位
 
@@ -59,7 +59,7 @@
 
 ## 資料庫
 
-`supabase/schema.sql` 已包含指定資料表：
+`supabase/schema.sql` 已包含指定資料列表：
 
 - `users`
 - `roles`
@@ -97,7 +97,7 @@
 1. 到 Supabase 專案的 `SQL Editor`。
 2. 貼上 `supabase/schema.sql` 全部內容並執行。
 3. 到 `Authentication` 建立你的帳號，或先在網站註冊。
-4. 回到 `SQL Editor`，把你的帳號設成超級管理員：
+4. 回到 `SQL Editor`，把你的帳號設成最高管理員：
 
 ```sql
 update public.users
@@ -117,7 +117,7 @@ window.NEXA_SUPABASE = {
 
 公開網站不要放 `secret key`。
 
-登入頁 `/login` 會自動檢查 `supabase-config.js`。未填設定時會顯示尚未啟用；填入 Project URL 與 publishable key 後，即可使用 Supabase Auth 進行會員登入、註冊與登出。
+黑曜登入 `/login` 會自動檢查 `supabase-config.js`。未填設定時會顯示尚未啟用；填入 Project URL 與 publishable key 後，即可使用 Supabase Auth 進行會員登入、註冊與登出。
 
 ## 上架方式
 

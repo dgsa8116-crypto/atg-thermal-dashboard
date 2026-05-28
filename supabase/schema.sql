@@ -31,7 +31,9 @@ create table if not exists public.permissions (
 create table if not exists public.users (
   id uuid primary key references auth.users(id) on delete cascade,
   email text,
+  line_id text unique,
   display_name text,
+  avatar_url text,
   phone text,
   role_id text not null default 'member' references public.roles(id),
   status text not null default 'active',
@@ -39,9 +41,34 @@ create table if not exists public.users (
   registered_ip inet,
   registered_device_hash text,
   email_verified boolean not null default false,
+  login_count integer not null default 0,
+  current_login_at timestamptz,
+  last_login_at timestamptz,
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now()),
   unique (referral_code)
+);
+
+alter table public.users add column if not exists line_id text;
+alter table public.users add column if not exists avatar_url text;
+alter table public.users add column if not exists login_count integer not null default 0;
+alter table public.users add column if not exists current_login_at timestamptz;
+alter table public.users add column if not exists last_login_at timestamptz;
+
+create table if not exists public.login_records (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.users(id) on delete cascade,
+  provider text not null default 'password',
+  line_id text,
+  display_name text,
+  avatar_url text,
+  role_id text,
+  status text not null default 'success',
+  user_agent text,
+  ip inet,
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default timezone('utc', now()),
+  check (status in ('success', 'failed', 'blocked'))
 );
 
 create table if not exists public.wallets (
@@ -291,9 +318,9 @@ create table if not exists public.audit_logs (
 
 create table if not exists public.site_settings (
   id text primary key default 'main',
-  site_name text not null default 'NexaPredict OS',
+  site_name text not null default '黑曜智流 AI',
   logo_url text,
-  brand_color text not null default '#3df2e0',
+  brand_color text not null default '#39ff14',
   support_email text,
   footer_text text not null default '本系統僅提供預測內容管理、會員點數、推廣積分與虛擬商品功能。',
   domain text,
@@ -322,6 +349,8 @@ create index if not exists idx_point_transactions_user_created on public.point_t
 create index if not exists idx_predictions_status_category on public.predictions(status, category_id);
 create index if not exists idx_referral_rewards_status on public.referral_rewards(status);
 create index if not exists idx_risk_flags_status_severity on public.risk_flags(status, severity);
+create index if not exists idx_login_records_user_created on public.login_records(user_id, created_at desc);
+create unique index if not exists idx_users_line_id_unique on public.users(line_id) where line_id is not null;
 
 drop trigger if exists users_touch_updated_at on public.users;
 create trigger users_touch_updated_at before update on public.users for each row execute function public.touch_updated_at();
@@ -347,12 +376,35 @@ as $$
 declare
   v_user_id uuid;
   v_wallet_id uuid;
+  v_line_id text;
+  v_display_name text;
+  v_avatar_url text;
 begin
-  insert into public.users (id, email, display_name)
-  values (new.id, new.email, split_part(coalesce(new.email, 'member'), '@', 1))
+  select coalesce(
+    new.raw_user_meta_data ->> 'provider_id',
+    new.raw_user_meta_data ->> 'sub',
+    new.raw_user_meta_data ->> 'user_id'
+  ) into v_line_id;
+
+  select coalesce(
+    new.raw_user_meta_data ->> 'full_name',
+    new.raw_user_meta_data ->> 'name',
+    new.raw_user_meta_data ->> 'display_name',
+    split_part(coalesce(new.email, 'member'), '@', 1)
+  ) into v_display_name;
+
+  select coalesce(
+    new.raw_user_meta_data ->> 'avatar_url',
+    new.raw_user_meta_data ->> 'picture'
+  ) into v_avatar_url;
+
+  insert into public.users (id, email, line_id, display_name, avatar_url)
+  values (new.id, new.email, v_line_id, v_display_name, v_avatar_url)
   on conflict (id) do update
   set email = excluded.email,
-      display_name = coalesce(public.users.display_name, excluded.display_name)
+      line_id = coalesce(public.users.line_id, v_line_id),
+      display_name = coalesce(public.users.display_name, excluded.display_name),
+      avatar_url = coalesce(public.users.avatar_url, v_avatar_url)
   returning id into v_user_id;
 
   insert into public.wallets (user_id, balance)
@@ -387,6 +439,131 @@ security definer
 set search_path = public
 as $$
   select public.current_role_level() >= 40
+$$;
+
+create or replace function public.has_role(p_min_level integer)
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select public.current_role_level() >= p_min_level
+$$;
+
+create or replace function public.is_active_user()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select coalesce((select status = 'active' from public.users where id = auth.uid()), false)
+$$;
+
+create or replace function public.record_login_event()
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_auth auth.users%rowtype;
+  v_identity jsonb;
+  v_provider text := 'password';
+  v_line_id text;
+  v_display_name text;
+  v_avatar_url text;
+  v_role text;
+  v_headers jsonb := '{}'::jsonb;
+begin
+  if v_user is null then
+    return jsonb_build_object('ok', false, 'message', '尚未登入。');
+  end if;
+
+  select * into v_auth from auth.users where id = v_user;
+
+  select identity_data into v_identity
+  from auth.identities
+  where user_id = v_user and provider = 'line'
+  order by created_at desc
+  limit 1;
+
+  if v_identity is not null then
+    v_provider := 'line';
+  end if;
+
+  v_line_id := coalesce(
+    v_identity ->> 'sub',
+    v_identity ->> 'user_id',
+    v_identity ->> 'provider_id',
+    v_auth.raw_user_meta_data ->> 'provider_id',
+    v_auth.raw_user_meta_data ->> 'sub',
+    v_auth.raw_user_meta_data ->> 'user_id'
+  );
+
+  v_display_name := coalesce(
+    v_identity ->> 'name',
+    v_identity ->> 'displayName',
+    v_auth.raw_user_meta_data ->> 'full_name',
+    v_auth.raw_user_meta_data ->> 'name',
+    v_auth.raw_user_meta_data ->> 'display_name',
+    split_part(coalesce(v_auth.email, 'member'), '@', 1)
+  );
+
+  v_avatar_url := coalesce(
+    v_identity ->> 'avatar_url',
+    v_identity ->> 'picture',
+    v_auth.raw_user_meta_data ->> 'avatar_url',
+    v_auth.raw_user_meta_data ->> 'picture'
+  );
+
+  insert into public.users (id, email, line_id, display_name, avatar_url, email_verified)
+  values (v_user, v_auth.email, v_line_id, v_display_name, v_avatar_url, v_auth.email_confirmed_at is not null)
+  on conflict (id) do update
+  set email = excluded.email,
+      line_id = coalesce(excluded.line_id, public.users.line_id),
+      display_name = coalesce(excluded.display_name, public.users.display_name),
+      avatar_url = coalesce(excluded.avatar_url, public.users.avatar_url),
+      email_verified = public.users.email_verified or excluded.email_verified,
+      last_login_at = coalesce(public.users.current_login_at, public.users.last_login_at),
+      current_login_at = timezone('utc', now()),
+      login_count = coalesce(public.users.login_count, 0) + 1,
+      updated_at = timezone('utc', now())
+  returning role_id into v_role;
+
+  begin
+    v_headers := coalesce(nullif(current_setting('request.headers', true), '')::jsonb, '{}'::jsonb);
+  exception when others then
+    v_headers := '{}'::jsonb;
+  end;
+
+  insert into public.login_records (
+    user_id,
+    provider,
+    line_id,
+    display_name,
+    avatar_url,
+    role_id,
+    user_agent,
+    ip,
+    metadata
+  )
+  values (
+    v_user,
+    v_provider,
+    v_line_id,
+    v_display_name,
+    v_avatar_url,
+    v_role,
+    v_headers ->> 'user-agent',
+    nullif(split_part(coalesce(v_headers ->> 'x-forwarded-for', ''), ',', 1), '')::inet,
+    jsonb_build_object('auth_provider', v_provider)
+  );
+
+  return jsonb_build_object('ok', true, 'message', '登入紀錄已更新。', 'provider', v_provider, 'role', v_role);
+end;
 $$;
 
 create or replace function public.write_audit_log(
@@ -524,6 +701,10 @@ begin
     return jsonb_build_object('ok', false, 'message', '請先登入。');
   end if;
 
+  if not public.is_active_user() then
+    return jsonb_build_object('ok', false, 'message', '帳號狀態無法使用此功能。');
+  end if;
+
   select * into v_prediction
   from public.predictions
   where id = p_prediction_id and status = 'published'
@@ -590,6 +771,10 @@ begin
     return jsonb_build_object('ok', false, 'message', '請先登入。');
   end if;
 
+  if not public.is_active_user() then
+    return jsonb_build_object('ok', false, 'message', '帳號狀態無法使用此功能。');
+  end if;
+
   select * into v_task
   from public.tasks
   where id = p_task_id and active = true
@@ -640,6 +825,10 @@ begin
     return jsonb_build_object('ok', false, 'message', '請先登入。');
   end if;
 
+  if not public.is_active_user() then
+    return jsonb_build_object('ok', false, 'message', '帳號狀態無法建立訂單。');
+  end if;
+
   select * into v_product from public.products where id = p_product_id and active = true;
   if not found then
     return jsonb_build_object('ok', false, 'message', '商品目前不可購買。');
@@ -672,6 +861,10 @@ declare
 begin
   if v_user is null then
     return jsonb_build_object('ok', false, 'message', '請先登入。');
+  end if;
+
+  if not public.is_active_user() then
+    return jsonb_build_object('ok', false, 'message', '帳號狀態無法兌換商品。');
   end if;
 
   select * into v_product
@@ -903,6 +1096,7 @@ $$;
 alter table public.roles enable row level security;
 alter table public.permissions enable row level security;
 alter table public.users enable row level security;
+alter table public.login_records enable row level security;
 alter table public.wallets enable row level security;
 alter table public.point_transactions enable row level security;
 alter table public.prediction_categories enable row level security;
@@ -941,6 +1135,9 @@ create policy users_self_or_staff on public.users for select to authenticated us
 drop policy if exists users_update_self on public.users;
 create policy users_update_self on public.users for update to authenticated using (id = auth.uid() or public.is_staff()) with check (id = auth.uid() or public.is_staff());
 
+drop policy if exists login_records_self_or_staff on public.login_records;
+create policy login_records_self_or_staff on public.login_records for select to authenticated using (user_id = auth.uid() or public.is_staff());
+
 drop policy if exists wallet_self_or_staff on public.wallets;
 create policy wallet_self_or_staff on public.wallets for select to authenticated using (user_id = auth.uid() or public.is_staff());
 drop policy if exists point_transactions_self_or_staff on public.point_transactions;
@@ -966,12 +1163,15 @@ create policy audit_logs_staff on public.audit_logs for select to authenticated 
 
 insert into public.roles (id, name, level, description)
 values
-  ('super_admin', '超級管理員', 100, '全系統與白標管理權限'),
+  ('super_admin', '最高管理員', 100, '全系統與白標管理權限'),
   ('admin', '管理員', 80, '營運管理權限'),
+  ('manager', '營運主管', 70, '內容、會員、推廣與營運檢視權限'),
   ('editor', '內容編輯', 60, '內容與 SEO 權限'),
   ('support', '客服人員', 40, '會員、訂單與工單查詢'),
   ('agent', '代理推廣', 20, '推廣報表與下線管理'),
-  ('member', '一般會員', 0, '前台會員')
+  ('user', '一般使用者', 0, '前台會員'),
+  ('member', '一般會員', 0, '前台會員'),
+  ('guest', '訪客', -10, '未登入訪客')
 on conflict (id) do update
 set name = excluded.name,
     level = excluded.level,
@@ -1076,7 +1276,7 @@ set title = excluded.title,
     active = excluded.active;
 
 insert into public.site_settings (id, site_name, brand_color, footer_text, registration_enabled, referral_enabled, point_purchase_enabled, restricted_terms)
-values ('main', 'NexaPredict OS', '#3df2e0', '本系統僅提供預測內容管理、會員點數、推廣積分與虛擬商品功能。', true, true, true, '{}'::text[])
+values ('main', '黑曜智流 AI', '#39ff14', '黑曜智流 AI 僅提供內容管理、會員點數、推廣積分與虛擬商品功能。', true, true, true, '{}'::text[])
 on conflict (id) do update
 set site_name = excluded.site_name,
     brand_color = excluded.brand_color,
@@ -1089,7 +1289,7 @@ set site_name = excluded.site_name,
 
 insert into public.seo_settings (path, seo_title, meta_description, canonical_url, faq_schema)
 values
-  ('/', '娛樂預測內容後台｜會員點數、推廣積分與白標系統', '整合預測內容管理、會員點數、推廣邀請、虛擬商品商城與白標後台。', '/', '[]'::jsonb),
+  ('/', '黑曜智流 AI 主控台｜高級黑綠科技感 AI 營運平台', '集中管理帳號、權限、登入紀錄與平台內容。', '/', '[]'::jsonb),
   ('/predictions', '預測內容平台｜點數解鎖與 VIP 內容', '瀏覽今日、熱門、最新與 VIP 內容，使用點數解鎖完整分析。', '/predictions', '[]'::jsonb),
   ('/shop', '點數商城系統｜點數包、VIP 與虛擬商品', '提供點數包、VIP 方案、預測卡、通行證、徽章與限定內容。', '/shop', '[]'::jsonb)
 on conflict (path) do update
@@ -1100,7 +1300,10 @@ set seo_title = excluded.seo_title,
 
 grant usage on schema public to anon, authenticated;
 grant select on public.roles, public.prediction_categories, public.predictions, public.products, public.tasks, public.site_settings, public.seo_settings to anon, authenticated;
-grant select on public.users, public.wallets, public.point_transactions, public.prediction_unlocks, public.orders, public.payments, public.referrals, public.referral_rewards, public.task_completions, public.memberships, public.risk_flags, public.audit_logs to authenticated;
+grant select on public.users, public.login_records, public.wallets, public.point_transactions, public.prediction_unlocks, public.orders, public.payments, public.referrals, public.referral_rewards, public.task_completions, public.memberships, public.risk_flags, public.audit_logs to authenticated;
+grant execute on function public.has_role(integer) to authenticated;
+grant execute on function public.is_active_user() to authenticated;
+grant execute on function public.record_login_event() to authenticated;
 grant execute on function public.unlock_prediction(uuid) to authenticated;
 grant execute on function public.submit_task(uuid) to authenticated;
 grant execute on function public.create_order(uuid) to authenticated;

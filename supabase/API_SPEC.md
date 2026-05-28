@@ -1,4 +1,4 @@
-# NexaPredict OS API 規格（A1）
+# 黑曜智流 AI API 規格（A1）
 
 ## 1. Auth 與會員
 

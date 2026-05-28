@@ -206,7 +206,28 @@ select:focus {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  min-width: 210px;
+  min-width: 260px;
+}
+
+.brand-logo-shell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 148px;
+  height: 46px;
+  border: 1px solid rgba(57, 255, 20, 0.42);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.62);
+  box-shadow: 0 0 22px rgba(57, 255, 20, 0.14), inset 0 0 18px rgba(57, 255, 20, 0.08);
+  overflow: hidden;
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.36));
 }
 
 .brand-mark,
@@ -1259,6 +1280,11 @@ p {
     min-width: 0;
   }
 
+  .brand-logo-shell {
+    width: 112px;
+    height: 38px;
+  }
+
   .brand-mark,
   .glyph {
     width: 34px;
@@ -1278,6 +1304,418 @@ p {
   .hero-actions .button,
   .hero-actions button {
     width: 100%;
+  }
+}
+
+/* Obsidian AI black-green theme layer */
+:root {
+  --gold: #39ff14;
+  --gold-2: #d7ffd0;
+  --royal: #00ff99;
+  --purple: #7dff5e;
+  --casino-bg: #030604;
+  --casino-panel: rgba(6, 12, 8, 0.82);
+  --line: rgba(57, 255, 20, 0.34);
+  --line-strong: rgba(125, 255, 94, 0.64);
+  --cyan: #00ff99;
+  --blue: #39ff14;
+  --violet: #7dff5e;
+  --green: #9dffb4;
+  --glow: 0 0 0 1px rgba(57, 255, 20, 0.18), 0 0 34px rgba(0, 255, 153, 0.16), 0 0 58px rgba(125, 255, 94, 0.10);
+}
+
+body {
+  background:
+    linear-gradient(180deg, rgba(6, 4, 7, 0.72), rgba(6, 4, 7, 0.98)),
+    url("./assets/dealer-card.png"),
+    radial-gradient(circle at 22% 0%, rgba(57, 255, 20, 0.16), transparent 32rem),
+    radial-gradient(circle at 82% 14%, rgba(0, 255, 153, 0.13), transparent 30rem),
+    linear-gradient(145deg, #030503 0%, #050805 58%, #07110a 100%);
+  background-attachment: fixed;
+  background-size: cover, min(980px, 88vw) auto, auto, auto, auto;
+  background-position: center, right top, center, center, center;
+}
+
+body::before {
+  background:
+    linear-gradient(115deg, transparent 0 18%, rgba(57, 255, 20, 0.12) 28%, transparent 38% 55%, rgba(0, 255, 153, 0.10) 66%, transparent 76%),
+    radial-gradient(34rem 24rem at 18% 12%, rgba(57, 255, 20, 0.16), transparent 66%),
+    radial-gradient(34rem 26rem at 80% 20%, rgba(0, 255, 153, 0.12), transparent 64%);
+}
+
+body.auth-only {
+  background:
+    linear-gradient(90deg, rgba(5, 3, 6, 0.92) 0%, rgba(5, 3, 6, 0.58) 48%, rgba(5, 3, 6, 0.72) 100%),
+    url("./assets/dealer-hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+body.auth-only .site-header,
+body.auth-only .site-footer,
+body.auth-only .skip-link {
+  display: none;
+}
+
+body.auth-only #app {
+  min-height: 100vh;
+}
+
+.login-scene {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(300px, 460px) minmax(220px, 360px);
+  gap: clamp(18px, 4vw, 46px);
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(22px, 5vw, 72px);
+}
+
+.login-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 0 24%, rgba(57, 255, 20, 0.18) 36%, transparent 48% 62%, rgba(0, 255, 153, 0.14) 72%, transparent 84%),
+    radial-gradient(circle at 48% 52%, rgba(125, 255, 94, 0.14), transparent 28rem);
+  animation: flow-glow 14s ease-in-out infinite alternate;
+}
+
+.standalone-login {
+  z-index: 1;
+  padding: clamp(22px, 4vw, 34px);
+  background:
+    linear-gradient(180deg, rgba(18, 14, 21, 0.88), rgba(8, 6, 11, 0.9)),
+    rgba(6, 4, 7, 0.88);
+}
+
+.login-brand {
+  display: grid;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.login-logo {
+  width: min(100%, 420px);
+  height: auto;
+  max-height: 150px;
+  border: 2px solid rgba(57, 255, 20, 0.34);
+  border-radius: 16px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.58);
+  box-shadow: 0 0 42px rgba(57, 255, 20, 0.18), inset 0 0 28px rgba(0, 255, 153, 0.08);
+  object-fit: contain;
+}
+
+.login-brand h1 {
+  margin: 0;
+  font-family: "Rajdhani", "Noto Sans TC", sans-serif;
+  font-size: clamp(34px, 6vw, 56px);
+}
+
+.login-copy,
+.auth-status {
+  color: #dfffe8;
+}
+
+.login-note {
+  margin: 14px 0 0;
+  border-left: 3px solid rgba(57, 255, 20, 0.72);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #bfffd0;
+  background: rgba(57, 255, 20, 0.08);
+  box-shadow: inset 0 0 24px rgba(0, 255, 153, 0.08);
+  line-height: 1.75;
+}
+
+.line-login {
+  width: 100%;
+  margin-top: 10px;
+  border-color: rgba(6, 199, 85, 0.78);
+  background: linear-gradient(135deg, #06c755, #00b84c);
+  color: #041007;
+}
+
+.line-login span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 42px;
+  height: 24px;
+  border-radius: 4px;
+  background: #fff;
+  color: #06c755;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 900;
+}
+
+.dealer-showcase {
+  z-index: 1;
+  overflow: hidden;
+  min-height: min(78vh, 720px);
+  border-radius: 8px;
+  background: rgba(8, 6, 11, 0.72);
+}
+
+.dealer-showcase img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.permission-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: min(var(--max), calc(100% - 32px));
+  margin: 18px auto 0;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(10, 7, 12, 0.78);
+  box-shadow: var(--glow);
+  backdrop-filter: blur(14px);
+}
+
+.permission-user {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.permission-user img,
+.permission-user span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgba(57, 255, 20, 0.12);
+}
+
+.permission-role strong {
+  color: var(--gold-2);
+}
+
+.permission-scope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.permission-scope span {
+  border: 1px solid rgba(0, 255, 153, 0.42);
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: #dfffe8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.obsidian-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.82fr);
+  gap: clamp(22px, 5vw, 54px);
+  align-items: center;
+  padding-top: clamp(34px, 7vw, 84px);
+  padding-bottom: clamp(28px, 6vw, 72px);
+}
+
+.obsidian-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.obsidian-copy h1 {
+  max-width: 780px;
+  margin: 0 0 18px;
+  color: #f1fff4;
+  text-shadow: 0 0 30px rgba(57, 255, 20, 0.22);
+}
+
+.obsidian-copy .lead {
+  max-width: 640px;
+  color: #c7f8d4;
+}
+
+.hero-logo {
+  width: min(100%, 520px);
+  max-height: 160px;
+  margin: 0 0 20px;
+  border: 2px solid rgba(57, 255, 20, 0.32);
+  border-radius: 18px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 48px rgba(57, 255, 20, 0.18), inset 0 0 26px rgba(0, 255, 153, 0.08);
+  object-fit: contain;
+}
+
+.obsidian-media {
+  min-height: clamp(340px, 44vw, 560px);
+  border-radius: 18px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.48), 0 0 58px rgba(57, 255, 20, 0.16);
+}
+
+.obsidian-media img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(1.04) contrast(1.05);
+}
+
+.energy-border,
+.hero-visual,
+.login-card,
+.card,
+.panel,
+.stat-card,
+.product-card,
+.task-card,
+.faq-item,
+.seo-card,
+.admin-card,
+.wallet-row,
+.data-table,
+.modal {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(57, 255, 20, 0.42);
+  background:
+    linear-gradient(180deg, rgba(9, 18, 11, 0.84), rgba(4, 8, 5, 0.9)),
+    var(--casino-panel);
+}
+
+.energy-border::before,
+.hero-visual::before,
+.login-card::before,
+.card::before,
+.panel::before,
+.stat-card::before,
+.product-card::before,
+.task-card::before,
+.faq-item::before,
+.seo-card::before,
+.admin-card::before,
+.wallet-row::before,
+.data-table::before,
+.modal::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(115deg, var(--gold), var(--royal), var(--purple), var(--gold));
+  background-size: 280% 280%;
+  opacity: 0.75;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-flow 6s linear infinite;
+}
+
+.energy-border > *,
+.hero-visual > *,
+.login-card > *,
+.card > *,
+.panel > *,
+.stat-card > *,
+.product-card > *,
+.task-card > *,
+.faq-item > *,
+.seo-card > *,
+.admin-card > *,
+.wallet-row > *,
+.data-table > *,
+.modal > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 280% 50%;
+  }
+}
+
+button,
+.button {
+  border-width: 2px;
+  background: linear-gradient(135deg, var(--gold-2), var(--gold) 45%, #12b800);
+  color: #031107;
+}
+
+button.secondary,
+.button.secondary {
+  border-width: 2px;
+  border-color: rgba(0, 255, 153, 0.62);
+  background: linear-gradient(135deg, rgba(0, 255, 153, 0.18), rgba(57, 255, 20, 0.12));
+}
+
+.hero,
+.page-hero {
+  isolation: isolate;
+}
+
+.hero::after,
+.page-hero::after {
+  position: absolute;
+  inset: 18px 0 auto auto;
+  z-index: -1;
+  width: min(360px, 38vw);
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(6, 4, 7, 0.18), rgba(6, 4, 7, 0.78)),
+    url("./assets/dealer-card.png") center / cover;
+  box-shadow: var(--glow);
+  opacity: 0.56;
+}
+
+@media (max-width: 760px) {
+  .login-scene {
+    grid-template-columns: 1fr;
+  }
+
+  .dealer-showcase {
+    display: none;
+  }
+
+  .permission-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    width: min(100% - 24px, var(--max));
+  }
+
+  .obsidian-hero {
+    grid-template-columns: 1fr;
+    padding-top: 28px;
+  }
+
+  .obsidian-media {
+    min-height: 320px;
+  }
+
+  .hero::after,
+  .page-hero::after {
+    display: none;
   }
 }
 

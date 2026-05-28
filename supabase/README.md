@@ -6,7 +6,7 @@
 4. 貼上 `schema.sql` 全部內容。
 5. 按 `Run`。
 6. 到 `Authentication` 建立你的管理員帳號，或先在網站註冊。
-7. 回到 `SQL Editor`，把你的 Email 改成超級管理員：
+7. 回到 `SQL Editor`，把你的 Email 改成最高管理員：
 
 ```sql
 update public.users
@@ -29,6 +29,21 @@ window.NEXA_SUPABASE = {
 ```
 
 不要把 `secret key` 放進 GitHub Pages。公開網站只需要 `publishable key`。
+
+## LINE 快速登入設定
+
+1. 到 LINE Developers 建立 Login Channel。
+2. 在 LINE Login 的 Callback URL 加入：
+
+```txt
+https://你的網域/login
+```
+
+3. 到 Supabase `Authentication` → `Providers` 啟用 LINE。
+4. 填入 LINE Channel ID 與 Channel Secret。
+5. 確認網站使用的 `supabase-config.js` 網域和 LINE Callback URL 一致。
+
+登入成功後，`record_login_event()` 會更新 `users.line_id`、`display_name`、`avatar_url`、`current_login_at`、`last_login_at`，並寫入 `login_records`。
 
 ## 權限結構
 
