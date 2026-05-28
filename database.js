@@ -73,8 +73,9 @@
     if (!client) return disabledResult();
     const session = await getSession();
     const userId = session.user ? session.user.id : null;
-    const [site, predictions, categories, products, wallet, pointRows, memberships, referrals, tasks] = await Promise.all([
+    const [site, profile, predictions, categories, products, wallet, pointRows, memberships, referrals, tasks] = await Promise.all([
       select("site_settings", "*"),
+      userId ? client.from("users").select("*").eq("id", userId).maybeSingle() : Promise.resolve({ data: null, error: null }),
       select("predictions", "*"),
       select("prediction_categories", "*"),
       select("products", "*"),
@@ -85,13 +86,14 @@
       select("tasks", "*")
     ]);
 
-    const firstError = [site, predictions, categories, products, wallet, pointRows, memberships, referrals, tasks].find((item) => item.error);
+    const firstError = [site, profile, predictions, categories, products, wallet, pointRows, memberships, referrals, tasks].find((item) => item.error);
     if (firstError) return { ok: false, message: firstError.error.message };
 
     return {
       ok: true,
       session: session.session,
       user: session.user,
+      profile: profile.data,
       siteSettings: site.data || [],
       predictions: predictions.data || [],
       categories: categories.data || [],
@@ -112,6 +114,13 @@
     signUp,
     signOut,
     bootstrap,
+    onAuthChange: (callback) => {
+      if (!client) return function () {};
+      const { data } = client.auth.onAuthStateChange(() => callback());
+      return function () {
+        data.subscription.unsubscribe();
+      };
+    },
     unlockPrediction: (predictionId) => rpc("unlock_prediction", { p_prediction_id: predictionId }),
     submitTask: (taskId) => rpc("submit_task", { p_task_id: taskId }),
     createOrder: (productId) => rpc("create_order", { p_product_id: productId }),

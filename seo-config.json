@@ -22,12 +22,15 @@
   ],
   "frontendPages": [
     "/",
+    "/atg",
+    "/launcher",
     "/predictions",
     "/predictions/daily-signal",
     "/shop",
     "/wallet",
     "/referral",
     "/tasks",
+    "/login",
     "/account",
     "/faq",
     "/terms"

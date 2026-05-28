@@ -28,6 +28,7 @@
 - `/wallet` 點數錢包
 - `/referral` 推廣中心
 - `/tasks` 任務中心
+- `/login` 會員登入 / 註冊
 - `/account` 會員中心
 - `/faq` FAQ
 - `/terms` 條款
@@ -105,6 +106,8 @@ window.NEXA_SUPABASE = {
 ```
 
 公開網站不要放 `secret key`。
+
+登入頁 `/login` 會自動檢查 `supabase-config.js`。未填設定時會顯示尚未啟用；填入 Project URL 與 publishable key 後，即可使用 Supabase Auth 進行會員登入、註冊與登出。
 
 ## 上架方式
 
