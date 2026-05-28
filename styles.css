@@ -955,6 +955,58 @@ p {
   margin-bottom: 0;
 }
 
+.atg-bridge-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  border-radius: 18px;
+  padding: clamp(16px, 3vw, 24px);
+}
+
+.atg-bridge-panel h2 {
+  margin: 0 0 8px;
+}
+
+.atg-bridge-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.atg-bridge-status {
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+}
+
+.live-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #6b7280;
+  box-shadow: 0 0 16px rgba(107, 114, 128, 0.45);
+}
+
+.live-dot.online {
+  background: #39ff14;
+  box-shadow: 0 0 18px rgba(57, 255, 20, 0.68);
+}
+
+.atg-bridge-actions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto auto;
+  gap: 10px;
+}
+
+.atg-bridge-actions input {
+  border: 1px solid rgba(57, 255, 20, 0.34);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.42);
+  color: #c7f8d4;
+}
+
 .atg-metric-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1200,6 +1252,15 @@ p {
 
   .atg-detail {
     position: static;
+  }
+
+  .atg-bridge-panel,
+  .atg-bridge-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .atg-bridge-status {
+    justify-items: start;
   }
 
   .hero {

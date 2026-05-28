@@ -133,6 +133,27 @@
     };
   }
 
+  async function fetchAtgSnapshots() {
+    if (!client) return disabledResult();
+    const { data, error } = await client
+      .from("atg_room_snapshots")
+      .select("*")
+      .order("updated_at", { ascending: false });
+    if (error) return { ok: false, message: error.message, error };
+    return { ok: true, data: data || [] };
+  }
+
+  function subscribeAtgSnapshots(callback) {
+    if (!client) return function () {};
+    const channel = client
+      .channel("atg-room-snapshots")
+      .on("postgres_changes", { event: "*", schema: "public", table: "atg_room_snapshots" }, callback)
+      .subscribe();
+    return function () {
+      client.removeChannel(channel);
+    };
+  }
+
   window.NexaDB = {
     ready,
     client,
@@ -143,6 +164,8 @@
     signOut,
     recordLoginEvent,
     bootstrap,
+    fetchAtgSnapshots,
+    subscribeAtgSnapshots,
     onAuthChange: (callback) => {
       if (!client) return function () {};
       const { data } = client.auth.onAuthStateChange(() => callback());

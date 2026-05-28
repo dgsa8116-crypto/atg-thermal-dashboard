@@ -550,6 +550,18 @@ filter: __nexaSiteText(973),
 unlocked: new Set(predictions.filter((item) => item.unlocked).map((item) => item.id)),
 taskStatus: Object.fromEntries(taskRows.map((task) => [task[0], task[4]])),
 atgSelectedRoom: atgRooms[0].room,
+atgLiveRooms: {},
+atgLive: {
+localStatus: "尚未連線",
+cloudStatus: "尚未連線",
+lastUpdate: null,
+source: "尚未接收資料",
+clients: 0,
+localUrl: "http://127.0.0.1:8765/events",
+message: "請先啟動桌面 Python 橋接器，或設定 Supabase Realtime。"
+},
+atgBridgeStarted: false,
+atgCloudSubscribed: false,
 dbReady: false,
 dbLoading: false,
 authChecked: false,
@@ -611,6 +623,7 @@ document.body.classList.toggle(__nexaSiteText(1003));
 window.addEventListener(__nexaSiteText(1004), render);
 render();
 initBackend();
+initAtgLiveBridge();
 function navigate(path) {
 const target = path || __nexaSiteText(1005);
 if (location.pathname !== target) history.pushState({}, __nexaSiteText(1006), target);
@@ -648,6 +661,7 @@ state.authMessage = state.dbReady
 render();
 if (!state.dbReady) return;
 db.onAuthChange(() => syncAuthSession());
+initAtgCloudBridge();
 await syncAuthSession();
 }
 async function syncAuthSession() {
@@ -984,33 +998,226 @@ function renderReferral() {
 return __nexaSiteTpl(21,pageHero(__nexaSiteText(1206), __nexaSiteText(1207)),statCard(__nexaSiteText(1208), __nexaSiteText(1209), __nexaSiteText(1210)),statCard(__nexaSiteText(1211), __nexaSiteText(1212), __nexaSiteText(1213)),statCard(__nexaSiteText(1214), __nexaSiteText(1215), __nexaSiteText(1216)),statCard(__nexaSiteText(1217), __nexaSiteText(1218), __nexaSiteText(1219)),sectionHeader(__nexaSiteText(1220), __nexaSiteText(1221), __nexaSiteText(1222), __nexaSiteText(1223)),referralRows.map(renderReferralRow).join(__nexaSiteText(1224)),textPanel(__nexaSiteText(1225), [__nexaSiteText(1226), __nexaSiteText(1227), __nexaSiteText(1228)]),textPanel(__nexaSiteText(1229), [__nexaSiteText(1230), __nexaSiteText(1231), __nexaSiteText(1232)]));
 }
 function renderAtgMonitor() {
-const rankedRooms = [...atgRooms].sort((a, b) => calculateAtgScore(b) - calculateAtgScore(a) || b.rate - a.rate);
+const rankedRooms = getAtgDisplayRooms().sort((a, b) => calculateAtgScore(b) - calculateAtgScore(a) || Number(b.rate || 0) - Number(a.rate || 0));
 const selected = rankedRooms.find((room) => room.room === state.atgSelectedRoom) || rankedRooms[0];
 const updatedAt = new Date().toLocaleString(__nexaSiteText(1233), { hour: __nexaSiteText(1234), minute: __nexaSiteText(1235), second: __nexaSiteText(1236) });
-return __nexaSiteTpl(22,pageHero(__nexaSiteText(1237), __nexaSiteText(1238)),statCard(__nexaSiteText(1239), __nexaSiteText(1240), __nexaSiteText(1241)),statCard(__nexaSiteText(1242), __nexaSiteText(1243), __nexaSiteText(1244)),statCard(__nexaSiteText(1245), rankedRooms.length, __nexaSiteText(1246)),statCard(__nexaSiteText(1247), updatedAt, __nexaSiteText(1248)),siteBase,selected.room,sectionHeader(__nexaSiteText(1249), __nexaSiteText(1250), __nexaSiteText(1251), __nexaSiteText(1252)),rankedRooms.map((room, index) => renderAtgRoomCard(room, index + 1, selected.room === room.room)).join(__nexaSiteText(1253)),renderAtgDetail(selected),renderAtgDataTable(rankedRooms),textPanel(__nexaSiteText(1254), [__nexaSiteText(1255), __nexaSiteText(1256), __nexaSiteText(1257)]),textPanel(__nexaSiteText(1258), [__nexaSiteText(1259), __nexaSiteText(1260), __nexaSiteText(1261)]),textPanel(__nexaSiteText(1262), [__nexaSiteText(1263), __nexaSiteText(1264), __nexaSiteText(1265)]));
+return `
+  ${pageHero("ATG 即時房間監控", "桌面 Python 橋接器會登入來源站、開啟房間分頁並回傳房間狀態；若接入 Supabase Realtime，所有已登入會員會同步看到最新資料。")}
+  ${renderAtgBridgePanel()}
+  <section class="container section-tight">
+    <div class="stats-strip">
+      ${statCard("本機橋接", state.atgLive.localStatus, "http://127.0.0.1:8765").replace("stat-card", "stat-card energy-border")}
+      ${statCard("雲端推送", state.atgLive.cloudStatus, "Supabase Realtime").replace("stat-card", "stat-card energy-border")}
+      ${statCard("監控房間", rankedRooms.length, "含即時與預設房間").replace("stat-card", "stat-card energy-border")}
+      ${statCard("最後更新", state.atgLive.lastUpdate ? formatDate(state.atgLive.lastUpdate) : updatedAt, state.atgLive.source).replace("stat-card", "stat-card energy-border")}
+    </div>
+  </section>
+  <section class="container section">
+    <div class="atg-layout">
+      <div class="atg-room-list">
+        ${rankedRooms.map((room, index) => renderAtgRoomCard(room, index + 1, selected.room === room.room)).join("")}
+      </div>
+      ${renderAtgDetail(selected)}
+    </div>
+  </section>
+  ${renderAtgDataTable(rankedRooms)}
+  ${textPanel("防呆機制", [
+    "若登入頁、驗證碼、彈窗或遊戲 Canvas 尚未完成載入，Python 會把房間標記為防呆並回傳原因。",
+    "若本機橋接器未啟動，網站會保留預設房間資料並顯示尚未連線。",
+    "正式推送給所有會員時，請在 Python 設定 Supabase service role 或你的後端 API，不要把服務金鑰放在前端。"
+  ])}
+`;
 }
 function renderAtgRoomCard(room, rank, active) {
 const score = calculateAtgScore(room);
-return __nexaSiteTpl(25,active ? "active" : __nexaSiteText(1266),room.room,rank,room.room,room.type,room.rate.toFixed(2),pill(room.status),pill(__nexaSiteTpl(23,room.freeGame)),pill(__nexaSiteTpl(24,room.points)),renderEnergyBar(score),score,room.room);
+return __nexaSiteTpl(25,active ? "active" : __nexaSiteText(1266),room.room,rank,room.room,room.type || "ATG",Number(room.rate || 0).toFixed(2),pill(room.status),pill(`免費局 ${room.freeGame}`),pill(`點數 ${room.points}`),renderEnergyBar(score),score,room.room);
 }
 function renderAtgDetail(room) {
 const score = calculateAtgScore(room);
-return __nexaSiteTpl(27,room.room,score,renderEnergyBar(score),room.note,miniMetric(__nexaSiteText(1267), __nexaSiteTpl(26,room.rate.toFixed(2))),miniMetric(__nexaSiteText(1268), room.hour),miniMetric(__nexaSiteText(1269), room.month),miniMetric(__nexaSiteText(1270), room.points),miniMetric(__nexaSiteText(1271), room.freeGame),miniMetric(__nexaSiteText(1272), room.openTurns),miniMetric(__nexaSiteText(1273), room.previous),miniMetric(__nexaSiteText(1274), room.previous2),room.room);
+return __nexaSiteTpl(27,room.room,score,renderEnergyBar(score),room.note || "等待即時資料。",miniMetric("即時倍率", `${Number(room.rate || 0).toFixed(2)}%`),miniMetric("近一小時", room.hour),miniMetric("本月", room.month),miniMetric("房間點數", room.points),miniMetric("免費局", room.freeGame),miniMetric("開局數", room.openTurns),miniMetric("上次觀測", room.previous),miniMetric("二次觀測", room.previous2),room.room);
 }
 function renderAtgDataTable(rooms) {
-const columns = [__nexaSiteText(1275), __nexaSiteText(1276), __nexaSiteText(1277), __nexaSiteText(1278), __nexaSiteText(1279), __nexaSiteText(1280), __nexaSiteText(1281), __nexaSiteText(1282), __nexaSiteText(1283)];
+const columns = ["房間", "來源", "即時倍率", "近一小時", "本月", "房間點數", "防呆狀態", "最後更新", "評分"];
 const rows = rooms.map((room) => [
 room.room,
-__nexaSiteTpl(28,room.rate.toFixed(2)),
+room.source || "預設資料",
+`${Number(room.rate || 0).toFixed(2)}%`,
 room.hour,
 room.month,
 room.points,
-room.freeGame,
-room.openTurns,
-__nexaSiteTpl(29,room.previous,room.previous2),
-__nexaSiteTpl(30,calculateAtgScore(room))
+room.status,
+room.updatedAt ? formatDate(room.updatedAt) : "尚未更新",
+`${calculateAtgScore(room)}`
 ]);
-return __nexaSiteTpl(31,renderDataTable(columns, rows));
+return `<section class="container section">${sectionHeader("即時資料列表", "Live Feed", "由 Python 橋接器或 Supabase Realtime 更新", "")}${renderDataTable(columns, rows)}</section>`;
+}
+function renderAtgBridgePanel() {
+const online = state.atgLive.localStatus === "已連線" || state.atgLive.cloudStatus === "已連線";
+return `
+  <section class="container section-tight">
+    <article class="atg-bridge-panel energy-border">
+      <div>
+        <p class="eyebrow">ATG Bridge</p>
+        <h2>桌面即時橋接</h2>
+        <p>${escapeHtml(state.atgLive.message)}</p>
+      </div>
+      <div class="atg-bridge-status">
+        <span class="live-dot ${online ? "online" : ""}"></span>
+        <strong>${online ? "即時資料接收中" : "等待橋接器"}</strong>
+        <small>連線會員：${formatNumber(state.atgLive.clients || 0)}</small>
+      </div>
+      <div class="atg-bridge-actions">
+        <input id="atgBridgeUrl" readonly value="${escapeHtml(state.atgLive.localUrl || "http://127.0.0.1:8765/events")}">
+        <button type="button" data-atg-copy>複製橋接位址</button>
+        <button type="button" class="secondary" data-atg-refresh>重新讀取</button>
+      </div>
+    </article>
+  </section>
+`;
+}
+function getAtgDisplayRooms() {
+const liveRooms = Object.values(state.atgLiveRooms || {}).filter((room) => room && room.room);
+if (liveRooms.length) return liveRooms;
+const merged = new Map(atgRooms.map((room) => [room.room, { ...room, source: "預設資料", updatedAt: null }]));
+liveRooms.forEach((room) => {
+if (!room || !room.room) return;
+merged.set(room.room, { ...(merged.get(room.room) || {}), ...room });
+});
+return Array.from(merged.values());
+}
+function normalizeAtgLiveRoom(item, source) {
+const metrics = item.metrics || item.data?.metrics || {};
+const roomName = item.room || item.room_name || item.name || item.title || item.key || "ATG 房間";
+return {
+room: roomName,
+rate: Number(metrics.rate ?? item.rate ?? item.score ?? 0) || 0,
+hour: String(metrics.hour ?? item.hour ?? "觀測中"),
+month: String(metrics.month ?? item.month ?? "觀測中"),
+points: String(metrics.points ?? item.points ?? metrics.balance ?? "觀測中"),
+status: item.status || (item.guard?.ok === false ? "防呆" : "即時"),
+freeGame: String(metrics.freeGame ?? item.freeGame ?? "觀測中"),
+openTurns: String(metrics.openTurns ?? item.openTurns ?? "觀測中"),
+previous: String(metrics.previous ?? item.previous ?? "0"),
+previous2: String(metrics.previous2 ?? item.previous2 ?? "0"),
+sample: Number(metrics.sample ?? item.sample ?? 80) || 80,
+type: item.type || item.game_key || "ATG 即時",
+note: item.note || item.message || item.guard?.message || "即時資料已接收。",
+source,
+updatedAt: item.updated_at || item.timestamp || new Date().toISOString(),
+raw: item
+};
+}
+function applyAtgLivePayload(payload, source) {
+const rows = Array.isArray(payload) ? payload : (payload.rooms || payload.data || []);
+if (!Array.isArray(rows)) return;
+const next = {};
+rows.forEach((item) => {
+const room = normalizeAtgLiveRoom(item, source);
+next[room.room] = room;
+});
+state.atgLiveRooms = { ...state.atgLiveRooms, ...next };
+state.atgLive.lastUpdate = payload.updated_at || payload.timestamp || new Date().toISOString();
+state.atgLive.source = source;
+state.atgLive.clients = Number(payload.clients || state.atgLive.clients || 0);
+state.atgLive.message = payload.message || "即時房間資料已更新。";
+if (!getAtgDisplayRooms().some((room) => room.room === state.atgSelectedRoom)) {
+state.atgSelectedRoom = Object.keys(next)[0] || atgRooms[0].room;
+}
+if (currentPath() === "/atg") render();
+}
+function applyAtgCloudRows(rows) {
+const payload = {
+rooms: (rows || []).map((row) => ({
+...(row.data || {}),
+room: row.room_name,
+room_name: row.room_name,
+status: row.status,
+rate: row.score,
+updated_at: row.updated_at,
+url: row.game_url
+})),
+updated_at: rows?.[0]?.updated_at || new Date().toISOString(),
+message: "已接收 Supabase Realtime 雲端資料。"
+};
+applyAtgLivePayload(payload, "Supabase Realtime");
+}
+function initAtgLiveBridge() {
+if (state.atgBridgeStarted) return;
+state.atgBridgeStarted = true;
+connectAtgLocalBridge(0);
+}
+function atgBridgeBaseUrls() {
+return [8765, 18765, 28765, 38765, 48765].map((port) => `http://127.0.0.1:${port}`);
+}
+function connectAtgLocalBridge(index) {
+const baseUrls = atgBridgeBaseUrls();
+const baseUrl = baseUrls[index];
+if (!baseUrl) {
+state.atgLive.localStatus = "未連線";
+state.atgLive.message = "尚未偵測到桌面 Python 橋接器，已嘗試 8765、18765、28765、38765、48765。";
+if (currentPath() === "/atg") render();
+return;
+}
+const eventsUrl = `${baseUrl}/events`;
+const snapshotUrl = `${baseUrl}/snapshot`;
+state.atgLive.localUrl = eventsUrl;
+fetch(snapshotUrl, { cache: "no-store" })
+.then((response) => response.ok ? response.json() : null)
+.then((payload) => {
+if (!payload) throw new Error("empty snapshot");
+state.atgLive.localStatus = "已連線";
+state.atgLive.localUrl = eventsUrl;
+applyAtgLivePayload(payload, "本機 Python 橋接");
+openAtgEventSource(eventsUrl);
+})
+.catch(() => connectAtgLocalBridge(index + 1));
+}
+function openAtgEventSource(eventsUrl) {
+if (!("EventSource" in window)) return;
+try {
+const stream = new EventSource(eventsUrl);
+stream.onopen = () => {
+state.atgLive.localStatus = "已連線";
+state.atgLive.localUrl = eventsUrl;
+state.atgLive.message = `已連上桌面 Python 橋接器：${eventsUrl}`;
+if (currentPath() === "/atg") render();
+};
+stream.onmessage = (event) => {
+try {
+const payload = JSON.parse(event.data);
+state.atgLive.localStatus = "已連線";
+state.atgLive.localUrl = eventsUrl;
+applyAtgLivePayload(payload, "本機 Python 橋接");
+} catch {
+state.atgLive.message = "橋接器資料格式無法解析。";
+}
+};
+stream.onerror = () => {
+state.atgLive.localStatus = "未連線";
+state.atgLive.message = "桌面 Python 橋接器連線中斷，會保留最後一次資料。";
+if (currentPath() === "/atg") render();
+};
+} catch {
+state.atgLive.localStatus = "未連線";
+}
+}
+async function refreshAtgCloudSnapshots() {
+const db = window.NexaDB;
+if (!db || !db.fetchAtgSnapshots) return;
+const result = await db.fetchAtgSnapshots();
+if (!result.ok) {
+state.atgLive.cloudStatus = "未連線";
+return;
+}
+state.atgLive.cloudStatus = result.data.length ? "已連線" : "等待資料";
+applyAtgCloudRows(result.data);
+}
+function initAtgCloudBridge() {
+const db = window.NexaDB;
+if (state.atgCloudSubscribed || !db || !db.ready || !db.ready() || !db.subscribeAtgSnapshots) return;
+state.atgCloudSubscribed = true;
+refreshAtgCloudSnapshots().catch(() => null);
+db.subscribeAtgSnapshots(() => refreshAtgCloudSnapshots().catch(() => null));
 }
 function renderLauncher() {
 const launcherSteps = [
@@ -1181,7 +1388,7 @@ showToast(__nexaSiteText(1447));
 }
 }
 async function copyAtgBridge() {
-const input = document.getElementById(__nexaSiteText(1448));
+const input = document.getElementById("atgBridgeUrl") || document.getElementById(__nexaSiteText(1448));
 if (!input) return;
 try {
 await navigator.clipboard.writeText(input.value);
@@ -1193,19 +1400,22 @@ showToast(__nexaSiteText(1451));
 }
 }
 function selectAtgRoom(roomId) {
-if (!atgRooms.some((room) => room.room === roomId)) return;
+if (!getAtgDisplayRooms().some((room) => room.room === roomId)) return;
 state.atgSelectedRoom = roomId;
 render();
 }
 function enterAtgRoom(roomId) {
-const room = atgRooms.find((item) => item.room === roomId);
+const room = getAtgDisplayRooms().find((item) => item.room === roomId);
 if (!room) return;
 state.atgSelectedRoom = roomId;
 showToast(__nexaSiteTpl(62,roomId));
 render();
 }
 function refreshAtgSnapshot() {
-showToast(__nexaSiteText(1452));
+state.atgBridgeStarted = false;
+initAtgLiveBridge();
+refreshAtgCloudSnapshots().catch(() => null);
+showToast("已重新讀取 ATG 即時資料。");
 }
 function openModal(title, body, onConfirm) {
 modalRoot.innerHTML = __nexaSiteTpl(63,title,title,body);

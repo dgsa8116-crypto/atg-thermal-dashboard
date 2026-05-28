@@ -316,6 +316,17 @@ create table if not exists public.audit_logs (
   created_at timestamptz not null default timezone('utc', now())
 );
 
+create table if not exists public.atg_room_snapshots (
+  room_key text primary key,
+  room_name text not null,
+  provider text not null default 'ATG',
+  game_url text,
+  status text not null default 'waiting',
+  score numeric not null default 0,
+  data jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
 create table if not exists public.site_settings (
   id text primary key default 'main',
   site_name text not null default '黑曜智流 AI',
@@ -1112,6 +1123,7 @@ alter table public.task_completions enable row level security;
 alter table public.memberships enable row level security;
 alter table public.risk_flags enable row level security;
 alter table public.audit_logs enable row level security;
+alter table public.atg_room_snapshots enable row level security;
 alter table public.site_settings enable row level security;
 alter table public.seo_settings enable row level security;
 
@@ -1121,6 +1133,10 @@ drop policy if exists public_read_settings on public.site_settings;
 create policy public_read_settings on public.site_settings for select to anon, authenticated using (true);
 drop policy if exists public_read_seo on public.seo_settings;
 create policy public_read_seo on public.seo_settings for select to anon, authenticated using (true);
+drop policy if exists public_read_atg_room_snapshots on public.atg_room_snapshots;
+create policy public_read_atg_room_snapshots on public.atg_room_snapshots for select to anon, authenticated using (true);
+drop policy if exists staff_manage_atg_room_snapshots on public.atg_room_snapshots;
+create policy staff_manage_atg_room_snapshots on public.atg_room_snapshots for all to authenticated using (public.has_role(60)) with check (public.has_role(60));
 drop policy if exists public_read_categories on public.prediction_categories;
 create policy public_read_categories on public.prediction_categories for select to anon, authenticated using (active = true or public.is_staff());
 drop policy if exists public_read_predictions on public.predictions;
@@ -1298,8 +1314,17 @@ set seo_title = excluded.seo_title,
     canonical_url = excluded.canonical_url,
     faq_schema = excluded.faq_schema;
 
+do $$
+begin
+  alter publication supabase_realtime add table public.atg_room_snapshots;
+exception
+  when duplicate_object then null;
+  when undefined_object then null;
+end;
+$$;
+
 grant usage on schema public to anon, authenticated;
-grant select on public.roles, public.prediction_categories, public.predictions, public.products, public.tasks, public.site_settings, public.seo_settings to anon, authenticated;
+grant select on public.roles, public.prediction_categories, public.predictions, public.products, public.tasks, public.site_settings, public.seo_settings, public.atg_room_snapshots to anon, authenticated;
 grant select on public.users, public.login_records, public.wallets, public.point_transactions, public.prediction_unlocks, public.orders, public.payments, public.referrals, public.referral_rewards, public.task_completions, public.memberships, public.risk_flags, public.audit_logs to authenticated;
 grant execute on function public.has_role(integer) to authenticated;
 grant execute on function public.is_active_user() to authenticated;
