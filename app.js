@@ -705,6 +705,11 @@ const seo = prediction ? predictionSeo(prediction) : seoPages.find((item) => ite
 updateSeo(seo);
 updateNav(path);
 if (path.startsWith(__nexaSiteText(1028)) && !canAccessAdmin()) {
+if (!state.dbLoading && state.authChecked && !state.authUser) {
+if (location.pathname !== "/") history.replaceState({}, "", "/");
+app.innerHTML = renderHome();
+return;
+}
 updateSeo({
 slug: __nexaSiteText(1029),
 title: __nexaSiteText(1030),
@@ -812,7 +817,7 @@ if (state.authUser) {
 const email = escapeHtml(state.authUser.email || __nexaSiteText(1154));
 return __nexaSiteTpl(7,email,infoBlock(__nexaSiteText(1155), formatNumber(state.points)),infoBlock(__nexaSiteText(1156), state.dbLoading ? "同步中" : __nexaSiteText(1157)),state.dbLoading ? "disabled" : __nexaSiteText(1158));
 }
-return __nexaSiteTpl(8,status,isReady ? "" : __nexaSiteText(1159),isReady ? "" : __nexaSiteText(1160),isReady && !isLoading ? "" : __nexaSiteText(1161),isReady && !isLoading ? "" : __nexaSiteText(1162));
+return __nexaSiteTpl(8,status,isReady ? "" : __nexaSiteText(1159),isReady ? "" : __nexaSiteText(1160),isReady && !isLoading ? "" : __nexaSiteText(1161),isReady && !isLoading ? "" : __nexaSiteText(1162)) + '<p class="guest-hint">訪客模式：未登入也可瀏覽前台內容。</p>';
 }
 function renderPredictions() {
 const list = predictions.filter((item) => state.filter === __nexaSiteText(1163) || item.category === state.filter || item.status === state.filter);
