@@ -1,0 +1,96 @@
+{
+  "site_name": "NexaPredict OS",
+  "language": "zh-Hant",
+  "pages": [
+    {
+      "url": "/",
+      "seo_title": "娛樂預測內容後台｜會員點數與推廣積分系統",
+      "meta_description": "整合預測內容管理、會員點數、推廣邀請與虛擬商品商城，快速建立白標後台平台。",
+      "h1": "娛樂預測內容後台，打造會員點數與推廣積分系統",
+      "h2": ["系統功能", "導入流程", "方案比較", "常見問題"],
+      "faq_schema_recommended": true,
+      "internal_links": ["/predictions", "/shop", "/referral", "/faq", "/terms"]
+    },
+    {
+      "url": "/predictions",
+      "seo_title": "預測內容平台｜點數解鎖與 VIP 內容",
+      "meta_description": "提供今日、熱門、最新與 VIP 預測內容，支援分類篩選與點數解鎖。",
+      "h1": "預測內容列表",
+      "h2": ["今日內容", "熱門內容", "最新內容", "VIP 內容"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/shop", "/wallet", "/terms"]
+    },
+    {
+      "url": "/predictions/:id",
+      "seo_title": "預測內容詳情｜解鎖完整分析",
+      "meta_description": "查看內容摘要、參考資料與風險提醒，解鎖後可查看完整分析。",
+      "h1": "預測內容詳情",
+      "h2": ["摘要", "參考資料", "數據觀察", "風險提醒"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/predictions", "/shop", "/terms"]
+    },
+    {
+      "url": "/shop",
+      "seo_title": "點數商城系統｜點數包、VIP、虛擬商品",
+      "meta_description": "選購點數包、VIP 方案與虛擬商品，支援購買與點數兌換。",
+      "h1": "點數商城",
+      "h2": ["點數包", "VIP 方案", "虛擬商品", "限定內容"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/wallet", "/predictions", "/terms"]
+    },
+    {
+      "url": "/wallet",
+      "seo_title": "會員積分後台｜點數錢包與流水",
+      "meta_description": "即時查看點數餘額、待入帳、即將到期與完整流水紀錄。",
+      "h1": "點數錢包",
+      "h2": ["餘額統計", "點數流水", "到期提醒"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/shop", "/tasks", "/referral"]
+    },
+    {
+      "url": "/referral",
+      "seo_title": "會員推廣系統｜邀請獎勵與審核機制",
+      "meta_description": "管理邀請碼、邀請連結與推廣獎勵，查看有效邀請與審核狀態。",
+      "h1": "推廣中心",
+      "h2": ["邀請碼與連結", "邀請成效", "獎勵審核", "防濫用規則"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/tasks", "/wallet", "/faq"]
+    },
+    {
+      "url": "/tasks",
+      "seo_title": "推廣拿積分系統｜任務中心",
+      "meta_description": "透過每日任務、驗證任務與活動任務獲得積分獎勵。",
+      "h1": "任務中心",
+      "h2": ["每日登入", "驗證任務", "推廣任務", "活動任務"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/wallet", "/referral", "/account"]
+    },
+    {
+      "url": "/account",
+      "seo_title": "會員中心｜VIP、已解鎖內容與安全設定",
+      "meta_description": "管理會員等級、VIP 到期、已解鎖內容、已購商品與安全設定。",
+      "h1": "會員中心",
+      "h2": ["個人資料", "會員權益", "內容紀錄", "安全設定"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/wallet", "/predictions", "/faq"]
+    },
+    {
+      "url": "/faq",
+      "seo_title": "FAQ｜點數、預測內容與推廣獎勵常見問題",
+      "meta_description": "整理點數規則、解鎖流程、推廣審核、退款與帳號限制常見問題。",
+      "h1": "常見問題",
+      "h2": ["點數與付款", "解鎖與 VIP", "推廣與風控", "客服聯絡"],
+      "faq_schema_recommended": true,
+      "internal_links": ["/terms", "/shop", "/wallet"]
+    },
+    {
+      "url": "/terms",
+      "seo_title": "使用條款｜預測內容平台規範",
+      "meta_description": "說明平台非投注系統、點數使用限制、退款範圍與違規處理原則。",
+      "h1": "使用條款",
+      "h2": ["服務性質", "點數規範", "內容免責", "違規處理"],
+      "faq_schema_recommended": false,
+      "internal_links": ["/faq", "/account", "/predictions"]
+    }
+  ]
+}
