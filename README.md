@@ -167,3 +167,23 @@ Value: dgsa8116-crypto.github.io.
 - `supabase/schema.sql` 已包含資料庫結構、RLS、RPC 與種子資料
 - `supabase/API_SPEC.md` 已包含前後端 API 規格
 - 不填 Supabase 時可展示完整網站；填完 Supabase 後可接會員與資料庫
+
+## 最高管理員與安全設定
+
+- 最高管理員固定信箱：`set874872@gmail.com`
+- 最高管理員角色：`super_admin`
+- 一般管理員角色：`admin`
+- 小助理角色：`assistant`
+- 專屬管理面板：`/admin/roles`
+- 最高管理員可指派：一般管理員、營運主管、小助理、客服、內容編輯、會員。
+- 一般管理員可指派：小助理，並可將帳號降回一般會員。
+- 最高管理員信箱會由資料庫 trigger 強制維持 `super_admin`，不可透過前台降級。
+- 正式權限變更必須呼叫 `admin_assign_role_by_email()`，所有變更都會寫入 `audit_logs`。
+- 會員中心 `/account` 已加入安全設定與修改密碼表單。
+
+Supabase 更新方式：
+
+1. Supabase 正式專案：`atg-thermal-auth`，Project ref：`tmqssmdgdambgvnghqzb`。`supabase-config.js` 已指向 `https://tmqssmdgdambgvnghqzb.supabase.co`。
+2. 全新資料庫先部署 `supabase/schema.sql`。
+3. 若既有資料庫已上線，可單獨執行 `supabase/admin_security_upgrade.sql`。
+4. 使用 `set874872@gmail.com` 註冊或登入一次後，系統會自動鎖定為最高管理員。
