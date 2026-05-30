@@ -1,64 +1,53 @@
-# Supabase 資料庫安裝順序
+# Supabase 串接與部署說明
 
-1. 開啟 Supabase 專案。
+本專案正式 Supabase 專案為：
+
+- 專案名稱：`atg-thermal-auth`
+- Project ref：`tmqssmdgdambgvnghqzb`
+- Region：`ap-northeast-1`
+- Project URL：`https://tmqssmdgdambgvnghqzb.supabase.co`
+
+## 部署順序
+
+1. 到 Supabase Dashboard 開啟 `atg-thermal-auth`。
 2. 進入 `SQL Editor`。
-3. 新增 Query。
-4. 貼上 `schema.sql` 全部內容。
-5. 按 `Run`。
-6. 到 `Authentication` 建立你的管理員帳號，或先在網站註冊。
-7. 回到 `SQL Editor`，把你的 Email 改成最高管理員：
+3. 全新資料庫請先執行 `supabase/schema.sql`。
+4. 既有資料庫只需要補上最高管理員與權限控管時，執行 `supabase/admin_security_upgrade.sql`。
+5. 到 `Authentication` 建立或登入 `set874872@gmail.com`。
+6. 系統會自動把 `set874872@gmail.com` 鎖定為 `super_admin`，不可被前台降級。
 
-```sql
-update public.users
-set role_id = 'super_admin'
-where email = '你的Email';
-```
+## 前端設定
 
-8. 到 `Project Settings` → `API` 複製：
-
-- Project URL
-- Publishable key
-
-9. 將網站第一層的 `supabase-config.js` 改成：
+網站第一層的 `supabase-config.js` 應保持：
 
 ```js
 window.NEXA_SUPABASE = {
-  url: "https://你的專案.supabase.co",
-  publishableKey: "你的 publishable key"
+  url: "https://tmqssmdgdambgvnghqzb.supabase.co",
+  publishableKey: "sb_publishable_OIpT-pRIgaqFIr-NfFjqEQ_3LyP5sAH"
 };
 ```
 
-不要把 `secret key` 放進 GitHub Pages。公開網站只需要 `publishable key`。
+注意：GitHub Pages 前端只能放 publishable key，不可放 service role 或 secret key。
 
-## LINE 快速登入設定
+## LINE Login 設定
 
-1. 到 LINE Developers 建立 Login Channel。
-2. 在 LINE Login 的 Callback URL 加入：
-
-```txt
-https://你的網域/login
-```
-
+1. 到 LINE Developers 建立 LINE Login Channel。
+2. 在 LINE Login callback URL 加入正式網站登入網址，例如：`https://你的網域/login`。
 3. 到 Supabase `Authentication` → `Providers` 啟用 LINE。
 4. 填入 LINE Channel ID 與 Channel Secret。
-5. 確認網站使用的 `supabase-config.js` 網域和 LINE Callback URL 一致。
+5. 使用者 LINE 登入後，`record_login_event()` 會保存 LINE 識別碼、顯示名稱、頭像、登入時間與登入紀錄。
 
-登入成功後，`record_login_event()` 會更新 `users.line_id`、`display_name`、`avatar_url`、`current_login_at`、`last_login_at`，並寫入 `login_records`。
+## 角色與權限
 
-## 權限結構
+- `super_admin`：最高管理員，固定信箱 `set874872@gmail.com`，可指派一般管理員、小助理與其他營運角色。
+- `admin`：一般管理員，可指派小助理，並可將帳號降回一般會員。
+- `assistant`：小助理，可協助查詢與處理指定資料，不可指派管理員。
+- `member` / `user`：一般會員，只能使用前台功能。
 
-- `super_admin`：全系統與白標管理權限。
-- `admin`：營運管理權限。
-- `editor`：內容與 SEO 權限。
-- `support`：會員、訂單與客服查詢權限。
-- `agent`：推廣報表與下線管理。
-- `member`：一般會員。
+## 後端安全規則
 
-## 核心規則
-
-- 點數以 `point_transactions` 為唯一可信流水。
-- `wallets` 只保存餘額快照。
-- Webhook 必須使用 `webhook_event_id` 防止重複處理。
-- 管理員手動操作必須寫入 `audit_logs`。
-- 推廣獎勵狀態為 `pending`、`approved`、`rejected`。
-- 未解鎖內容不可查看 `full_content`，前端與 API 都要檢查權限。
+- 權限變更必須透過 `admin_assign_role_by_email()`。
+- 權限列表必須透過 `admin_list_role_users()`。
+- 所有正式權限變更都會寫入 `audit_logs`。
+- `set874872@gmail.com` 由 trigger `users_primary_super_admin` 強制維持最高管理員。
+- 前端隱藏無權限功能，後端 RPC 也會再次驗證權限。
