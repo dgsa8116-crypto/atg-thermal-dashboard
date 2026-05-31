@@ -108,7 +108,8 @@
     });
     document.querySelectorAll("article, section").forEach((node) => {
       const text = node.textContent || "";
-      const isPasswordPanel = Boolean(node.querySelector("[data-security-password-form], input[type='password']"));
+      const hasPasswordInput = Boolean(node.querySelector("[data-security-password-form], input[type='password']"));
+      const isPasswordPanel = hasPasswordInput && BANNED_TEXT.some((word) => text.includes(word));
       const isOldAccountMenu = ["修改密碼", "登入裝置管理", "通知設定"].some((word) => text.includes(word));
       if (isPasswordPanel || isOldAccountMenu) node.remove();
     });
