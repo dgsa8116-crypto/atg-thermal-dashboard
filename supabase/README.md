@@ -13,8 +13,9 @@
 2. 進入 `SQL Editor`。
 3. 全新資料庫請先執行 `supabase/schema.sql`。
 4. 既有資料庫只需要補上最高管理員與權限控管時，執行 `supabase/admin_security_upgrade.sql`。
-5. 到 `Authentication` 建立或登入 `set874872@gmail.com`。
-6. 系統會自動把 `set874872@gmail.com` 鎖定為 `super_admin`，不可被前台降級。
+5. 需要任務人工審核時，執行 `supabase/task_review_workflow.sql`。
+6. 到 `Authentication` 建立或登入 `set874872@gmail.com`。
+7. 系統會自動把 `set874872@gmail.com` 鎖定為 `super_admin`，不可被前台降級。
 
 ## 前端設定
 
@@ -48,6 +49,8 @@ window.NEXA_SUPABASE = {
 
 - 權限變更必須透過 `admin_assign_role_by_email()`。
 - 權限列表必須透過 `admin_list_role_users()`。
+- 任務審核必須透過 `admin_review_task_completion()`。
 - 所有正式權限變更都會寫入 `audit_logs`。
 - `set874872@gmail.com` 由 trigger `users_primary_super_admin` 強制維持最高管理員。
 - 前端隱藏無權限功能，後端 RPC 也會再次驗證權限。
+- 一般會員不能透過任務、推廣、VIP、點數或前台操作自動晉升管理員。
