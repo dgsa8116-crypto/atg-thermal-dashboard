@@ -99,25 +99,29 @@
   }
 
   function patchStuckLoadingGuard() {
-    const startedAt = Date.now();
+    let loadingSince = null;
     const timer = window.setInterval(() => {
       try {
         const appState = typeof state === "undefined" ? null : state;
         if (!appState) return;
-        if (appState.dbLoading && Date.now() - startedAt > SIGNIN_TIMEOUT_MS + 3000) {
+        if (!appState.dbLoading) {
+          loadingSince = null;
+          return;
+        }
+        if (loadingSince === null) loadingSince = Date.now();
+        if (Date.now() - loadingSince > SIGNIN_TIMEOUT_MS + 3000) {
           appState.dbLoading = false;
           appState.authChecked = true;
           appState.authMessage = appState.authUser
             ? "登入成功，資料同步稍後完成。"
             : "登入逾時，請重新整理後再試。";
           if (typeof render === "function") render();
-          window.clearInterval(timer);
+          loadingSince = null;
         }
       } catch (_error) {
         window.clearInterval(timer);
       }
     }, 1000);
-    window.setTimeout(() => window.clearInterval(timer), 30000);
   }
 
   patchDatabase();
