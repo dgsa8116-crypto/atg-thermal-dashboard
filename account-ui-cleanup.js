@@ -103,15 +103,14 @@
 
   function cleanMisleadingUi() {
     document.querySelectorAll("[data-security-password-panel], .security-password-panel").forEach((node) => node.remove());
-    document.querySelectorAll("article, section, a, button").forEach((node) => {
+    document.querySelectorAll('a[href="/account"]').forEach((node) => {
+      if (BANNED_TEXT.some((word) => (node.textContent || "").includes(word))) node.textContent = "會員中心";
+    });
+    document.querySelectorAll("article, section").forEach((node) => {
       const text = node.textContent || "";
-      if (BANNED_TEXT.some((word) => text.includes(word))) {
-        if (node.matches('a[href="/account"]')) {
-          node.textContent = "會員中心";
-          return;
-        }
-        if (node.matches("article, section")) node.remove();
-      }
+      const isPasswordPanel = Boolean(node.querySelector("[data-security-password-form], input[type='password']"));
+      const isOldAccountMenu = ["修改密碼", "登入裝置管理", "通知設定"].some((word) => text.includes(word));
+      if (isPasswordPanel || isOldAccountMenu) node.remove();
     });
   }
 
