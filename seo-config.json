@@ -30,9 +30,6 @@
   "frontendPages": [
     "/",
     "/sports",
-    "/launcher",
-    "/predictions",
-    "/predictions/daily-signal",
     "/shop",
     "/wallet",
     "/referral",
