@@ -11,7 +11,6 @@
 | LINE 快速登入 | `auth.signInWithOAuth({ provider: 'line' })` | 訪客 | 登入後保存 LINE 識別碼、顯示名稱與頭像。 |
 | 登出 | `auth.signOut()` | 已登入 | 清除登入狀態並返回登入頁。 |
 | 登入紀錄 | `record_login_event()` | 已登入 | 更新最後登入時間並寫入 `login_records`。 |
-| 修改密碼 | `auth.updateUser({ password })` | 已登入 | 會員中心安全設定使用。 |
 
 ## 2. 會員與權限
 
@@ -50,6 +49,7 @@
 | 推廣獎勵審核 | `admin_review_referral_reward(id, approved, reason)` | 管理員 | 狀態為 `pending`、`approved`、`rejected`。 |
 | 任務列表 | `tasks` | 已登入 | 顯示每日、驗證、推廣與活動任務。 |
 | 送出任務 | `submit_task(task_id)` | 已登入 | 建立 `task_completions`。 |
+| 任務人工審核 | `admin_review_task_completion(id, approved, reason)` | 管理員 | 審核 `pending` 任務，通過後發放點數，拒絕則標記失敗；不會變更帳號權限。 |
 
 ## 6. 後台安全原則
 
@@ -57,4 +57,5 @@
 - 前端需隱藏無權限功能，但後端 RPC 必須再次驗證。
 - `service_role` 或 secret key 不可放在前端。
 - 權限、點數、訂單、推廣審核與手動調整都必須留下 `audit_logs`。
+- 一般會員不能透過任務、推廣、VIP、點數或前台操作自動晉升管理員；管理員權限只能由後台權限控管 RPC 指派。
 - Webhook 必須使用 idempotency key，避免重複入帳。
